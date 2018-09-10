@@ -28,14 +28,24 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.references :workout, foreign_key: true
       t.string :video
       t.integer :total_weight, default: 0
-      t.integer :total_reps, default: 0
+      t.integer :total_repetitions, default: 0
       t.timestamps
     end
 
-    create_table :reps do |t|
+    create_table :repetitions do |t|
       t.references :set, foreign_key: true
       t.integer :quantity, default: 0
       t.integer :weight, default: 0
+      t.timestamps
+    end
+
+
+    create_table :results do |t|
+      t.datetime :date
+      t.integer :weight
+      t.integer :fatmass
+      t.references :profile, foreign_key: true
+      t.string :selfie
       t.timestamps
     end
   end
