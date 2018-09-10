@@ -1,4 +1,4 @@
 class Workout < ApplicationRecord
   belongs_to :profile
-  has_many :sets
+  has_many :workout_sets
 end

@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 20180910142519) do
   end
 
   create_table "repetitions", force: :cascade do |t|
-    t.bigint "set_id"
+    t.bigint "workout_set_id"
     t.integer "quantity", default: 0
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["set_id"], name: "index_repetitions_on_set_id"
+    t.index ["workout_set_id"], name: "index_repetitions_on_workout_set_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -52,18 +52,6 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_results_on_profile_id"
-  end
-
-  create_table "sets", force: :cascade do |t|
-    t.bigint "exercice_id"
-    t.bigint "workout_id"
-    t.string "video"
-    t.integer "total_weight", default: 0
-    t.integer "total_repetitions", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exercice_id"], name: "index_sets_on_exercice_id"
-    t.index ["workout_id"], name: "index_sets_on_workout_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -78,6 +66,18 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workout_sets", force: :cascade do |t|
+    t.bigint "exercice_id"
+    t.bigint "workout_id"
+    t.string "video"
+    t.integer "total_weight", default: 0
+    t.integer "total_repetitions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercice_id"], name: "index_workout_sets_on_exercice_id"
+    t.index ["workout_id"], name: "index_workout_sets_on_workout_id"
+  end
+
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
     t.string "name"
@@ -90,9 +90,9 @@ ActiveRecord::Schema.define(version: 20180910142519) do
 
   add_foreign_key "profiles", "profiles"
   add_foreign_key "profiles", "users"
-  add_foreign_key "repetitions", "sets"
+  add_foreign_key "repetitions", "workout_sets"
   add_foreign_key "results", "profiles"
-  add_foreign_key "sets", "exercices"
-  add_foreign_key "sets", "workouts"
+  add_foreign_key "workout_sets", "exercices"
+  add_foreign_key "workout_sets", "workouts"
   add_foreign_key "workouts", "profiles"
 end
