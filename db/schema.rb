@@ -34,13 +34,24 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "reps", force: :cascade do |t|
+  create_table "repetitions", force: :cascade do |t|
     t.bigint "set_id"
     t.integer "quantity", default: 0
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["set_id"], name: "index_reps_on_set_id"
+    t.index ["set_id"], name: "index_repetitions_on_set_id"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "weight"
+    t.integer "fatmass"
+    t.bigint "profile_id"
+    t.string "selfie"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_results_on_profile_id"
   end
 
   create_table "sets", force: :cascade do |t|
@@ -48,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.bigint "workout_id"
     t.string "video"
     t.integer "total_weight", default: 0
-    t.integer "total_reps", default: 0
+    t.integer "total_repetitions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercice_id"], name: "index_sets_on_exercice_id"
@@ -79,7 +90,8 @@ ActiveRecord::Schema.define(version: 20180910142519) do
 
   add_foreign_key "profiles", "profiles"
   add_foreign_key "profiles", "users"
-  add_foreign_key "reps", "sets"
+  add_foreign_key "repetitions", "sets"
+  add_foreign_key "results", "profiles"
   add_foreign_key "sets", "exercices"
   add_foreign_key "sets", "workouts"
   add_foreign_key "workouts", "profiles"
