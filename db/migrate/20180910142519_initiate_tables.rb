@@ -5,7 +5,6 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.string :first_name
       t.string :role
       t.references :profile, foreign_key: true
-      t.references :user, foreign_key: true
       t.timestamps
     end
 

@@ -1,0 +1,23 @@
+.custom-table {
+  //padding: 5px;
+}
+
+.custom-table-header{
+  background-color: $light-blue;
+  font-size: 12px;
+  font-weight: bold;
+  min-height: 25px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-table-row{
+  border-bottom: 1px solid $light-blue;
+  padding: 5px;
+  font-size: 12px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+}
+

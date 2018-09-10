@@ -1,19 +1,24 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
-  <% end %>
+
+  <div class="navbar-wagon-left">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo.png", height: 50 %>
+    <% end %>
+
+    <!-- Greeting -->
+    <% if user_signed_in? %>
+      <div class="navbar-greetings">
+        <div><%= "#{current_user.profile.full_name}" %></div>
+        <div><%= "Profil : #{current_user.profile.role}" %></div>
+      </div>
+    <%end%>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
-      <!-- Greeting -->
-      <div class="navbar-greetings">
-        <div><%= "Bienvenue #{current_user.profile.full_name}" %></div>
-        <div><%= "Role : #{current_user.profile.role}" %></div>
-      </div>
 
       <!-- Links when logged in -->
       <%= link_to "Some link", "#", class: "navbar-wagon-item navbar-wagon-link" %>

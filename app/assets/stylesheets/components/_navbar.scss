@@ -15,6 +15,16 @@
   height: 30px;
 }
 
+/* Greetings */
+.navbar-greetings{
+  margin-left: 10px;
+  font-size: 10px;
+
+  .h7 {
+    font-weight: bold;
+  }
+}
+
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
@@ -27,6 +37,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/* Left section */
+.navbar-wagon-left {
+  display: flex;
+  align-items: center;
+  //justify-content: space-between;
 }
 
 /* Basic navbar item */

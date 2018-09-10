@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910142519) do
+ActiveRecord::Schema.define(version: 20180910154047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,11 +27,9 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.string "first_name"
     t.string "role"
     t.bigint "profile_id"
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_profiles_on_profile_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "repetitions", force: :cascade do |t|
@@ -62,7 +60,9 @@ ActiveRecord::Schema.define(version: 20180910142519) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["profile_id"], name: "index_users_on_profile_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -89,9 +89,9 @@ ActiveRecord::Schema.define(version: 20180910142519) do
   end
 
   add_foreign_key "profiles", "profiles"
-  add_foreign_key "profiles", "users"
   add_foreign_key "repetitions", "workout_sets"
   add_foreign_key "results", "profiles"
+  add_foreign_key "users", "profiles"
   add_foreign_key "workout_sets", "exercices"
   add_foreign_key "workout_sets", "workouts"
   add_foreign_key "workouts", "profiles"
