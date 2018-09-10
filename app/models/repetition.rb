@@ -1,3 +1,3 @@
 class Repetition < ApplicationRecord
-  belongs_to :workout_set
+  belongs_to :workoutset
 end

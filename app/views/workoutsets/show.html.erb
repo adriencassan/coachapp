@@ -15,7 +15,10 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="card-wrapper">
             <div class="card-title">Graphique des performances</div>
-            <div class="card-content">Content</div>
+            <div class="card-content">
+
+              <%= column_chart @graph, library: { hAxis: { format: 'dd/mm' }} %>
+            </div>
         </div>
       </div>
     </div>
@@ -32,12 +35,14 @@
                 <div class="col-xs-3 custom-table-cell">Poids</div>
                 <div class="col-xs-4 custom-table-cell">Actions</div>
               </div>
-              <div class="row custom-table-row">
-                <div class="col-xs-2 custom-table-cell">1</div>
-                <div class="col-xs-3 custom-table-cell">10</div>
-                <div class="col-xs-3 custom-table-cell">30kg</div>
-                <div class="col-xs-4 custom-table-cell">Actions</div>
-              </div>
+              <% @set.repetitions.each_with_index do |repetition, index| %>
+                <div class="row custom-table-row">
+                  <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
+                  <div class="col-xs-3 custom-table-cell"><%= repetition.quantity %></div>
+                  <div class="col-xs-3 custom-table-cell"><%= repetition.weight %></div>
+                  <div class="col-xs-4 custom-table-cell">Actions</div>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

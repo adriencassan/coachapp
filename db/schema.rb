@@ -33,12 +33,12 @@ ActiveRecord::Schema.define(version: 20180910154047) do
   end
 
   create_table "repetitions", force: :cascade do |t|
-    t.bigint "workout_set_id"
+    t.bigint "workoutset_id"
     t.integer "quantity", default: 0
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["workout_set_id"], name: "index_repetitions_on_workout_set_id"
+    t.index ["workoutset_id"], name: "index_repetitions_on_workoutset_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -66,18 +66,6 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "workout_sets", force: :cascade do |t|
-    t.bigint "exercice_id"
-    t.bigint "workout_id"
-    t.string "video"
-    t.integer "total_weight", default: 0
-    t.integer "total_repetitions", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exercice_id"], name: "index_workout_sets_on_exercice_id"
-    t.index ["workout_id"], name: "index_workout_sets_on_workout_id"
-  end
-
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
     t.string "name"
@@ -88,11 +76,23 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.index ["profile_id"], name: "index_workouts_on_profile_id"
   end
 
+  create_table "workoutsets", force: :cascade do |t|
+    t.bigint "exercice_id"
+    t.bigint "workout_id"
+    t.string "video"
+    t.integer "total_weight", default: 0
+    t.integer "total_repetitions", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercice_id"], name: "index_workoutsets_on_exercice_id"
+    t.index ["workout_id"], name: "index_workoutsets_on_workout_id"
+  end
+
   add_foreign_key "profiles", "profiles"
-  add_foreign_key "repetitions", "workout_sets"
+  add_foreign_key "repetitions", "workoutsets"
   add_foreign_key "results", "profiles"
   add_foreign_key "users", "profiles"
-  add_foreign_key "workout_sets", "exercices"
-  add_foreign_key "workout_sets", "workouts"
   add_foreign_key "workouts", "profiles"
+  add_foreign_key "workoutsets", "exercices"
+  add_foreign_key "workoutsets", "workouts"
 end
