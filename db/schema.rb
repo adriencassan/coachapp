@@ -10,10 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180907050242) do
+ActiveRecord::Schema.define(version: 20180910142519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercices", force: :cascade do |t|
+    t.string "name"
+    t.string "nameEN"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "role"
+    t.bigint "profile_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_profiles_on_profile_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "reps", force: :cascade do |t|
+    t.bigint "set_id"
+    t.integer "quantity", default: 0
+    t.integer "weight", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["set_id"], name: "index_reps_on_set_id"
+  end
+
+  create_table "sets", force: :cascade do |t|
+    t.bigint "exercice_id"
+    t.bigint "workout_id"
+    t.string "video"
+    t.integer "total_weight", default: 0
+    t.integer "total_reps", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercice_id"], name: "index_sets_on_exercice_id"
+    t.index ["workout_id"], name: "index_sets_on_workout_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +67,20 @@ ActiveRecord::Schema.define(version: 20180907050242) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "workouts", force: :cascade do |t|
+    t.datetime "date"
+    t.string "name"
+    t.bigint "profile_id"
+    t.boolean "is_template"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_workouts_on_profile_id"
+  end
+
+  add_foreign_key "profiles", "profiles"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "reps", "sets"
+  add_foreign_key "sets", "exercices"
+  add_foreign_key "sets", "workouts"
+  add_foreign_key "workouts", "profiles"
 end
