@@ -35,7 +35,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.references :workoutset, foreign_key: true
       t.integer :quantity, default: 0
       t.integer :weight, default: 0
-      t.string :status,
+      t.boolean :is_complete,
       t.timestamps
     end
 
