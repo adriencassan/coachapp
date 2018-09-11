@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.string "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
     t.index ["workoutset_id"], name: "index_repetitions_on_workoutset_id"
   end
 
