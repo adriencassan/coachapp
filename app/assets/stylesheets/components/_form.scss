@@ -1,0 +1,22 @@
+.form-inline-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-control-label {
+  width: 80px;
+}
+
+.form-control {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.form-icon {
+  font-size: 20px;
+  margin-left: 10px;
+  //display: flex;
+  //justify-content: space-between;
+}

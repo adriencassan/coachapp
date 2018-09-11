@@ -1,7 +1,7 @@
-import Chart from "chart.js";
-import Chartkick from "chartkick";
 import "bootstrap";
 
+import { jsFormEditBtn, jsFormInputBtnPlus,jsFormInputBtnMinus } from "../jsFormEdit";
+jsFormEditBtn();
+jsFormInputBtnPlus();
+jsFormInputBtnMinus();
 
-window.Chartkick = Chartkick;
-Chartkick.addAdapter(Chart);
