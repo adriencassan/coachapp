@@ -42,12 +42,11 @@
                   <div class="col-xs-3 custom-table-cell"><%= repetition.quantity %></div>
                   <div class="col-xs-3 custom-table-cell"><%= repetition.weight %></div>
                   <div class="col-xs-3 custom-table-cell">
-                    <% if repetition.is_complete %>
-
-                    <i class="fas fa-check-circle <%= repetition.is_complete ? "green" : "grey" %>"></i>
-
+                    <%= simple_form_for repetition do |f| %>
+                      <%= f.input :is_complete, as: :hidden, input_html: { value: true } %>
+                      <%= f.button do %><i class="fas fa-check-circle <%= repetition.is_complete ? "green" : "grey" %>"></i><%end%>
                     <% end %>
-
+                  </div>
                   <div class="col-xs-4 custom-table-cell">Actions</div>
                 </div>
               <% end %>
