@@ -3,6 +3,7 @@ class RepetitionsController < ApplicationController
   def update
     @repetition = Repetition.find(params[:id])
     @repetition.update(repetition_params)
+    @repetition.workoutset.totalize
     redirect_to workoutset_path(@repetition.workoutset)
   end
 

@@ -5,5 +5,7 @@ class Workoutset < ApplicationRecord
 
   mount_uploader :video, VideoUploader
 
-
+  def totalize
+    update(total_weight: self.repetitions.sum(:weight), total_repetitions: self.repetitions.sum(:quantity))
+  end
 end

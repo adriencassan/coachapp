@@ -54,13 +54,13 @@
                 </div>
                 <div class="row custom-table-row hide" id="<%= "repetition#{repetition.id}-edit"%>">
                   <%= simple_form_for repetition do |f| %>
-                  <div class="form-group form-inline">
-                    <%= f.input :quantity, label: "Repetitions", input_html: {id:"input_quantity_#{repetition.id}"} %>
+                  <div class="form-group-custom">
+                    <%= f.input :quantity, input_html: {class: "form-control-custom", id:"input_quantity_#{repetition.id}"} %>
                     <i class="fas fa-plus-circle jsFormInputBtnPlus form-icon" data-input=<%= "input_quantity_#{repetition.id}" %>></i>
                     <i class="fas fa-minus-circle jsFormInputBtnMinus form-icon" data-input=<%= "input_quantity_#{repetition.id}" %>></i>
                   </div>
-                   <div class="form-group form-inline">
-                    <%= f.input :weight,label: "Poids", input_html: {id:"input_weight#{repetition.id}"} %>
+                   <div class="form-group-custom">
+                    <%= f.input :weight,label: "Poids", input_html: {class: "form-control-custom", id:"input_weight#{repetition.id}"} %>
 
                       <i class="fas fa-plus-circle jsFormInputBtnPlus form-icon" data-input=<%= "input_weight#{repetition.id}" %>></i>
                       <i class="fas fa-minus-circle jsFormInputBtnMinus form-icon" data-input=<%= "input_weight#{repetition.id}" %>></i>
