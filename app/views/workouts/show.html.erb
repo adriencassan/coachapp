@@ -2,7 +2,6 @@
   <div class="grid">
 
     <div class="row">
-
       <div class="col-xs-10 col-sm-5 col-sm-offset-3">
         <div class="page-title">
           <h3><%= @workout.name %></h3>
@@ -13,11 +12,7 @@
           </div>
         </div>
       </div>
-
-
     </div>
-
-
 
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
@@ -52,15 +47,29 @@
                     </div>
                   </div>
                   <div class="col-xs-2 custom-table-cell">
-                    <%= link_to "Edit", workoutset_path(workouset),  class: "round-btn white-btn sm-btn" %>
+                    <%= link_to workoutset_path(workouset),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
                   </div>
                 </div>
+              <% end %>
+
+              <div class="row custom-table-row jsformShowCTA">
+                <div class="col-xs-10 custom-table-cell"></div>
+                <div class="col-xs-2 custom-table-cell">
+                  <button class="round-btn white-btn sm-btn margin-left jsFormShowBtn">Ajouter</button>
+                </div>
+              </div>
+
+              <div class="row custom-table-row jsFormShow hide">
+                <%= simple_form_for [@workout, @new_workoutset] do |f| %>
+                  <%= f.input :exercice,collection: @exercices, value_method: :id %>
+                  <%= f.submit %>
               <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 

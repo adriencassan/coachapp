@@ -6,10 +6,11 @@ import "flatpickr/dist/flatpickr.min.css";
 flatpickr(".datepicker", {});
 
 
-import { jsFormEditBtn, jsFormInputBtnPlus,jsFormInputBtnMinus } from "../jsFormEdit";
+import { jsFormEditBtn, jsFormInputBtnPlus,jsFormInputBtnMinus, jsFormShowBtn } from "../jsFormEdit";
 
 jsFormEditBtn();
 jsFormInputBtnPlus();
 jsFormInputBtnMinus();
+jsFormShowBtn ();
 
 

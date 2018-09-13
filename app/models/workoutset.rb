@@ -9,8 +9,14 @@ class Workoutset < ApplicationRecord
     update(total_weight: self.repetitions.where(is_complete: true).sum(:weight), total_repetitions: self.repetitions.where(is_complete: true).sum(:quantity))
   end
 
+  def initiate_reps_by_copy!
+    @last_workoutset = Workoutset.joins(:workout).where("workouts.profile_id=#{self.workout.profile.id} AND exercice_id=#{self.exercice.id}").order("workouts.date desc").first
+    @last_workoutset.repetitions.each { |repetition| Repetition.create(workoutset: self, weight: repetition.weight, quantity: repetition.quantity )}
+  end
+
   def total_weight_last
-    Workoutset.joins(:workout).where("workoutsets.exercice_id= #{self.exercice.id} AND workouts.profile_id=#{self.workout.profile.id}").order("workouts.date desc")[2].total_weight
+   @last_workoutset = Workoutset.joins(:workout).where("workoutsets.exercice_id= #{self.exercice.id} AND workouts.profile_id=#{self.workout.profile.id}").order("workouts.date desc")[2]
+   @last_workoutset ? @last_workoutset.total_weight : 0
   end
 
   def repetitions_complete

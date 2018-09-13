@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   resources :workoutsets do
     resources :repetitions, only: [:update, :new]
   end
-  resources :workouts, only: [:show]
+
+  resources :workouts, only: [:show] do
+    resources :workoutsets, only: [:create]
+  end
 
 
   resources :profiles do

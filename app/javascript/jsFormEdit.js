@@ -56,12 +56,27 @@ const closeJsForm = (e) => {
   showForm.classList.close("hide")
 }
 
+
+const jsFormShowBtn = () => {
+  const formShowBtns = document.querySelectorAll(".jsformShowCTA");
+  formShowBtns.forEach((formShowBtn) => {
+    formShowBtn.addEventListener("click", showJsForm);
+  });
+}
+
+const showJsForm = (e) => {
+   console.log("je suis ici")
+  const showForm = document.querySelector(".jsFormShow");
+  showForm.classList.remove("hide")
+
+  const showFormCTA = document.querySelector(".jsformShowCTA");
+  showFormCTA.classList.add("hide")
+}
+
 //export { editCardCloseBtnLine }
 
 
-export { jsFormEditBtn }
-export { jsFormInputBtnPlus }
-export { jsFormInputBtnMinus }
+export { jsFormEditBtn, jsFormInputBtnPlus, jsFormInputBtnMinus, jsFormShowBtn }
 
 
 
