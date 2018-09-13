@@ -1,11 +1,27 @@
 
 .page-title{
-  font-size: 14px;
-  font-weight: bold;
   color: $dark-blue;
-  margin-bottom: 30px;
-}
+  margin-top: 5px;
+  margin-bottom: 20px;
 
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .page-title-sub {
+    font-size: 10px;
+    margin-bottom: 5px;
+    color: $dark-blue;
+    align-items: center;
+  }
+
+  .fas {
+    color: $dark-blue;
+  }
+}
 
 
 

@@ -1,0 +1,72 @@
+
+
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+        <div class="page-title">
+          <h3>Résultats</h3>
+          <div class="page-title-sub">
+            <p><%= @profile.full_name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% @results.each do |result| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card-wrapper">
+            <div class="card-title">
+              <%= result.date.strftime("%A, %d %B %y") %>
+            </div>
+            <div class="card-content">
+              <%= cl_image_tag(result.selfie,
+                width: 400, height: 300, crop: :fill) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row">
+       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card-wrapper">
+            <div class="card-title">
+              Ajouter un nouveau resultat
+            </div>
+            <div class="card-content">
+              <%= simple_form_for [@profile, @new_result] do |f| %>
+                <div id="flatPicker-result">
+                  <%= f.input :date, as: :string, placeholder:Date.today.to_s %>
+                </div>
+                <%= f.input :weight %>
+                <%= f.input :fatmass %>
+                <%= f.input :selfie %>
+                <%= f.input :selfie_cache, as: :hidden %>
+                <%= f.submit "OK", class: "blue-btn round-btn sm-btn" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<script>
+  console.log("heeee");
+  // ### it could be improved by dynamic id, and move this to webpack, if time
+  // ### https://flatpickr.js.org/getting-started/
+  flat = flatpickr("#flatPicker-result", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+  console.log(flat);
+</script>
+
+

@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :workoutsets
+  resources :workoutsets do
+    resources :repetitions, only: [:update, :new]
+  end
   resources :workouts, only: [:show]
-  resources :repetitions, only: [:update]
+
+
+  resources :profiles do
+    resources :results, only: [:index]
+  end
+
 end

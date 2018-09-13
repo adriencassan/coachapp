@@ -1,1 +1,65 @@
-show.hmtl.erb
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+
+      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+        <div class="page-title">
+          <h3><%= @workout.name %></h3>
+          <div class="page-title-sub">
+            <p><%= @workout.date.strftime("%A, %d %B %y") %></p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+          <div class="card-title">Exercices</div>
+          <div class="card-content">
+            <div class="custom-table">
+              <div class="row custom-table-header">
+                <div class="col-xs-2 custom-table-cell">#</div>
+                <div class="col-xs-4 custom-table-cell">Exercice</div>
+                <div class="col-xs-2 custom-table-cell">Progress</div>
+                <div class="col-xs-2 custom-table-cell">Charges totales</div>
+                <div class="col-xs-2 custom-table-cell">Actions</div>
+              </div>
+              <% @workout.workoutsets.each_with_index do |workouset, index| %>
+                <div class="row custom-table-row"">
+                  <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
+                  <div class="col-xs-4 custom-table-cell"><%= workouset.exercice.name %></div>
+                  <div class="col-xs-2 custom-table-cell"><%= "#{workouset.repetitions_complete} / #{workouset.repetitions_total}"%></div>
+                  <div class="col-xs-2 custom-table-cell">
+                    <div><%= "#{workouset.total_weight} kg" %></div>
+                    <div>
+                      <% if workouset.total_weight > workouset.total_weight_last %>
+                        <i class="fas fa-chevron-circle-up icon-green"></i>
+                        <%= "+ #{workouset.total_weight - workouset.total_weight_last} kg" %>
+                      <% else %>
+                        <i class="fas fa-chevron-circle-down icon-red"></i>
+                        <%= "#{workouset.total_weight - workouset.total_weight_last} kg" %>
+                      <% end %>
+
+
+                    </div>
+                  </div>
+                  <div class="col-xs-2 custom-table-cell">
+                    <%= link_to "Edit", workoutset_path(workouset),  class: "round-btn white-btn sm-btn" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

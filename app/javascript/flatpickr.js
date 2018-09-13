@@ -1,0 +1,2 @@
+const runFlatpickr = () => {}
+export { runFlatpickr }
