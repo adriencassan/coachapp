@@ -22,6 +22,7 @@ class WorkoutsetsController < ApplicationController
     redirect_to workoutset_path(@set)
   end
 
+
   private
 
   def workoutset_params

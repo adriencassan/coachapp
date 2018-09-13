@@ -9,4 +9,10 @@ class WorkoutsController < ApplicationController
     @new_workoutset = Workoutset.new()
     @exercices = Exercice.all - @workout.workoutsets.pluck(:exercice_id)
   end
+
+   def program
+    @program = Workout.find(params[:id])
+    @new_workoutset = Workoutset.new()
+    @exercices = Exercice.all -  @program.workoutsets.pluck(:exercice_id)
+  end
 end

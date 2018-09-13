@@ -16,6 +16,14 @@ class RepetitionsController < ApplicationController
     redirect_to workoutset_path(@repetition.workoutset)
   end
 
+  def destroy
+    @workoutset = Workoutset.find(params[:workoutset_id])
+    @repetition = Repetition.find(params[:id])
+    @repetition.destroy!
+    redirect_to workoutset_path(@repetition.workoutset)
+  end
+
+
   private
 
   def repetition_params

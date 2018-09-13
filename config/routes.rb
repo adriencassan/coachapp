@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :workoutsets do
-    resources :repetitions, only: [:update, :new]
+    resources :repetitions, only: [:update, :new, :destroy]
   end
 
   resources :workouts, only: [:show] do
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :results, only: [:index, :create]
     resources :workouts, only: [:index]
+    get '/programs/:id', to: "workouts#program", as: :profile_program
   end
 
 end
