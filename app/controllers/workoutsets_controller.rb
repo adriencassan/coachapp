@@ -17,7 +17,7 @@ class WorkoutsetsController < ApplicationController
   private
 
   def workouset_params
-    params.require(:workoutset).permit(:video, :video_cache)
+    params.require(:workoutset).permit(:video)
   end
 
 end
