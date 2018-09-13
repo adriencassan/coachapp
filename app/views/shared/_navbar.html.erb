@@ -7,8 +7,12 @@
         <%= image_tag "logo.png", height: 50 %>
       </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+      <% if user_signed_in? %>
         <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
         <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "round-btn white-btn round-btn-big" %>
+      <% end %>
       </ul>
     </div>
 

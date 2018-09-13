@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.datetime "date"
     t.string "name"
     t.bigint "profile_id"
-    t.boolean "is_template"
+    t.boolean "is_template", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_workouts_on_profile_id"
