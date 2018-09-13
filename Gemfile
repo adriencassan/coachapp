@@ -22,6 +22,7 @@ gem "chartkick"
 
 # Attachments management
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 # Protect Private Key
 gem 'dotenv-rails', groups: [:development, :test]
