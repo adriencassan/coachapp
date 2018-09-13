@@ -1,4 +1,5 @@
 
+<%= javascript_pack_tag 'chartkick.js' %>
 
 <div class="page-wrapper">
   <div class="grid">
@@ -10,6 +11,18 @@
           <div class="page-title-sub">
             <p><%= @profile.full_name %></p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+            <div class="card-title">Graphique du poids</div>
+            <div class="card-content">
+
+              <%= column_chart @graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
+            </div>
         </div>
       </div>
     </div>

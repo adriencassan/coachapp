@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :profiles do
     resources :results, only: [:index, :create]
+    resources :workouts, only: [:index]
   end
 
 end

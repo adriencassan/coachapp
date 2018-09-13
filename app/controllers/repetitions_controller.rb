@@ -4,7 +4,7 @@ class RepetitionsController < ApplicationController
 
   def new
     @workoutset = Workoutset.find(params[:workoutset_id])
-    @repetition = Repetition.new(workoutset: @workoutset, quantity: @workoutset.repetitions.last.quantity, weight: @workoutset.repetitions.last.weight, is_complete: false )
+    @repetition = Repetition.new(workoutset: @workoutset, quantity: @workoutset.repetitions.empty? ? 0 : @workoutset.repetitions.last.quantity, weight: @workoutset.repetitions.empty? ? 0 : @workoutset.repetitions.last.weight, is_complete: false )
     @repetition.save!
     redirect_to workoutset_path(@repetition.workoutset)
   end

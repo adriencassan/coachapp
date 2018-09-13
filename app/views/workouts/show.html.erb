@@ -7,7 +7,9 @@
         <div class="page-title">
           <h3><%= @workout.name %></h3>
           <div class="page-title-sub">
-            <p><%= @workout.date.strftime("%A, %d %B %y") %></p>
+            <p><%= link_to profile_workouts_path(@workout.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            <%= @workout.date.strftime("%A, %d %B %y") %></p>
+          </div>
           </div>
         </div>
       </div>

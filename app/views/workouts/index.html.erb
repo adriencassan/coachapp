@@ -1,0 +1,60 @@
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+
+      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+        <div class="page-title">
+          <h3>Mes entrainements</h3>
+          <div class="page-title-sub">
+            <p>sous-titre</p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+          <div class="card-title">Mes programmes</div>
+          <div class="card-content">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+          <div class="card-title">Mes entrainements</div>
+          <div class="card-content">
+            <div class="custom-table">
+              <div class="row custom-table-header">
+                <div class="col-xs-4 custom-table-cell">Date</div>
+                <div class="col-xs-4 custom-table-cell">Nom</div>
+                <div class="col-xs-2 custom-table-cell">Charges Totales</div>
+                <div class="col-xs-2 custom-table-cell">Actions</div>
+              </div>
+              <% @workouts.each do |workout| %>
+                <div class="row custom-table-row"">
+                  <div class="col-xs-4 custom-table-cell"><%= workout.date.strftime("%A, %d %B %y") %></div>
+                  <div class="col-xs-4 custom-table-cell"><%= workout.name %></div>
+                  <div class="col-xs-2 custom-table-cell"><%= workout.total_weight %></div>
+                  <div class="col-xs-2 custom-table-cell">
+                    <%= link_to workout_path(workout),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

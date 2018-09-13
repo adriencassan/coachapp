@@ -3,6 +3,7 @@ class ResultsController < ApplicationController
   def index
     @profile = Profile.find(params[:profile_id])
     @results = Result.where(profile: @profile)
+    @graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%m/%d"), result.weight]}.reverse
     @new_result = Result.new
   end
 
