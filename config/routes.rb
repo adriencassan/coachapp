@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   resources :profiles do
-    resources :results, only: [:index]
+    resources :results, only: [:index, :create]
   end
 
 end

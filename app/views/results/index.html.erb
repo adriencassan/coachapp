@@ -22,8 +22,18 @@
               <%= result.date.strftime("%A, %d %B %y") %>
             </div>
             <div class="card-content">
-              <%= cl_image_tag(result.selfie,
-                width: 400, height: 300, crop: :fill) %>
+              <div class="card-content-split">
+                <div class="split-left">
+                  <%= cl_image_tag(result.selfie,
+                  width: 250, height: 250, crop: :fill) %>
+                </div>
+                <div class="split-right">
+                  <p><%= "Poids: #{result.weight} kg" %></p>
+                  <p><%= "Masse Grasse : #{result.fatmass} %" %></p>
+                </div>
+              </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -38,9 +48,7 @@
             </div>
             <div class="card-content">
               <%= simple_form_for [@profile, @new_result] do |f| %>
-                <div id="flatPicker-result">
-                  <%= f.input :date, as: :string, placeholder:Date.today.to_s %>
-                </div>
+                <%= f.input :date, as: :string, placeholder:Date.today.to_s, input_html: {class: "datepicker"} %>
                 <%= f.input :weight %>
                 <%= f.input :fatmass %>
                 <%= f.input :selfie %>
@@ -56,17 +64,4 @@
 
 
 </div>
-
-
-<script>
-  console.log("heeee");
-  // ### it could be improved by dynamic id, and move this to webpack, if time
-  // ### https://flatpickr.js.org/getting-started/
-  flat = flatpickr("#flatPicker-result", {
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-  });
-  console.log(flat);
-</script>
-
 

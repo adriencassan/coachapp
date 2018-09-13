@@ -47,4 +47,25 @@
 
 }
 
+.card-content-split {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+
+
+}
+
+.split-right {
+    width: 45%;
+    margin: 0px;
+  }
+
+  .split-left {
+    width: 45%;
+    margin: 0px;
+  }
+
 

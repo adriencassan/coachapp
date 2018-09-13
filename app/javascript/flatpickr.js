@@ -1,2 +1,0 @@
-const runFlatpickr = () => {}
-export { runFlatpickr }
