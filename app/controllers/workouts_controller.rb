@@ -6,6 +6,13 @@ class WorkoutsController < ApplicationController
     @workouts = Workout.where(profile: @profile, is_template: false).order(date: :desc)
   end
 
+  def create_by_program
+    @program = Workout.find(params[:id])
+    @workout = Workout.new_duplicate_program(@program)
+    @workout.save!
+    redirect_to workout_path(@workout)
+  end
+
   def show
     @workout = Workout.find(params[:id])
     @new_workoutset = Workoutset.new()

@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :results, only: [:index, :create]
     resources :workouts, only: [:index]
+
     get '/programs/:id', to: "workouts#program", as: :program
+    get '/programs/:id/new_workout', to: "workouts#create_by_program", as: :program_new_workout
     post '/programs/:id/new', to: "workoutsets#create_programset", as: :program_new_programset
   end
 
