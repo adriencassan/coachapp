@@ -6,7 +6,7 @@
         <div class="page-title">
           <h3><%= @program.name %></h3>
           <div class="page-title-sub">
-            <p>Retour</p>
+            <p><%= link_to profile_workouts_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
           </div>
           </div>
         </div>
