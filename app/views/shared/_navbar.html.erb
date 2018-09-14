@@ -8,10 +8,15 @@
       </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
-        <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
-        <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
+        <% if current_user.profile.role == "Athlete" %>
+          <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
+          <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
+        <% else %>
+          <li><%= link_to "Mes élèves", coachees_path %></li>
+        <% end %>
+          <li>  <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
       <% else %>
-        <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "round-btn white-btn round-btn-big" %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
       <% end %>
       </ul>
     </div>

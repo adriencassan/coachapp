@@ -35,7 +35,7 @@
                   <div class="col-xs-2 custom-table-cell">
                     <div><%= "#{workoutset.total_weight} kg" %></div>
                     <div>
-                      <% if workoutset.total_weight > workoutset.total_weight_last %>
+                      <% if workoutset.total_weight >= workoutset.total_weight_last %>
                         <i class="fas fa-chevron-circle-up icon-green"></i>
                         <%= "+ #{workoutset.total_weight - workoutset.total_weight_last} kg" %>
                       <% else %>

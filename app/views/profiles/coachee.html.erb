@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'chartkick.js' %>
+
 <div class="page-wrapper">
   <div class="grid">
 
@@ -6,7 +8,8 @@
         <div class="page-title">
           <h3><%= @profile.full_name %></h3>
           <div class="page-title-sub">
-            <p>Fiche coaching</p>
+            <p><%= link_to coachees_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            Fiche coaching</p>
           </div>
         </div>
       </div>
@@ -41,7 +44,19 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="card-wrapper">
-          <div class="card-title">Entrainements</div>
+            <div class="card-title">Résultats (en kg)</div>
+            <div class="card-content">
+
+              <%= column_chart @results, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+          <div class="card-title">Ses entrainements</div>
           <div class="card-content">
             <div class="custom-table">
               <div class="row custom-table-header">

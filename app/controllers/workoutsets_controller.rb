@@ -5,7 +5,7 @@ class WorkoutsetsController < ApplicationController
     #@graph = Workoutset.joins(:workout).where(workouts: {profile: @set.workout.profile}, exercice: @set.exercice).map { |set| [set.workout.date, set.total_weight]}
     #@graph = Workoutset.joins(:workout).where(workouts: {profile: @set.workout.profile}, exercice: @set.exercice).group("workouts.date").sum(:total_weight)
 
-    @graph = Workoutset.joins(:workout).where(workouts: {profile: @set.workout.profile}, exercice: @set.exercice).where.not(total_weight: 0).order("workouts.date desc").limit(5).map { |set| [set.workout.date.strftime("%d/%m"), set.total_weight]}.reverse
+    @graph = Workoutset.joins(:workout).where(workouts: {profile: @set.workout.profile}, exercice: @set.exercice).where.not(total_weight: 0).order("workouts.date desc").limit(10).map { |set| [set.workout.date.strftime("%d/%m"), set.total_weight]}.reverse
   end
 
   def create

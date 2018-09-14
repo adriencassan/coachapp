@@ -1,0 +1,42 @@
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+        <div class="page-title">
+          <h3>Mes Eleves</h3>
+          <div class="page-title-sub"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="card-wrapper">
+          <div class="card-title">Eleves</div>
+          <div class="card-content">
+            <div class="custom-table">
+              <div class="row custom-table-header">
+                <div class="col-xs-8 custom-table-cell">Nom</div>
+                <div class="col-xs-4 custom-table-cell">Actions</div>
+              </div>
+              <% @coachees.each do |coachee| %>
+                <div class="row custom-table-row"">
+                  <div class="col-xs-8 custom-table-cell"><%= coachee.first_name %></div>
+                  <div class="col-xs-4 custom-table-cell">
+                    <%= link_to profile_profile_coachee_path(coachee), class:"btn-icon" do %><i class="fas fa-chevron-circle-right" style= "font-size: 15px"></i><%end%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

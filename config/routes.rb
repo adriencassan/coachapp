@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :workoutsets, only: [:create]
   end
 
+  get 'coachees', to: "profiles#coachees", as: :coachees
 
   resources :profiles do
     resources :results, only: [:index, :create]
