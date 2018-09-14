@@ -30,6 +30,13 @@ class WorkoutsetsController < ApplicationController
     redirect_to workoutset_path(@set)
   end
 
+  def destroy
+    @workoutset = Workoutset.find(params[:id])
+    @workout = @workoutset.workout
+    @workoutset.destroy
+    redirect_to workout_path(@workout)
+  end
+
 
   private
 

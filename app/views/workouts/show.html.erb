@@ -48,6 +48,7 @@
                   </div>
                   <div class="col-xs-2 custom-table-cell">
                     <%= link_to workoutset_path(workouset),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
+                    <%= link_to workoutset_path(workouset), method: :delete,  class: "btn-icon" do %><i class="fas fa-times-circle"></i><%end%>
                   </div>
                 </div>
               <% end %>

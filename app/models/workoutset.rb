@@ -1,16 +1,17 @@
 class Workoutset < ApplicationRecord
   belongs_to :exercice
   belongs_to :workout
-  has_many :repetitions
+  has_many :repetitions, dependent: :destroy
 
   mount_uploader :video, AttachementUploader
+
 
   def totalize
     update(total_weight: self.repetitions.where(is_complete: true).sum(:weight), total_repetitions: self.repetitions.where(is_complete: true).sum(:quantity))
   end
 
   def initiate_reps_by_copy!
-    @last_workoutset = Workoutset.joins(:workout).where("workouts.profile_id=#{self.workout.profile.id} AND exercice_id=#{self.exercice.id}").order("workouts.date desc").first
+    @last_workoutset = Workoutset.joins(:workout).where("workouts.profile_id=#{self.workout.profile.id} AND exercice_id=#{self.exercice.id} AND workouts.is_template is false").order("workouts.date desc").first
     @last_workoutset.repetitions.each { |repetition| Repetition.create(workoutset: self, weight: repetition.weight, quantity: repetition.quantity )}
   end
 
