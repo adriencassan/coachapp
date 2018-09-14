@@ -1,6 +1,7 @@
 class WorkoutsController < ApplicationController
 
   def index
+    @programs = Workout.where(profile: params[:profile_id], is_template: true).order(:name)
     @workouts = Workout.where(profile: params[:profile_id], is_template: false).order(date: :desc)
   end
 

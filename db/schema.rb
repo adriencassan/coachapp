@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
     t.string "name"
+    t.integer "program_id"
     t.bigint "profile_id"
     t.boolean "is_template", default: false
     t.datetime "created_at", null: false

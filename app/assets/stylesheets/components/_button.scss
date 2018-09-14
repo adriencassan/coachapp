@@ -18,6 +18,11 @@
   color: $red;
 }
 
+.icon-group {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .round-btn {
   border-radius: 50px;

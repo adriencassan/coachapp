@@ -18,13 +18,25 @@ user_adrien = User.create(email: "adrien.cassan@gmail.com", password: "password"
 # EXERCICE
 exercice_bench_press = Exercice.create(name: "Développé-Couché", nameEN: "Bench Press")
 
+
+# WORKOUT PROGRAM
+workout_template = Workout.create(profile: profile_adrien, name: "Programme Pectoraux / Dos", is_template: true)
+set_template = Workoutset.create(workout: workout_template , exercice: exercice_bench_press)
+
+repetition = Repetition.create(workoutset: set_template, quantity: 10, weight: 70)
+repetition = Repetition.create(workoutset: set_template, quantity: 10, weight: 70)
+repetition = Repetition.create(workoutset: set_template, quantity: 10, weight: 70)
+
+
 # WORKOUT
-workout = Workout.create(date: "10/09/2018", profile: profile_adrien, name: "Pectoraux / Dos")
+workout = Workout.create(date: "10/09/2018", profile: profile_adrien, name: "Pectoraux / Dos", program_id: workout_template.id )
 set = Workoutset.create(workout: workout, exercice: exercice_bench_press)
 
 repetition = Repetition.create(workoutset: set, quantity: 10, weight: 70)
 repetition = Repetition.create(workoutset: set, quantity: 10, weight: 70)
 repetition = Repetition.create(workoutset: set, quantity: 10, weight: 70)
+
+
 
 
 

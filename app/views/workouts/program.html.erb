@@ -21,35 +21,35 @@
             <div class="custom-table">
               <div class="row custom-table-header">
                 <div class="col-xs-2 custom-table-cell">#</div>
-                <div class="col-xs-4 custom-table-cell">Exercice</div>
+                <div class="col-xs-6 custom-table-cell">Exercice</div>
                 <div class="col-xs-4 custom-table-cell">Actions</div>
               </div>
               <% @program.workoutsets.each_with_index do |workouset, index| %>
-                <div class="row custom-table-row">
-                  <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
-                  <div class="col-xs-4 custom-table-cell"><%= workouset.exercice.name %></div>
-                  <div class="col-xs-4 custom-table-cell">
-                    <%= link_to workoutset_path(workouset),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
-                    <button class="round-btn white-btn sm-btn margin-left" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Repetitions</button>
+                <div class="custom-table-row">
+                  <div class="row">
+                    <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
+                    <div class="col-xs-6 custom-table-cell"><%= workouset.exercice.name %></div>
+                    <div class="col-xs-4 custom-table-cell">
+                      <button class="round-btn white-btn sm-btn margin-left" type="button" data-toggle="collapse" data-target="#collapseExample<%= workouset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= workouset.id -%>">Repetitions</button>
+                    </div>
                   </div>
-                 </div>
-                <div class="row custom-table-row"">
-                    <div class="collapse" id="collapseExample">
-                      <%= render "repetitions/show", workoutset: workouset, repetitions: workouset.repetitions %>
-
+                  <div class="row">
+                    <div class="collapse <%= params[:show].to_i==workouset.id ? "in" : ""  -%>" id="collapseExample<%= workouset.id -%>"" style= "width: 100%">
+                      <%= render "repetitions/show_program", workoutset: workouset, repetitions: workouset.repetitions %>
+                    </div>
                   </div>
                 </div>
               <% end %>
 
               <div class="row custom-table-row jsformShowCTA">
-                <div class="col-xs-10 custom-table-cell"></div>
-                <div class="col-xs-2 custom-table-cell">
+                <div class="col-xs-8 custom-table-cell"></div>
+                <div class="col-xs-4 custom-table-cell">
                   <button class="round-btn white-btn sm-btn margin-left jsFormShowBtn">Ajouter</button>
                 </div>
               </div>
 
               <div class="row custom-table-row jsFormShow hide">
-                <%= simple_form_for [@program, @new_workoutset] do |f| %>
+                <%= simple_form_for ([@program, @new_workoutset]), url: profile_program_new_programset_path, method: :post do |f| %>
                   <%= f.input :exercice,collection: @exercices, value_method: :id %>
                   <%= f.submit %>
               <% end %>

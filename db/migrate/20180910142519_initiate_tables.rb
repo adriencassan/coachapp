@@ -11,6 +11,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
     create_table :workouts do |t|
       t.datetime :date
       t.string :name
+      t.integer :program_id
       t.references :profile, foreign_key: true
       t.boolean :is_template, default: false
       t.timestamps

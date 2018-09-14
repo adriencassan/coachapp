@@ -10,6 +10,24 @@
   margin: 0px;
   display: flex;
   align-items: center;
+
+  .margin-left {
+    margin-left: 100px;
+  }
+}
+
+.custom-table-header-grey {
+  background-color: $light-gray;
+  font-size: 12px;
+  font-weight: bold;
+  min-height: 25px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+
+  .margin-left {
+    margin-left: 100px;
+  }
 }
 
 .custom-table-row{
@@ -17,7 +35,28 @@
   padding: 5px;
   font-size: 12px;
   margin: 0px;
-  display: flex;
+  //display: flex;
   align-items: center;
+
+
+  .row-margin-left {
+    margin-left: 100px;
+  }
+
 }
 
+.row {
+  margin: 0px;
+}
+.custom-table-row-raw{
+
+  padding: 5px;
+  font-size: 12px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+
+  .row-margin-left {
+    margin-left: 100px;
+  }
+}

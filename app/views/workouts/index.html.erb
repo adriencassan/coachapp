@@ -20,6 +20,21 @@
         <div class="card-wrapper">
           <div class="card-title">Mes programmes</div>
           <div class="card-content">
+            <div class="custom-table">
+              <div class="row custom-table-header">
+                <div class="col-xs-8 custom-table-cell">Nom</div>
+                <div class="col-xs-2 custom-table-cell">Dernier</div>
+                <div class="col-xs-2 custom-table-cell">Actions</div>
+              </div>
+              <% @programs.each do |workout| %>
+                <div class="row custom-table-row"">
+                  <div class="col-xs-8 custom-table-cell"><%= workout.name %></div>
+                  <div class="col-xs-2 custom-table-cell"><%= workout.program_last_used.nil? ? "" : workout.program_last_used %></div>
+                  <div class="col-xs-2 custom-table-cell">
+                    <%= link_to workout_path(workout),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
+                  </div>
+                </div>
+              <% end %>
           </div>
         </div>
       </div>
