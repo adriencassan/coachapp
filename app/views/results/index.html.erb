@@ -9,7 +9,12 @@
         <div class="page-title">
           <h3>Résultats</h3>
           <div class="page-title-sub">
-            <p><%= @profile.full_name %></p>
+          <% if current_user.profile.role == "Coach"  %>
+            <p><%= link_to profile_profile_coachee_path(@profile), class:"btn-icon" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            <%= @profile.full_name %></p>
+          <% else %>
+            <p><%= link_to profile_workouts_path(@profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+          <% end  %>
           </div>
         </div>
       </div>
@@ -58,25 +63,27 @@
       </div>
     <% end %>
 
-    <div class="row">
-       <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-          <div class="card-wrapper">
-            <div class="card-title">
-              Ajouter un nouveau resultat
-            </div>
-            <div class="card-content">
-              <%= simple_form_for [@profile, @new_result] do |f| %>
-                <%= f.input :date, as: :string, placeholder:Date.today.to_s, input_html: {class: "datepicker"} %>
-                <%= f.input :weight %>
-                <%= f.input :fatmass %>
-                <%= f.input :selfie %>
-                <%= f.input :selfie_cache, as: :hidden %>
-                <%= f.submit "OK", class: "blue-btn round-btn sm-btn" %>
-              <% end %>
+    <% if current_user.profile.role == "Coach"  %>
+      <div class="row">
+         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="card-wrapper">
+              <div class="card-title">
+                Ajouter un nouveau resultat
+              </div>
+              <div class="card-content">
+                <%= simple_form_for [@profile, @new_result] do |f| %>
+                  <%= f.input :date, as: :string, placeholder:Date.today.to_s, input_html: {class: "datepicker"} %>
+                  <%= f.input :weight %>
+                  <%= f.input :fatmass %>
+                  <%= f.input :selfie %>
+                  <%= f.input :selfie_cache, as: :hidden %>
+                  <%= f.submit "OK", class: "blue-btn round-btn sm-btn" %>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-    </div>
+      </div>
+    <%end%>
 
   </div>
 

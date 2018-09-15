@@ -85,36 +85,9 @@
       <div class="card-wrapper">
         <div class="card-title">Ses résultats (en kg)</div>
         <div class="card-content">
+          <%= link_to "Voir les selfies", profile_results_path(@profile), class:"round-btn white-btn sm-btn"%>
 
           <%= column_chart @results_graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
-        </div>
-        <div class="card-carousel">
-          <div id="carousel-example-generic" class="carousel" data-ride="carousel">
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <% @results.each do |result| %>
-              <div class="item justify-content-center <%= result == @results.first ? "active" : "" -%>" style: "margin:auto">
-                <div class="justify-content-center">
-                <%= cl_image_tag(result.selfie,
-                    width: 200, height: 200, crop: :fill) %>
-                </div>
-                <div class="carousel-caption d-none d-md-block">
-                  <h5><%= result.date.strftime("%d.%m.%y") %></h5>
-                  <p><%= "Poids #{result.weight} kg" %></p>
-                  <p><%= "MG : #{number_to_percentage(result.fatrate*100, precision: 0)}" %></p>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
-          </div>
 
         </div>
 
