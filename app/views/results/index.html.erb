@@ -46,7 +46,7 @@
                     <p><%= "#{result.weight} kg" %></p>
                     <br>
                     <p>Masse Grasse :</p>
-                    <p><%= "#{result.fatmass/result.weight} %" %></p>
+                    <p><%= "#{number_to_percentage(result.fatrate*100, precision: 0)}" %></p>
                   </div>
                 </div>
               </div>
