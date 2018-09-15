@@ -6,7 +6,11 @@
         <div class="page-title">
           <h3><%= @program.name %></h3>
           <div class="page-title-sub">
-            <p><%= link_to profile_workouts_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            <% if current_user.profile.role == "Coach" %>
+              <p><%= link_to coachee_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            <% else %>
+              <p><%= link_to profile_workouts_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+            <% end %>
           </div>
           </div>
         </div>
