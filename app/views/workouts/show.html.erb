@@ -2,7 +2,7 @@
   <div class="grid">
 
     <div class="row">
-      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+      <div class="col-xs-10 col-md-5 col-md-offset-3">
         <div class="page-title">
           <h3><%= @workout.name %></h3>
           <div class="page-title-sub">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
         <div class="card-wrapper">
           <div class="card-title">Exercices</div>
           <div class="card-content">
@@ -29,7 +29,7 @@
               <% @workout.workoutsets.each_with_index do |workoutset, index| %>
                 <div class="row custom-table-row"">
                   <div class="col-xs-4 custom-table-cell"><%= workoutset.exercice.name %></div>
-                  <div class="col-xs-2 custom-table-cell"><%= "#{workoutset.repetitions_complete} / #{workoutset.repetitions_total}"%></div>
+                  <div class="col-xs-2 custom-table-cell"><%= "#{workoutset.repetitions_count_complete} / #{workoutset.repetitions_count_total}"%></div>
                   <div class="col-xs-3 custom-table-cell">
                     <div><%= "#{workoutset.total_weight} kg" %></div>
                     <div>

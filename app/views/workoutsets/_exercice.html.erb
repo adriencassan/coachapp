@@ -1,12 +1,12 @@
 <div class="custom-table">
   <div class="row custom-table-header-grey row-margin-left">
-    <div class="col-xs-4 custom-table-cell table-sm">Exercice</div>
+    <div class="col-xs-4 custom-table-cell table-sm">Date</div>
     <div class="col-xs-3 custom-table-cell table-sm">Charges totales</div>
     <div class="col-xs-4 custom-table-cell table-sm">Series</div>
   </div>
   <% workoutsets.each do |workoutset| %>
    <div class="row custom-table-row row-margin-left">
-    <div class="col-xs-4 custom-table-cell table-sm"><%= workoutset.exercice.name %></div>
+    <div class="col-xs-4 custom-table-cell table-sm"><%= workoutset.workout.date.strftime("%d.%b.%y") %></div>
     <div class="col-xs-3 custom-table-cell table-sm"><%= workoutset.total_weight %> </div>
     <div class="col-xs-4 custom-table-cell table-sm">
       <% workoutset.repetitions_complete.each do |repetition| %>

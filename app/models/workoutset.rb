@@ -21,10 +21,14 @@ class Workoutset < ApplicationRecord
   end
 
   def repetitions_complete
+    repetitions.where(is_complete: :true)
+  end
+
+  def repetitions_count_complete
     repetitions.where(is_complete: :true).count
   end
 
-  def repetitions_total
+  def repetitions_count_total
     repetitions.count
   end
 end
