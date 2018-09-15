@@ -20,6 +20,9 @@ gem 'webpacker'
 gem "chartkick"
 
 
+gem 'will_paginate-bootstrap'
+
+
 # Attachments management
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
