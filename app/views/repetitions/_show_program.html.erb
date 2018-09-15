@@ -41,7 +41,7 @@
       <div class="from-group-btns">
         <%= f.submit "OK", class: "blue-btn round-btn sm-btn" %>
         <button class="round-btn white-btn sm-btn margin-left jsFormCloseBtn" data-repetition=<%= "#{repetition.id}" %>>Cancel</button>
-        <%= link_to "Supprimer", repetition_path(workoutset,repetition), method: :delete, class:"round-btn white-btn sm-btn"%>
+        <%= link_to "Supprimer", repetition_path(repetition), method: :delete, class:"round-btn white-btn sm-btn"%>
       </div>
     </div>
     </div>
