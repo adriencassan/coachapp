@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.string "name"
     t.integer "program_id"
     t.bigint "profile_id"
-    t.boolean "is_template", default: false
+    t.boolean "is_program", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_workouts_on_profile_id"

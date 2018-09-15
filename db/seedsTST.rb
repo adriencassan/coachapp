@@ -20,7 +20,7 @@ exercice_bench_press = Exercice.create(name: "Développé-Couché", nameEN: "Ben
 
 
 # WORKOUT PROGRAM
-workout_template = Workout.create(profile: profile_adrien, name: "Programme Pectoraux / Dos", is_template: true)
+workout_template = Workout.create(profile: profile_adrien, name: "Programme Pectoraux / Dos", is_program: true)
 set_template = Workoutset.create(workout: workout_template , exercice: exercice_bench_press)
 
 repetition = Repetition.create(workoutset: set_template, quantity: 10, weight: 70)

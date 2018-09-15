@@ -2,8 +2,8 @@ class WorkoutsController < ApplicationController
 
   def index
     @profile = Profile.find(params[:profile_id])
-    @programs = Workout.where(profile: @profile, is_template: true).order(:name)
-    @workouts = Workout.where(profile: @profile, is_template: false).order(date: :desc)
+    @programs = Workout.where(profile: @profile, is_program: true).order(:name)
+    @workouts = Workout.where(profile: @profile, is_program: false).order(date: :desc)
   end
 
   def create_by_program

@@ -11,7 +11,7 @@ class Workoutset < ApplicationRecord
   end
 
   def initiate_reps_by_copy!
-    @last_workoutset = Workoutset.joins(:workout).where("workouts.profile_id=#{self.workout.profile.id} AND exercice_id=#{self.exercice.id} AND workouts.is_template is false").order("workouts.date desc").first
+    @last_workoutset = Workoutset.joins(:workout).where("workouts.profile_id=#{self.workout.profile.id} AND exercice_id=#{self.exercice.id} AND workouts.is_program is false").order("workouts.date desc").first
     @last_workoutset.repetitions.each { |repetition| Repetition.create(workoutset: self, weight: repetition.weight, quantity: repetition.quantity )}
   end
 

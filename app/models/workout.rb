@@ -12,7 +12,7 @@ class Workout < ApplicationRecord
   end
 
   def self.new_duplicate_program(program)
-    @workout = Workout.create(name: program.name, is_template: false, date: Date.today, program_id: program.id, profile: program.profile)
+    @workout = Workout.create(name: program.name, is_program: false, date: Date.today, program_id: program.id, profile: program.profile)
     program.workoutsets.each do |programset|
       @workoutset = Workoutset.create(workout: @workout, exercice: programset.exercice)
       programset.repetitions.each do |programrep|

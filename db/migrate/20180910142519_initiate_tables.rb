@@ -13,7 +13,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.string :name
       t.integer :program_id
       t.references :profile, foreign_key: true
-      t.boolean :is_template, default: false
+      t.boolean :is_program, default: false
       t.timestamps
     end
 
