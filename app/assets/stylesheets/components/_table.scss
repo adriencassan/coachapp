@@ -4,7 +4,7 @@
 
 .custom-table-header{
   background-color: $light-blue;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
   min-height: 25px;
   margin: 0px;
@@ -12,13 +12,13 @@
   align-items: center;
 
   .margin-left {
-    margin-left: 100px;
+    margin-left: 20px;
   }
 }
 
 .custom-table-header-grey {
   background-color: $light-gray;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: bold;
   min-height: 25px;
   margin: 0px;
@@ -26,21 +26,21 @@
   align-items: center;
 
   .margin-left {
-    margin-left: 100px;
+    margin-left: 20px;
   }
 }
 
 .custom-table-row{
   border-bottom: 1px solid $light-blue;
   padding: 5px;
-  font-size: 12px;
+  font-size: 10px;
   margin: 0px;
   //display: flex;
   align-items: center;
 
 
   .row-margin-left {
-    margin-left: 100px;
+    margin-left: 20px;
   }
 
 }
@@ -55,13 +55,13 @@
 .custom-table-row-raw{
 
   padding: 5px;
-  font-size: 12px;
+  font-size: 10px;
   margin: 0px;
   //display: flex;
   align-items: center;
 
   .row-margin-left {
-    margin-left: 100px;
+    margin-left: 20px;
   }
 }
 
@@ -71,4 +71,8 @@
 
 .table-xs{
   font-size: 8px;
+}
+
+.table-xs-padding {
+
 }

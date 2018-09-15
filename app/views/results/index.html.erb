@@ -36,13 +36,18 @@
             </div>
             <div class="card-content">
               <div class="card-content-split">
-                <div class="split-left">
-                  <%= cl_image_tag(result.selfie,
-                  width: 250, height: 250, crop: :fill) %>
-                </div>
-                <div class="split-right">
-                  <p><%= "Poids: #{result.weight} kg" %></p>
-                  <p><%= "Masse Grasse : #{result.fatmass/result.weight} %" %></p>
+                  <div class="row">
+                  <div class="col-xs-8 col-sm-6 col-sm-offset-3">
+                    <%= cl_image_tag(result.selfie,
+                    width: 200, height: 200, crop: :fill) %>
+                  </div>
+                  <div class="col-xs-4 col-sm-6 col-sm-offset-3">
+                    <p>Poids:</p>
+                    <p><%= "#{result.weight} kg" %></p>
+                    <br>
+                    <p>Masse Grasse :</p>
+                    <p><%= "#{result.fatmass/result.weight} %" %></p>
+                  </div>
                 </div>
               </div>
                 </div>

@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+
+      <div class="col-xs-10 col-sm-5 col-sm-offset-3">
+        <div class="page-title">
+          <h3>Feedbacks</h3>
+          <div class="page-title-sub">
+          <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2 col-sm-1">
+        <div class="page-title-back">
+
+        </div>
+      </div>
+    </div>
+
+    <% @feedbacks.each do |feedback| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="card-wrapper">
+              <div class="card-title">
+               <%= "#{feedback.workout.date.strftime("%d.%b.%y")}  - #{feedback.exercice.name}" %>
+              </div>
+              <div class="card-content">
+                <%= render "workoutsets/feedback", workoutset: feedback %>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+  </div>
+</div>
+

@@ -21,18 +21,16 @@
           <div class="card-content">
             <div class="custom-table">
               <div class="row custom-table-header">
-                <div class="col-xs-2 custom-table-cell">#</div>
                 <div class="col-xs-4 custom-table-cell">Exercice</div>
                 <div class="col-xs-2 custom-table-cell">Progress</div>
-                <div class="col-xs-2 custom-table-cell">Charges totales</div>
-                <div class="col-xs-2 custom-table-cell">Actions</div>
+                <div class="col-xs-3 custom-table-cell">Charges totales</div>
+                <div class="col-xs-3 custom-table-cell">Actions</div>
               </div>
               <% @workout.workoutsets.each_with_index do |workoutset, index| %>
                 <div class="row custom-table-row"">
-                  <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
                   <div class="col-xs-4 custom-table-cell"><%= workoutset.exercice.name %></div>
                   <div class="col-xs-2 custom-table-cell"><%= "#{workoutset.repetitions_complete} / #{workoutset.repetitions_total}"%></div>
-                  <div class="col-xs-2 custom-table-cell">
+                  <div class="col-xs-3 custom-table-cell">
                     <div><%= "#{workoutset.total_weight} kg" %></div>
                     <div>
                       <% if workoutset.total_weight >= workoutset.total_weight_last %>
@@ -46,7 +44,7 @@
 
                     </div>
                   </div>
-                  <div class="col-xs-2 custom-table-cell">
+                  <div class="col-xs-3 custom-table-cell">
                     <%= link_to workoutset_path(workoutset),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
                     <%= link_to workoutset_path(workoutset), method: :delete,  data: {confirm: "Are you sure?"}, class: "btn-icon" do %><i class="fas fa-times-circle"></i><%end%>
                   </div>
@@ -54,16 +52,21 @@
               <% end %>
 
               <div class="row custom-table-row jsformShowCTA">
-                <div class="col-xs-10 custom-table-cell"></div>
-                <div class="col-xs-2 custom-table-cell">
+                <div class="col-xs-8 custom-table-cell"></div>
+                <div class="col-xs-4 custom-table-cell">
                   <button class="round-btn white-btn sm-btn margin-left jsFormShowBtn">Ajouter</button>
                 </div>
               </div>
 
               <div class="row custom-table-row jsFormShow hide">
                 <%= simple_form_for [@workout, @new_workoutset] do |f| %>
-                  <%= f.input :exercice,collection: @exercices, value_method: :id %>
-                  <%= f.submit %>
+                <div class="form-row">
+                  <div class="form-group col-xs-9 custom-table-cell">
+                    <%= f.input :exercice,collection: @exercices, value_method: :id %>
+                  </div>
+                  <div class="form-group col-xs-3 custom-table-cell">
+                    <%= f.submit 'Ajouter', class:"round-btn white-btn sm-btn" %>
+                  </div>
               <% end %>
             </div>
           </div>

@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.bigint "exercice_id"
     t.bigint "workout_id"
     t.string "video"
+    t.string "feedback"
     t.integer "total_weight", default: 0
     t.integer "total_repetitions", default: 0
     t.datetime "created_at", null: false

@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :workoutsets do
-    resources :repetitions, only: [ :new,]
+    resources :repetitions, only: [ :new]
+    patch '/update_feedback', to: "workoutsets#update_feedback"
   end
 
   resources :repetitions, only: [:update,:destroy]
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
     resources :workoutsets, only: [:create]
   end
 
-  get 'coachees', to: "profiles#coachees", as: :coachees
+  get 'coach/feedbacks', to: "workoutsets#feedbacks", as: :coach_feedbacks
+  get 'coach/coachees', to: "profiles#coachees", as: :coachees
 
   resources :profiles do
     resources :results, only: [:index, :create]

@@ -30,6 +30,12 @@ class WorkoutsetsController < ApplicationController
     redirect_to workoutset_path(@set)
   end
 
+  def update_feedback
+    @set = Workoutset.find(params[:workoutset_id])
+    @set.update(workoutset_params)
+    redirect_to coach_feedbacks_path
+  end
+
   def destroy
     @workoutset = Workoutset.find(params[:id])
     @workout = @workoutset.workout
@@ -37,11 +43,19 @@ class WorkoutsetsController < ApplicationController
     redirect_to workout_path(@workout)
   end
 
+  def feedbacks
+    if current_user.profile == "Coach"
+      @feedbacks = Workoutset.where.not(video: nil)
+    else
+      @feedbacks = Workoutset.joins(:workout).where.not(video: nil).where("workouts.profile_id =  #{current_user.profile.id}")
+    end
+  end
+
 
   private
 
   def workoutset_params
-    params.require(:workoutset).permit(:exercice,:video)
+    params.require(:workoutset).permit(:exercice,:video, :feedback)
   end
 
 end

@@ -29,7 +29,7 @@
               <% @programs.each do |workout| %>
                 <div class="row custom-table-row"">
                   <div class="col-xs-6 custom-table-cell"><%= workout.name %></div>
-                  <div class="col-xs-2 custom-table-cell"><%= workout.program_last_used.nil? ? "" : workout.program_last_used.strftime("%d/%m") %></div>
+                  <div class="col-xs-2 custom-table-cell"><%= workout.program_last_used.nil? ? "" : workout.program_last_used.strftime("%d.%m") %></div>
                   <div class="col-xs-4 custom-table-cell">
                     <%= link_to "Modifier", profile_program_path(workout.profile, workout), class:"round-btn white-btn sm-btn"%>
                   </div>
@@ -62,16 +62,16 @@
               <div class="row custom-table-header">
                 <div class="col-xs-2 custom-table-cell">Date</div>
                 <div class="col-xs-4 custom-table-cell">Nom</div>
-                <div class="col-xs-2 custom-table-cell">Charges Totales</div>
-                <div class="col-xs-4 custom-table-cell">Actions</div>
+                <div class="col-xs-3 custom-table-cell">Charges Totales</div>
+                <div class="col-xs-3 custom-table-cell">Actions</div>
               </div>
               <% @workouts.each do |workout| %>
                 <div class="custom-table-row">
                   <div class="row">
-                    <div class="col-xs-2 custom-table-cell"><%= workout.date.strftime("%d %b %y") %></div>
+                    <div class="col-xs-2 custom-table-cell"><%= workout.date.strftime("%d.%m") %></div>
                     <div class="col-xs-4 custom-table-cell"><%= workout.name %></div>
-                    <div class="col-xs-2 custom-table-cell"><%= workout.total_weight %></div>
-                    <div class="col-xs-4 custom-table-cell">
+                    <div class="col-xs-3 custom-table-cell"><%= "#{number_with_delimiter(workout.total_weight, separator: " ")} kg" %></div>
+                    <div class="col-xs-3 custom-table-cell">
                        <button class="btn-icon margin-left" type="button" data-toggle="collapse" data-target="#collapseExample<%= workout.id -%>" aria-expanded="false" aria-controls="collapseExample<%= workout.id -%>"><i class="fas fa-chevron-circle-down"></i></button>
                     </div>
                   </div>

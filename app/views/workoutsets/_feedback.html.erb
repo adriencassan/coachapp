@@ -1,0 +1,35 @@
+<div class="mini-docu-wrapper">
+
+  <div class="row">
+
+    <div class="col-xs-12">
+      <% if workoutset.video.url.nil? %>
+      <%= simple_form_for workoutset do |f| %>
+      <%= f.input :video %>
+      <%= f.input :video_cache, as: :hidden %>
+      <%= f.button :submit, "upload", class: "round-btn blue-btn" %>
+      <% end %>
+
+      <% else %>
+
+      <video width="300" height="300" controls>
+        <source src="<%= workoutset.video.url %>" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <% end %>
+      </div>
+
+    <% if current_user.profile.role == "Coach"  %>
+        <%= simple_form_for workoutset, url: workoutset_update_feedback_path(workoutset) do |f| %>
+          <%= f.input :feedback, label: false, as: :text, placeholder: "Saisir le feedback ici", input_html: {style: "font-size: 10px", rows: 10} %>
+          <%= f.button :submit, "Valider", class: "round-btn blue-btn" %>
+        <% end %>
+    <% else %>
+      <div class="col-xs-12">
+        <p><%= workoutset.feedback %></p>
+      </div>
+    <% end %>
+
+  </div>
+</div>

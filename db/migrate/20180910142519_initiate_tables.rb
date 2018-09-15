@@ -27,6 +27,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.references :exercice, foreign_key: true
       t.references :workout, foreign_key: true
       t.string :video
+      t.string :feedback
       t.integer :total_weight, default: 0
       t.integer :total_repetitions, default: 0
       t.timestamps
