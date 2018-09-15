@@ -28,6 +28,7 @@
             <div class="card-content">
 
               <%= column_chart @graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
+              <%= render "workoutsets/exercice", workoutsets: @sets_histo %>
             </div>
         </div>
       </div>
