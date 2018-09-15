@@ -7,7 +7,7 @@
           <h3><%= @program.name %></h3>
           <div class="page-title-sub">
             <% if current_user.profile.role == "Coach" %>
-              <p><%= link_to coachee_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
+              <p><%= link_to profile_profile_coachee_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
             <% else %>
               <p><%= link_to profile_workouts_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
             <% end %>

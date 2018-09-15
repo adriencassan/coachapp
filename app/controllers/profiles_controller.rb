@@ -7,7 +7,8 @@ class ProfilesController < ApplicationController
 
   def coachee
     @profile = Profile.find(params[:profile_id])
-    @results = @profile.results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
+    @results = @profile.results
+    @results_graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
     @programs = Workout.where(profile: @profile, is_program: true)
     @workouts = Workout.where(profile: @profile, is_program: false).order(date: :desc).paginate(page: params[:page], per_page: 5)
   end
