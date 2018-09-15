@@ -7,7 +7,7 @@
         <div class="page-title">
           <h3>Mes entrainements</h3>
           <div class="page-title-sub">
-            <p>subtile</p>
+            <p></p>
           </div>
         </div>
       </div>
@@ -61,8 +61,12 @@
                   <div class="col-xs-3 col-sm-2 custom-table-cell">
                     <%= link_to workout_path(workout),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
                   </div>
+
                 </div>
               <% end %>
+               <div class="card-pagination">
+                  <%= will_paginate @workouts, renderer: BootstrapPagination::Rails %>
+                </div>
             </div>
           </div>
         </div>

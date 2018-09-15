@@ -82,6 +82,9 @@
                   </div>
                 </div>
               <% end %>
+              <div class="card-pagination">
+                <%= will_paginate @workouts, renderer: BootstrapPagination::Rails %>
+              </div>
             </div>
           </div>
         </div>

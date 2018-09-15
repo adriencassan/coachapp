@@ -1043,3 +1043,13 @@ Repetition.create(workoutset_id: 194, quantity: 10, weight: 40, is_complete: tru
 Repetition.create(workoutset_id: 194, quantity: 10, weight: 40, is_complete: true)
 Repetition.create(workoutset_id: 194, quantity: 10, weight: 40, is_complete: true)
 Repetition.create(workoutset_id: 194, quantity: 10, weight: 40, is_complete: true)
+
+
+#FEEDBACK
+feedback = Workoutset.find(103)
+feedback.remote_video_url = "http://res.cloudinary.com/duojdxafe/video/upload/v1537013773/IMG_7252.mp4"
+feedback.feedback = "- l’effort du mouvement sur les talons est parfait on le voit très bien en vidéo seul défaut tes chaussures ( elles créent une réelle instabilité rotulienne alors que les chaussures d’haltérophilie son avec un socle en bois ou en carbone pour avoir un appui solide !)
+ - tu es souple en ischio jambiers du coup tu as un soulève de terre avec peu d’abaissement des fessiers donc la charge de travail est plus en lombaires, si les charges augmentent il faudra que tu fléchisses plus tes jambes
+- pour les omoplates tu peux faire un effort supplémentaire pour les resserrer (indicateur visuel: les pectoraux bien devant et les mains très basses bras tendu qui appui vers tes cuisses)  - garde la tête dans l’axe du corps pendant le mouvement pour éviter les douleurs cervicales"
+feedback.save!
+
