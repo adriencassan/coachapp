@@ -45,9 +45,9 @@ class WorkoutsetsController < ApplicationController
 
   def feedbacks
     if current_user.profile.role == "Coach"
-      @feedbacks = Workoutset.where.not(video: nil)
+      @feedbacks = Workoutset.joins(:workout).where.not(video: nil).order("workouts.date DESC")
     else
-      @feedbacks = Workoutset.joins(:workout).where.not(video: nil).where("workouts.profile_id =  #{current_user.profile.id}")
+      @feedbacks = Workoutset.joins(:workout).where.not(video: nil).where("workouts.profile_id =  #{current_user.profile.id}").order("workouts.date DESC")
     end
   end
 
