@@ -16,7 +16,7 @@ class WorkoutsController < ApplicationController
   def show
     @workout = Workout.find(params[:id])
     @new_workoutset = Workoutset.new()
-    @exercices = Exercice.all - @workout.workoutsets.pluck(:exercice_id)
+    @exercices = Exercice.all.order(:name) - @workout.workoutsets.pluck(:exercice_id)
   end
 
    def program

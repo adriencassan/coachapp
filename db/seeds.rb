@@ -63,6 +63,11 @@ Exercice.create(name: 'TRX Biceps', nameEN: 'TRX Biceps')
 Exercice.create(name: 'TRX calins', nameEN: 'TRX calins')
 Exercice.create(name: 'TRX Push-up Large', nameEN: 'TRX Push-up Large')
 Exercice.create(name: 'Walking Lunges', nameEN: 'Walking Lunges')
+Exercice.create(name: 'Flexions des jambes', nameEN: 'Flexions des jambes')
+Exercice.create(name: 'Extensions des fessiers', nameEN: 'Extensions des fessiers')
+Exercice.create(name: 'Barbell Squat', nameEN: 'Barbell Squat')
+
+
 Workout.create(date: '1900-01-01', name: 'Dos & Triceps', is_program: true, profile_id: 2, program_id:0)
 Workout.create(date: '1900-01-01', name: 'Epaules & Trapezes', is_program: true, profile_id: 2, program_id:0)
 Workout.create(date: '1900-01-01', name: 'Pectoraux & Biceps', is_program: true, profile_id: 2, program_id:0)
