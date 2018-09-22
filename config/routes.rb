@@ -26,4 +26,5 @@ Rails.application.routes.draw do
     post '/programs/:id/new', to: "workoutsets#create_programset", as: :program_new_programset
   end
 
+  get 'export', to: "profiles#export", defaults: { format: 'csv' }
 end
