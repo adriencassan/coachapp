@@ -13,6 +13,8 @@ class ProfilesController < ApplicationController
     @workouts = Workout.where(profile: @profile, is_program: false).order(date: :desc).paginate(page: params[:page], per_page: 5)
   end
 
+
+  ### TO BE DELETED
   def export
     respond_to do |format|
       format.csv { send_data Exercice.to_csv, filename: "exercices-#{Date.today}.csv" }
