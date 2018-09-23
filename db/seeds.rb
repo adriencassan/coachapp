@@ -66,6 +66,7 @@ Exercice.create(name: 'Walking Lunges', nameEN: 'Walking Lunges')
 Exercice.create(name: 'Flexions des jambes', nameEN: 'Flexions des jambes')
 Exercice.create(name: 'Extensions des fessiers', nameEN: 'Extensions des fessiers')
 Exercice.create(name: 'Barbell Squat', nameEN: 'Barbell Squat')
+Exercice.create(name: 'Curl Debout à la poulie', nameEN: 'Curl Debout à la poulie')
 
 
 Workout.create(date: '1900-01-01', name: 'Dos & Triceps', is_program: true, profile_id: 2, program_id:0)
