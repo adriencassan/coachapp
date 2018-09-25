@@ -26,7 +26,7 @@
                 <div class="col-xs-3 custom-table-cell">Charges totales</div>
                 <div class="col-xs-3 custom-table-cell">Actions</div>
               </div>
-              <% @workout.workoutsets.order(index: :desc).each_with_index do |workoutset, index| %>
+              <% @workout.workoutsets.order(id: :desc).each_with_index do |workoutset, index| %>
                 <div class="row custom-table-row"">
                   <div class="col-xs-4 custom-table-cell"><%= workoutset.exercice.name %></div>
                   <div class="col-xs-2 custom-table-cell"><%= "#{workoutset.repetitions_count_complete} / #{workoutset.repetitions_count_total}"%></div>
