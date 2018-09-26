@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :results, only: [:index, :create]
     resources :workouts, only: [:index]
     get '/coachee', to: "profiles#coachee", as: :profile_coachee
+    get '/coachee/results', to: "profiles#coachee_results", as: :profile_coachee_results
+    get '/coachee/feedbacks', to: "profiles#coachee_feedbacks", as: :profile_coachee_feedbacks
     get '/programs', to: "workouts#programs", as: :programs
     get '/programs/:id', to: "workouts#program", as: :program
     get '/programs/:id/new_workout', to: "workouts#create_by_program", as: :program_new_workout

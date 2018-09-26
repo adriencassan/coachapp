@@ -1,5 +1,16 @@
-
 <%= javascript_pack_tag 'chartkick.js' %>
+
+
+<div class="page-custom-header">
+  <div class="page-custom-header-navback">
+    <%= link_to coachees_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%>
+  </div>
+
+  <div class="page-custom-header-content">
+     <h3><%= @coachee.full_name %></h3>
+     <%= "Fiche coachee" %>
+  </div>
+</div>
 
 <div class="page-wrapper">
   <div class="grid">
@@ -7,16 +18,15 @@
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
         <div class="card-wrapper">
-            <div class="card-title">Graphique du poids</div>
-            <div class="card-content">
-
-              <%= column_chart @graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
-            </div>
+          <div class="card-title">Ses résultats (en kg)</div>
+          <div class="card-content">
+          <%= column_chart @results_graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
+          </div>
         </div>
       </div>
     </div>
 
-    <% @results.each do |result| %>
+   <% @results.each do |result| %>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
           <div class="card-wrapper">
@@ -47,30 +57,9 @@
       </div>
     <% end %>
 
-    <% if current_user.profile.role == "Athlete"  %>
-      <div class="row">
-         <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
-            <div class="card-wrapper">
-              <div class="card-title">
-                Ajouter un nouveau resultat
-              </div>
-              <div class="card-content">
-                <%= simple_form_for [@profile, @new_result] do |f| %>
-                  <%= f.input :date, as: :string, placeholder:Date.today.to_s, input_html: {class: "datepicker"} %>
-                  <%= f.input :weight %>
-                  <%= f.input :fatmass %>
-                  <%= f.input :selfie %>
-                  <%= f.input :selfie_cache, as: :hidden %>
-                  <%= f.submit "OK", class: "blue-btn round-btn sm-btn" %>
-                <% end %>
-              </div>
-            </div>
-          </div>
-      </div>
-    <%end%>
-
-  </div>
-
-
 </div>
+</div>
+
+
+
 

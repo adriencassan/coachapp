@@ -6,12 +6,24 @@ class ProfilesController < ApplicationController
   end
 
   def coachee
-    @profile = Profile.find(params[:profile_id])
-    @results = @profile.results
+    @coachee = Profile.find(params[:profile_id])
+    @results = @coachee.results
     @results_graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
-    @programs = Workout.where(profile: @profile, is_program: true)
-    @workouts = Workout.where(profile: @profile, is_program: false).order(date: :desc).paginate(page: params[:page], per_page: 5)
+    @programs = Workout.where(profile: @coachee, is_program: true)
+    @workouts = Workout.where(profile: @coachee, is_program: false).order(date: :desc)
   end
+
+  def coachee_results
+    @coachee = Profile.find(params[:profile_id])
+    @results = @coachee.results
+    @results_graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
+  end
+
+  def coachee_feedbacks
+    @coachee = Profile.find(params[:profile_id])
+    @feedbacks = Workoutset.joins(:workout).where.not(video: nil).where("workouts.profile_id =  #{@coachee.id}").order("workouts.date DESC")
+  end
+
 
 
   ### TO BE DELETED

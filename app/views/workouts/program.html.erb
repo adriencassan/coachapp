@@ -1,70 +1,60 @@
-<div class="page-wrapper">
-  <div class="grid">
 
-    <div class="row">
-      <div class="col-xs-10 col-md-5 col-md-offset-3">
-        <div class="page-title">
-          <h3><%= @program.name %></h3>
-          <div class="page-title-sub">
-            <% if current_user.profile.role == "Coach" %>
-              <p><%= link_to profile_profile_coachee_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
-            <% else %>
-              <p><%= link_to profile_workouts_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
-            <% end %>
-          </div>
-          </div>
-        </div>
-      </div>
+<div class="page-custom-header">
+  <div class="page-custom-header-navback">
+   <% if current_user.profile.role == "Coach" %>
+   <p><%= link_to profile_profile_coachee_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%>
+    <% else %>
+    <p><%= link_to profile_programs_path(@program.profile),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%>
+      <% end %>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="card-wrapper">
-          <div class="card-title">Exercices</div>
-          <div class="card-content">
-            <div class="custom-table">
-              <div class="row custom-table-header">
-                <div class="col-xs-2 custom-table-cell">#</div>
-                <div class="col-xs-6 custom-table-cell">Exercice</div>
-                <div class="col-xs-4 custom-table-cell">Actions</div>
+    <div class="page-custom-header-content">
+      <h3><%= @program.name %></h3>
+      <p>Programme</p>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div class="grid">
+
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+          <% @program.workoutsets.each_with_index do |workouset, index| %>
+          <div class="card-wrapper">
+            <div class="card-content align-vertical height">
+              <div class="row">
+                <div class="col-xs-2"><%= index + 1 %></div>
+                <div class="col-xs-6"><%= workouset.exercice.name %></div>
+                <div class="col-xs-4">
+                  <button class="round-btn white-btn sm-btn margin-left" type="button" data-toggle="collapse" data-target="#collapseExample<%= workouset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= workouset.id -%>">Repetitions</button>
+                </div>
               </div>
-              <% @program.workoutsets.each_with_index do |workouset, index| %>
-                <div class="custom-table-row">
-                  <div class="row">
-                    <div class="col-xs-2 custom-table-cell"><%= index + 1 %></div>
-                    <div class="col-xs-6 custom-table-cell"><%= workouset.exercice.name %></div>
-                    <div class="col-xs-4 custom-table-cell">
-                      <button class="round-btn white-btn sm-btn margin-left" type="button" data-toggle="collapse" data-target="#collapseExample<%= workouset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= workouset.id -%>">Repetitions</button>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="collapse <%= params[:show].to_i==workouset.id ? "in" : ""  -%>" id="collapseExample<%= workouset.id -%>"" style= "width: 100%">
+              <div class="row">
+                <div class="collapse <%= params[:show].to_i==workouset.id ? "in" : ""  -%>" id="collapseExample<%= workouset.id -%>"" style= "width: 100%">
                       <%= render "repetitions/show_program", workoutset: workouset, repetitions: workouset.repetitions %>
-                    </div>
-                  </div>
-                </div>
-              <% end %>
-
-              <div class="row custom-table-row jsformShowCTA">
-                <div class="col-xs-8 custom-table-cell"></div>
-                <div class="col-xs-4 custom-table-cell">
-                  <button class="round-btn white-btn sm-btn margin-left jsFormShowBtn">Ajouter</button>
                 </div>
               </div>
-
-              <div class="row custom-table-row jsFormShow hide">
-                <%= simple_form_for ([@program, @new_workoutset]), url: profile_program_new_programset_path, method: :post do |f| %>
-                  <%= f.input :exercice,collection: @exercices, value_method: :id %>
-                  <%= f.submit %>
-              <% end %>
             </div>
           </div>
+          <% end %>
+
+          <div class="row custom-table-row jsformShowCTA">
+            <div class="col-xs-8 custom-table-cell"></div>
+            <div class="col-xs-4 custom-table-cell">
+              <button class="round-btn white-btn sm-btn margin-left jsFormShowBtn">Ajouter</button>
+            </div>
+          </div>
+
+          <div class="row custom-table-row jsFormShow hide">
+            <%= simple_form_for ([@program, @new_workoutset]), url: profile_program_new_programset_path, method: :post do |f| %>
+                  <%= f.input :exercice,collection: @exercices, value_method: :id %>
+                  <%= f.submit %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-
   </div>
-</div>
 
 
 

@@ -1,25 +1,24 @@
 <%= javascript_pack_tag 'chartkick.js' %>
 
+
+<div class="page-custom-header">
+  <div class="page-custom-header-navback">
+    <%= link_to workout_path(@set.workout),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%></i>
+  </div>
+
+  <div class="page-custom-header-content">
+    <h3><%= @set.exercice.name %></h3>
+     <%= "Workout #{@set.workout.name} (#{@set.workout.date.strftime("%A, %d %B %y")})" %>
+  </div>
+</div>
+
+
 <div class="page-wrapper">
-  <div class="grid">
+
+
+     <div class="grid">
 
     <div class="row">
-
-      <div class="col-xs-10 col-md-5 col-md-offset-3">
-        <div class="page-title">
-          <h3><%= @set.exercice.name %></h3>
-          <div class="page-title-sub">
-          <p><%= link_to workout_path(@set.workout),  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 15px"></i><%end%>
-            <%= "Workout #{@set.workout.name} (#{@set.workout.date.strftime("%A, %d %B %y")})" %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-2 col-sm-1">
-        <div class="page-title-back">
-
-        </div>
-      </div>
-    </div>
 
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">

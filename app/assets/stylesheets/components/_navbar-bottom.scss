@@ -20,10 +20,17 @@
     font-size: 12px;
 }
 
-.nav-items {
+.nav-item {
   width: 25%;
   height: 100%;
+  display: block;
+  list-style-type: none;
+  //justify-content: space-around;
+  align-items: center;
 }
+
+
+
 
 .bottom-navbar a {
     flex: 0 0 18%;
@@ -34,6 +41,11 @@
     padding: 7px;
 }
 
+.nav-link-sm {
+  font-size: 10px !important;
+  margin: 0 !important;
+  padding: 0;
+}
 
 
 .bottom-navbar a i {

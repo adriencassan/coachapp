@@ -1,8 +1,12 @@
 
 .page-title{
+  background-color: $light-gray;
   color: $dark-blue;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  //margin-top: 5px;
+  //margin-bottom: 20px;
+  width: 100%;
+  padding: 0;
+  margin: O;
 
   h3 {
     font-size: 14px;
@@ -54,7 +58,7 @@
 }
 
 .card-content.height{
-  height: 60px;
+  min-height: 50px;
 }
 
 .card-content-split {
