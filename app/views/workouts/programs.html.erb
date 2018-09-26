@@ -1,0 +1,39 @@
+<div class="page-wrapper">
+  <div class="grid">
+
+    <div class="row">
+      <div class="col-xs-10 col-md-5 col-md-offset-3 nopadding">
+        <div class="page-title">
+          <h3>Mes entrainements</h3>
+          <div class="page-title-sub">
+            <p></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
+        <% @programs.each do |workout| %>
+          <div class="card-wrapper">
+            <div class="card-content align-vertical height">
+              <div class="row">
+                <div class="col-xs-5"><%= workout.name %></div>
+                <div class="col-xs-2"><%= workout.program_last_used.nil? ? "" : workout.program_last_used.strftime("%d.%m") %></div>
+                <div class="col-xs-5">
+                  <%= link_to "Modifier", profile_program_path(workout.profile, workout), class:"round-btn white-btn sm-btn"%>
+                  <%= link_to "Do it !", profile_program_new_workout_path(workout.profile, workout), class:"round-btn white-btn sm-btn"%>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+       </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

@@ -1,9 +1,16 @@
-<nav class="bottom-navbar">
-    <a href="#"></a>
-    <i class="fas fa-chevron-left"></i></i><span>Back</span>
-    <i class="fas fa-tachometer-alt"></i></i><span>Dashboard</span>
-    <i class="fas fa-box-open"></i></i><span>Orders</span>
-    <i class="fas fa-shopping-basket"></i></i><span>Baskets</span>
-    <i class="fas fa-clipboard-list"></i></i><span>Inventory</span>
-    <a href="#"></a>
-</nav>
+<% if user_signed_in? %>
+  <nav class="bottom-navbar">
+    <div class="nav-item">
+      <%= active_link_to "Mes programmes", profile_programs_path(current_user.profile) %>
+    </div>
+    <div class="nav-item">
+      <%= active_link_to "Mes entrainements", profile_workouts_path(current_user.profile) %>
+    </div>
+    <div class="nav-item">
+      <%= active_link_to "Mes résultats", profile_results_path(current_user.profile) %>
+    </div>
+    <div class="nav-item">
+      <%= active_link_to "Mes feedbacks", coach_feedbacks_path %>
+    </div>
+  </nav>
+<% end  %>

@@ -6,7 +6,7 @@
 .bottom-navbar{
     display: flex;
     align-items: center;
-    background-color: $light-gray;
+    background-color: $dark-gray;
     height: 50px;
     text-align: center;
     cursor: pointer;
@@ -16,35 +16,25 @@
     width: 100%;
     justify-content: space-around;
     left: 0;
+    color: white;
+    font-size: 12px;
+}
+
+.nav-items {
+  width: 25%;
+  height: 100%;
 }
 
 .bottom-navbar a {
     flex: 0 0 18%;
     display: inline-block;
-    color: $gray;
-    background-color: white;
+    color: white;
     font-size: 14px;
     text-decoration: none;
     padding: 7px;
-
-}
-
-.bottom-navbar a:first-child{
-   background-color: white !important;
-   flex: 0 0 5%;
-   cursor: default;
 }
 
 
-
-.bottom-navbar a:last-child {
-    background-color: white !important;
-    flex: 0 0 5%;
-    cursor: default;
-}
-
-.bottom-navbar a:not(.selected) {
-}
 
 .bottom-navbar a i {
     display: block;
@@ -52,23 +42,33 @@
 
 
 .bottom-navbar a:hover {
-    background-color: $dark-blue;
-    i {
-      color: white;
-    }
-    span {
-    color: white;
-    }
+  background-color: white;
+  color: $dark-gray;
 }
 
 .bottom-navbar a.active {
     pointer-events: none;
     background-color: white;
-    i {
-    color: $dark-blue;
-    }
-    span {
-    color: $dark-blue;
-    }
+    color: $dark-gray;
 }
 
+
+/* Make this page responsive */
+
+.slicknav_menu {
+    display:none;
+}
+
+@media (min-width: 1000px) {
+    .bottom-navbar {
+        display:none;
+    }
+
+    .slicknav_nav a i {
+        display: none;
+    }
+
+    .slicknav_menu {
+        display:block;
+    }
+}
