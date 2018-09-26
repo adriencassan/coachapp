@@ -26,7 +26,7 @@
       </div>
     </div>
 
-   <% @results.each do |result| %>
+    <% @results.each do |result| %>
       <div class="row">
         <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
           <div class="card-wrapper">
@@ -35,7 +35,7 @@
             </div>
             <div class="card-content">
               <div class="card-content-split">
-                  <div class="row">
+                <div class="row">
                   <div class="col-xs-8 col-sm-8">
                     <%= cl_image_tag(result.selfie,
                     width: 150, height: 150, crop: :fill) %>
@@ -49,15 +49,13 @@
                   </div>
                 </div>
               </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
     <% end %>
 
-</div>
+  </div>
 </div>
 
 

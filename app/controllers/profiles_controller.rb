@@ -5,11 +5,9 @@ class ProfilesController < ApplicationController
     @coachees = Profile.where(role: "Athlete").order(:first_name)
   end
 
-  def coachee
+  def coachee_workouts
     @coachee = Profile.find(params[:profile_id])
-    @results = @coachee.results
-    @results_graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
-    @programs = Workout.where(profile: @coachee, is_program: true)
+    #@programs = Workout.where(profile: @coachee, is_program: true)
     @workouts = Workout.where(profile: @coachee, is_program: false).order(date: :desc)
   end
 

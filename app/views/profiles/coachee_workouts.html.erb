@@ -1,4 +1,4 @@
-<%= javascript_pack_tag 'chartkick.js' %>
+<% javascript_pack_tag 'chartkick.js' %>
 
 
 <div class="page-custom-header">
@@ -38,26 +38,10 @@
         <% end %>
       </div>
     </div>
+
   </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-6 col-md-offset-3">
-      <div class="card-wrapper">
-        <div class="card-title">Ses résultats (en kg)</div>
-        <div class="card-content">
-          <%= link_to "Voir les selfies", profile_results_path(@coachee), class:"round-btn white-btn sm-btn"%>
-
-          <%= column_chart @results_graph, library: { hAxis: { format: 'dd/mm' }}, height: "200px" %>
-
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-
 </div>
-</div>
+
 
 
 
