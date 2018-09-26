@@ -9,6 +9,7 @@
       <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
         <% if current_user.profile.role == "Athlete" %>
+          <li><%= link_to "Mes Programmes", profile_programs_path(current_user.profile) %></li>
           <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
           <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
         <% else %>

@@ -21,6 +21,7 @@ gem "chartkick"
 
 
 gem 'will_paginate-bootstrap'
+gem 'active_link_to'
 
 
 # Attachments management

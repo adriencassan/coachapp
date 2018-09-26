@@ -1,78 +1,31 @@
 <div class="page-wrapper">
   <div class="grid">
 
+   <div class="grid">
     <div class="row">
-
-      <div class="col-xs-10 col-md-5 col-md-offset-3">
-        <div class="page-title">
-          <h3>Mes entrainements</h3>
-          <div class="page-title-sub">
-            <p></p>
-          </div>
-        </div>
-      </div>
-
-
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="card-wrapper">
-          <div class="card-title">Mes programmes</div>
-          <div class="card-content">
-            <div class="custom-table">
-              <div class="row custom-table-header">
-                <div class="col-xs-5 custom-table-cell">Nom</div>
-                <div class="col-xs-2 custom-table-cell">Dernier</div>
-                <div class="col-xs-5 custom-table-cell">Actions</div>
+      <div class="col-xs-12 col-md-6 col-md-offset-3 nopadding">
+        <% @workouts.each do |workout| %>
+          <div class="card-wrapper">
+            <div class="card-content align-vertical height">
+              <div class="row"">
+                <div class="col-xs-3 col-sm-2"><%= workout.date.strftime("%d.%m.%y") %></div>
+                <div class="col-xs-6 col-sm-5"><%= workout.name %></div>
+                <div class="hidden-xs col-sm-3"><%= "#{number_with_delimiter(workout.total_weight, separator: " ")} kg "%></div>
+                <div class="col-xs-3 col-sm-2 text-center">
+                  <%= link_to workout_path(workout),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
+                </div>
               </div>
-              <% @programs.each do |workout| %>
-                <div class="row custom-table-row"">
-                  <div class="col-xs-5 custom-table-cell"><%= workout.name %></div>
-                  <div class="col-xs-2 custom-table-cell"><%= workout.program_last_used.nil? ? "" : workout.program_last_used.strftime("%d.%m") %></div>
-                  <div class="col-xs-5 custom-table-cell">
-                    <%= link_to "Modifier", profile_program_path(workout.profile, workout), class:"round-btn white-btn xs-btn"%>
-                    <%= link_to "Do it !", profile_program_new_workout_path(workout.profile, workout), class:"round-btn white-btn xs-btn"%>
-                  </div>
-                </div>
-              <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-md-offset-3">
-        <div class="card-wrapper">
-          <div class="card-title">Mes entrainements</div>
-          <div class="card-content">
-            <div class="custom-table">
-              <div class="row custom-table-header">
-                <div class="col-xs-3 col-sm-2 custom-table-cell">Date</div>
-                <div class="col-xs-6 col-sm-5 custom-table-cell">Nom</div>
-                <div class="hidden-xs col-sm-3 custom-table-cell">Charges Totales</div>
-                <div class="col-xs-3 col-sm-2 custom-table-cell">Actions</div>
-              </div>
-              <% @workouts.each do |workout| %>
-                <div class="row custom-table-row"">
-                  <div class="col-xs-3 col-sm-2 custom-table-cell"><%= workout.date.strftime("%d.%m.%y") %></div>
-                  <div class="col-xs-6 col-sm-5 custom-table-cell"><%= workout.name %></div>
-                  <div class="hidden-xs col-sm-3 custom-table-cell"><%= "#{number_with_delimiter(workout.total_weight, separator: " ")} kg "%></div>
-                  <div class="col-xs-3 col-sm-2 custom-table-cell">
-                    <%= link_to workout_path(workout),  class: "btn-icon" do %><i class="fas fa-chevron-circle-right"></i><%end%>
-                  </div>
-
-                </div>
-              <% end %>
-               <div class="card-pagination">
-                  <%= will_paginate @workouts, renderer: BootstrapPagination::Rails %>
-                </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+
+  <div class="footer-container">
+    <%= render 'shared/navbar-bottom' %>
+  </div>
+
 </div>
 
 

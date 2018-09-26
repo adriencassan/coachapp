@@ -1,3 +1,45 @@
 .page-wrapper {
   padding: 10px;
 }
+
+
+.page-custom-header{
+  background-color: $light-gray;
+  color: $dark-blue;
+  width: 100%;
+  padding: 5px;
+  margin: O;
+
+  display: flex;
+
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+   p {
+    margin-bottom: 0;
+  }
+
+
+
+  .page-custom-header-content{
+    font-size: 10px;
+    margin-bottom: 5px;
+    color: $dark-blue;
+    align-items: center;
+  }
+
+  .page-custom-header-navback{
+     display: flex;
+     align-items: center;
+     margin-right: 10px;
+
+     i {
+      font-size: 20px;
+     }
+  }
+
+}
