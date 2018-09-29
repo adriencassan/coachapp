@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'exercices/new'
+
+  get 'exercices/create'
+
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -7,6 +11,8 @@ Rails.application.routes.draw do
     resources :repetitions, only: [ :new]
     patch '/update_feedback', to: "workoutsets#update_feedback"
   end
+
+  resources :exercices, only: [:new, :create]
 
   resources :repetitions, only: [:update,:destroy]
 
