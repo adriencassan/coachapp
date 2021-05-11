@@ -4,5 +4,6 @@
   "dependencies": {
   },
   "devDependencies": {
+     "webpack-dev-server": "^2.4.5"
   }
 }
