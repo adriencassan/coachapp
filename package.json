@@ -1,13 +1,12 @@
 {
-  "name": "coachappV3",
+  "name": "coachapp",
   "private": true,
   "dependencies": {
-     "@rails/webpacker": "3.5",
-      "bootstrap": "3",
+    "@rails/webpacker": "3.5",
+    "bootstrap": "3",
+    "chart.js": "^3.2.1",
     "flatpickr": "^4.5.2",
     "jquery": "^3.3.1"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
