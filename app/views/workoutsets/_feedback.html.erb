@@ -3,12 +3,21 @@
   <div class="row">
 
     <div class="col-xs-12">
+        <div>Data</div>
+        <div><%= "Numer of reps: #{workoutset.total_repetitions}" %></div>
+        <div><%= "Total weight: #{workoutset.total_weight}" %></div>
+        <br>
+    </div>
+
+    <div class="col-xs-12">
+      <div>Video</div>
       <% if workoutset.video.url.nil? %>
-      <%= simple_form_for workoutset do |f| %>
-      <%= f.input :video %>
-      <%= f.input :video_cache, as: :hidden %>
-      <%= f.button :submit, "upload", class: "round-btn blue-btn" %>
-      <% end %>
+        <%= simple_form_for workoutset do |f| %>
+          <%= f.label "Video"%>
+          <%= f.input :video%>
+          <%= f.input :video_cache, as: :hidden %>
+          <%= f.button :submit, "upload", class: "round-btn blue-btn" %>
+        <% end %>
 
       <% else %>
 
@@ -22,7 +31,9 @@
 
     <% if current_user.profile.role == "Coach"  %>
         <%= simple_form_for workoutset, url: workoutset_update_feedback_path(workoutset) do |f| %>
-          <%= f.input :feedback, label: false, as: :text, placeholder: "Saisir le feedback ici", input_html: {style: "font-size: 10px", rows: 10} %>
+          <%= f.input :rating_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: "Score Performance", input_html: {style: "font-size: 10px"}%>
+           <%= f.input :rating_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: "Score Execution", input_html: {style: "font-size: 10px"}%>
+          <%= f.input :feedback, label: "Feedback", as: :text, placeholder: "Saisir le feedback ici", input_html: {style: "font-size: 10px", rows: 10} %>
           <%= f.button :submit, "Valider", class: "round-btn blue-btn" %>
         <% end %>
     <% else %>

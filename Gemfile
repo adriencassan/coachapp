@@ -1,20 +1,26 @@
 source 'https://rubygems.org'
-ruby '2.4.4'
+ruby '2.6.3'
 
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 gem 'devise'
-gem 'jbuilder', '~> 2.0'
-gem 'pg', '~> 0.21'
-gem 'puma'
+gem 'jbuilder', '~> 2.5'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 3.7'
 gem 'rails', '5.1.6'
 gem 'redis'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-sass', '~> 5.0.9'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
-gem 'uglifier'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'webpacker'
 
 gem "chartkick"
