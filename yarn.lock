@@ -1279,7 +1279,7 @@ chartjs-adapter-date-fns@>=2.0.0:
 
 chartkick@^4.0.4:
   version "4.0.4"
-  resolved "https://registry.npmjs.org/chartkick/-/chartkick-4.0.4.tgz"
+  resolved "https://registry.yarnpkg.com/chartkick/-/chartkick-4.0.4.tgz#273f5fbaaebfb9aa95e76c8b9b996564321a5ab9"
   integrity sha512-kUSrZslQg0xbbYrtJz++Ohw64j0i6AS5uZu22agMf7ikaMYYMuQgTmrCrZ2xQ3rsQtjKSqdz4VHzl8vVRoG5Fw==
   optionalDependencies:
     chart.js ">=3.0.2"
