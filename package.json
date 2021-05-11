@@ -2,7 +2,11 @@
   "name": "coachappV3",
   "private": true,
   "dependencies": {
+     "webpack": "latest",
+    "webpack-dev-server": "^3.8.0"
   },
   "devDependencies": {
+    "webpack": "latest",
+    "webpack-dev-server": "^3.8.0"
   }
 }
