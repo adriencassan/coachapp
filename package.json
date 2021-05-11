@@ -2,7 +2,7 @@
   "name": "coachappV3",
   "private": true,
   "dependencies": {
-
+     "@rails/webpacker": "3.5",
       "bootstrap": "3",
     "flatpickr": "^4.5.2",
     "jquery": "^3.3.1"
