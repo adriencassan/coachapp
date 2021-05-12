@@ -12,7 +12,7 @@
           <li><%= link_to "Mes Programmes", profile_programs_path(current_user.profile) %></li>
           <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
           <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
-          <li><%= link_to "Ajouter Exercice", profile_exercices_path %></li>
+          <li><%= link_to "Ajouter Exercice", profile_exercices_path(current_user.profile) %></li>
           <li><%= link_to "Mes feedbacks", coach_feedbacks_path %></li>
         <% else %>
           <li><%= link_to "Mes élèves", coachees_path %></li>
