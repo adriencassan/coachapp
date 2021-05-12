@@ -1,4 +1,5 @@
 require_relative 'boot'
+require 'action_cable/engine'
 
 require 'rails/all'
 require 'csv'
