@@ -2824,7 +2824,7 @@ hex-color-regex@^1.1.0:
 
 highcharts@^9.1.0:
   version "9.1.0"
-  resolved "https://registry.npmjs.org/highcharts/-/highcharts-9.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-9.1.0.tgz#2cdb38e2e03530b4fde022bb05fbce5b34651e39"
   integrity sha512-K7HUuKhEylZ1pMdzGR35kPgUmpp0MDNpaWhEMkGiC5Jfzg/endtTLHJN2lsFqEO+xoN7AykBK98XaJPEpsrLyA==
 
 hmac-drbg@^1.0.1:
