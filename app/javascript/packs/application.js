@@ -1,4 +1,4 @@
-import 'stylesheets/application';
+
 import "bootstrap";
 import "flatpickr";
 
