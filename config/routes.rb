@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     get '/programs', to: "workouts#programs", as: :programs
     get '/programs/:id', to: "workouts#program", as: :program
     get '/programs/:id/new_workout', to: "workouts#create_by_program", as: :program_new_workout
+    get '/exercicereviews/:id', to: "exercicereviews#show"
     post '/programs/:id/new', to: "workoutsets#create_programset", as: :program_new_programset
   end
 

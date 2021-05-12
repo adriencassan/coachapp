@@ -1,0 +1,30 @@
+<div class="page-wrapper">
+  <div class="dbpage-container">
+    <div class="dbpage-left">
+      <div class="dbpage-title">
+        <%= @exercice.name %>
+        </div>
+    </div>
+     <div class="dbpage-right">
+    <div class="grid">
+      <div class="row">
+        <div class="row">
+          <div class="col-xs-9">
+          <% @exercicereviews.each do |exercicereview| %>
+            <div class="card-wrapper">
+                <div class="card-title">
+                 <%= "#{exercicereview.workout.date.strftime("%d.%b.%y")}  - #{exercicereview.exercice.name}" %>
+                </div>
+                <div class="card-content">
+                  <%= render "workoutsets/feedback", workoutset: exercicereview %>
+                </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
+
