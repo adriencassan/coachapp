@@ -248,7 +248,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 3.7)
-  rails (= 5.1.6)
+  rails (~> 5.1.6)
   redis
   sass-rails (~> 5.0)
   simple_form
