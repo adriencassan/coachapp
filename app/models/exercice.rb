@@ -1,5 +1,7 @@
 class Exercice < ApplicationRecord
 
+  mount_uploader :video, AttachementUploader
+
   def self.to_csv
     CSV.generate({headers: true, col_sep: ";", encoding: 'UTF-8'}) do |csv|
       csv << ["id","nom","nomEN"]

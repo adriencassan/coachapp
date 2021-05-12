@@ -10,6 +10,14 @@
   justify-content: space-between;
 }
 
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 30px;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910154047) do
+ActiveRecord::Schema.define(version: 20210512145015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.string "nameEN"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video"
+    t.string "description"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -88,6 +90,8 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.integer "total_repetitions", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rating_performance", default: 0
+    t.integer "rating_execution", default: 0
     t.index ["exercice_id"], name: "index_workoutsets_on_exercice_id"
     t.index ["workout_id"], name: "index_workoutsets_on_workout_id"
   end

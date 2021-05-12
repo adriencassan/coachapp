@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'exercices/new'
-
-  get 'exercices/create'
 
   devise_for :users
   root to: 'pages#home'
@@ -12,7 +9,8 @@ Rails.application.routes.draw do
     patch '/update_feedback', to: "workoutsets#update_feedback"
   end
 
-  resources :exercices, only: [:new, :create]
+  resources :exercices, only: [:new, :create, :index, :update, :show]
+
 
   resources :repetitions, only: [:update,:destroy]
 

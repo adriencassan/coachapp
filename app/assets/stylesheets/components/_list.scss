@@ -1,0 +1,20 @@
+
+.list-group{
+}
+
+.list-container {
+    margin-bottom: 10px;
+    overflow:scroll;
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.list-custom-item {
+  height:30px;
+}
+
+.list-custom-inline {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
