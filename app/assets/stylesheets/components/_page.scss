@@ -1,16 +1,17 @@
 .dbpage-container{
   display: flex;
+  width: 100%;
 
 }
 
 .dbpage-left{
   height: 100%;
-  width: 2000px;
+  width: 500px;
 }
 
 .dbpage-right{
   height: 100%;
-  width: calc(100%-2000px);
+  width: 100%;
 }
 
 

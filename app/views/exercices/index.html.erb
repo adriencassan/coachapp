@@ -9,7 +9,11 @@
               <div class="list-container">
                 <div class="list-group h-75 d-inline-block">
                   <% @exercices.each do |exercice| %>
-                  <%= link_to "#{exercice.id} - #{exercice.name}", exercices_path(id: "#{exercice.id}"), class: "list-group-item list-group-item-action" %>
+                    <div>
+                      <%= link_to "#{exercice.id} - #{exercice.name}"%>
+                      <%= link_to "Modifier", profile_exercices_path(id: "#{exercice.id}"), class: "round-btn" %>
+                      <%= link_to "MyReviews",profile_exercicereviews_path(profile_id: 2,id: "#{exercice.id}"), class: "round-btn" %>
+                    </div>
                   <% end %>
                 </div>
               </div>
@@ -21,19 +25,18 @@
           <div class="card full-height">
             <div class="card-content">
               <% if @exercice.nil? %>
-              <div class="col-xs-12">
-                <div class="card-row-header">
-                  <div style="font-weight: bold">Pas de valeur selectionnée</div>
+                <div class="col-xs-12">
+                  <div class="card-row-header">
+                    <div style="font-weight: bold">Pas de valeur selectionnée</div>
+                  </div>
                 </div>
-              </div>
               <% else %>
-              <%= render "exercices/new", exercice: @exercice %>
+
               <% end %>
             </div>
           </div>
         </div>
+
       </div>
-
-
     </div>
   </div>
