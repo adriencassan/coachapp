@@ -894,7 +894,7 @@
 
 "@rails/webpacker@^5.3.0":
   version "5.3.0"
-  resolved "https://registry.npmjs.org/@rails/webpacker/-/webpacker-5.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.3.0.tgz#9d7a615735f850572b9c5e2ad4c57f4af70d70fd"
   integrity sha512-cpzrtrsMVi6WgRUzL63bMF+oa98DiL8cKXUZzDFLeElRu7qArG+cxU8grmaPbTmFqQEqVGsbJT0c6fubbFtwVA==
   dependencies:
     "@babel/core" "^7.13.16"
