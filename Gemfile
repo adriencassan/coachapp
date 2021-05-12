@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'webpacker'
 
 gem "chartkick"
+gem 'flatpickr'
 
 
 gem 'will_paginate-bootstrap'

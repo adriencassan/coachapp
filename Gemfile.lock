@@ -87,6 +87,7 @@ GEM
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.9.25)
+    flatpickr (4.6.6.0)
     font-awesome-sass (5.0.13)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -239,6 +240,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  flatpickr
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.5)
   listen (~> 3.0.5)
