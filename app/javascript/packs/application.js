@@ -1,5 +1,6 @@
 import "bootstrap";
 import "flatpickr";
+import "chartkick/chart.js";
 
 
 
