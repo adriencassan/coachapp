@@ -7,7 +7,7 @@ class ExercicesController < ApplicationController
     @exercice = Exercice.new(exercice_params)
     @exercice.save
     @exercice = Exercice.new
-    redirect_to  exercices_new_path
+    redirect_to  exercices_path
   end
 
   def index
