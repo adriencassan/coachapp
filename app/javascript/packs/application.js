@@ -1,11 +1,11 @@
 import "bootstrap";
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import "flatpickr";
 
 import "chartkick";
 import "chartkick/chart.js";
 import "chartkick/highcharts";
 
+require("chartkick/chart.js")
 
 flatpickr(".datepicker", {});
 
