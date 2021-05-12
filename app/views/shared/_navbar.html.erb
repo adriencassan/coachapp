@@ -6,7 +6,7 @@
       <div class="dropdown-toggle" data-toggle="dropdown">
         <%= image_tag "logo.png", height: 50 %>
       </div>
-      <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+      <ul class="dropdown-menu-left navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
         <% if current_user.profile.role == "Athlete" %>
           <li><%= link_to "Mes Programmes", profile_programs_path(current_user.profile) %></li>
