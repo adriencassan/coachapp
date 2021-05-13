@@ -6,23 +6,27 @@
 
 <div class="custom-table">
   <div class="row custom-table-header">
-    <div class="col-xs-2 custom-table-cell text-center">Total Reps</div>
-    <div class="col-xs-2 custom-table-cell text-center">Total Weight</div>
-    <div class="col-xs-2 custom-table-cell text-center">Review Performance</div>
-    <div class="col-xs-2 custom-table-cell text-center">Review Execution</div>
+    <div class="col-xs-2 custom-table-cell text-center">Date</div>
+    <div class="col-xs-1 custom-table-cell text-center">Total Reps</div>
+    <div class="col-xs-1 custom-table-cell text-center">Total Weight</div>
+    <div class="col-xs-1 custom-table-cell text-center">Review Performance</div>
+    <div class="col-xs-1 custom-table-cell text-center">Review Execution</div>
+    <div class="col-xs-1 custom-table-cell text-center">Video?</div>
   </div>
-    <div class="col-xs-2 custom-table-cell text-center"><%= workoutset.total_repetitions %></div>
-    <div class="col-xs-2 custom-table-cell text-center"><%= workoutset.total_weight %></div>
-    <div class="col-xs-2 custom-table-cell text-center"><%= "#{workoutset.rating_performance} / 10"  %></div>
-    <div class="col-xs-2 custom-table-cell text-center"><%= "#{workoutset.rating_execution} / 10" %></div>
-    <div class="col-xs-2 custom-table-cell text-center"> <a class="btn round-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <div class="col-xs-2 custom-table-cell text-center"><%= workoutset.workout.date.strftime("%d.%b.%y") %></div>
+    <div class="col-xs-1 custom-table-cell text-center"><%= workoutset.total_repetitions %></div>
+    <div class="col-xs-1 custom-table-cell text-center"><%= workoutset.total_weight %></div>
+    <div class="col-xs-1 custom-table-cell text-center"><%= "#{workoutset.rating_performance} / 10"  %></div>
+    <div class="col-xs-1 custom-table-cell text-center"><%= "#{workoutset.rating_execution} / 10" %></div>
+    <div class="col-xs-1 custom-table-cell text-center"><%=  not workoutset.video.url.nil? %></div>
+    <div class="col-xs-1 custom-table-cell text-center"> <a class="btn round-btn" data-toggle="collapse" href=<%= "#collapseExample-#{workoutset.id}" %> role="button" aria-expanded="false" aria-controls="collapseExample">
         Feedback
       </a></div>
   </div>
 </div>
 
 
-<div class="collapse" id="collapseExample">
+<div class="collapse" id=<%= "collapseExample-#{workoutset.id}" %> >
   <div class="card card-body">
      <video width="300" height="300" controls>
         <source src="<%= workoutset.video.url %>" type="video/mp4">

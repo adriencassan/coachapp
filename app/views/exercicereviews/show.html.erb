@@ -28,12 +28,10 @@
 
               <% @exercicereviews.each do |exercicereview| %>
               <div class="card-wrapper">
-                <div class="card-title">
-                 <%= "#{exercicereview.workout.date.strftime("%d.%b.%y")}  - #{exercicereview.exercice.name}" %>
-               </div>
                <div class="card-content">
                 <%= render "exercicereviews/reviews", workoutset: exercicereview %>
               </div>
+            </div>
         <% end %>
 
       </div>

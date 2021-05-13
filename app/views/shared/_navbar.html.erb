@@ -9,11 +9,11 @@
       <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
         <% if current_user.profile.role == "Athlete" %>
-          <li><%= link_to "Mes Programmes", profile_programs_path(current_user.profile) %></li>
-          <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
-          <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
-          <li><%= link_to "Ajouter Exercice", profile_exercices_path(current_user.profile)  %></li>
-          <li><%= link_to "Mes feedbacks", coach_feedbacks_path %></li>
+          <li><%= link_to "My workouts programs", profile_programs_path(current_user.profile) %></li>
+          <li><%= link_to "My workouts", profile_workouts_path(current_user.profile) %></li>
+          <li><%= link_to "My results", profile_results_path(current_user.profile) %></li>
+          <li><%= link_to "All exercices & Reviews", profile_exercices_path(current_user.profile)  %></li>
+          <li><%= link_to "All reviews", coach_feedbacks_path %></li>
         <% else %>
           <li><%= link_to "Mes élèves", coachees_path %></li>
           <li><%= link_to "Mes feedbacks", coach_feedbacks_path %></li>
