@@ -13,21 +13,19 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
 gem 'redis'
-gem 'jquery-rails'
-
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
-gem 'font-awesome-sass', '~> 5.0.9'
+gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sass-rails', '~> 5.0'
-gem 'simple_form'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
+gem 'turbolinks', '~> 5'
 gem 'webpacker'
+gem 'jquery-rails'
 
 
+gem 'simple_form'
 gem 'flatpickr'
-
-
 gem 'will_paginate-bootstrap'
 gem 'active_link_to'
 

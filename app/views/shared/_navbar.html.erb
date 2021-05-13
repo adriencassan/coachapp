@@ -1,31 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-  <% end %>
+<div class="navbar-wagon">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="navbar-wagon-left">
+    <!-- Logo -->
+    <div class="dropdown">
+      <div class="" data-toggle="dropdown">
+        <%= image_tag "logo.png", height: 50 %>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+      <% if user_signed_in? %>
+        <% if current_user.profile.role == "Athlete" %>
+          <li><%= link_to "Mes Programmes", profile_programs_path(current_user.profile) %></li>
+          <li><%= link_to "Mes entrainements", profile_workouts_path(current_user.profile) %></li>
+          <li><%= link_to "Mes résultats", profile_results_path(current_user.profile) %></li>
+          <li><%= link_to "Ajouter Exercice", profile_exercices_path(current_user.profile)  %></li>
+          <li><%= link_to "Mes feedbacks", coach_feedbacks_path %></li>
+        <% else %>
+          <li><%= link_to "Mes élèves", coachees_path %></li>
+          <li><%= link_to "Mes feedbacks", coach_feedbacks_path %></li>
+        <% end %>
+
+          <li>  <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+      <% else %>
+        <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
+      <% end %>
+      </ul>
+    </div>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to "Home", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Action", "#", class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
-        </div>
-      </li>
-    </ul>
+    <!-- Greeting -->
+    <% if user_signed_in? %>
+      <div class="navbar-greetings">
+        <div><%= "#{current_user.profile.full_name}" %></div>
+        <div><%= "Profil : #{current_user.profile.role}" %></div>
+      </div>
+    <%end%>
   </div>
 </div>
-
-
 

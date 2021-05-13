@@ -25,10 +25,7 @@
     </div>
     <div class="dbpage-right">
       <div class="dbpage-title">Reviews</div>
-      <div class="grid">
-        <div class="row">
-          <div class="row">
-            <div class="col-xs-9">
+
               <% @exercicereviews.each do |exercicereview| %>
               <div class="card-wrapper">
                 <div class="card-title">
@@ -37,9 +34,6 @@
                <div class="card-content">
                 <%= render "exercicereviews/reviews", workoutset: exercicereview %>
               </div>
-            </div>
-          </div>
-        </div>
         <% end %>
 
       </div>
