@@ -1,41 +1,41 @@
-
-
+<div>
   <div class="page-custom-header">
-  <div class="page-custom-header-navback">
-    <%= link_to profile_exercices_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%></i>
-  </div>
+    <div class="page-custom-header-navback">
+      <%= link_to profile_exercices_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%></i>
+    </div>
 
-  <div class="page-custom-header-content">
-    <h3><%= @exercice.name %></h3>
+    <div class="page-custom-header-content">
+      <h3><%= @exercice.name %></h3>
+    </div>
   </div>
-</div>
 
   <div class="dbpage-container">
     <div class="dbpage-left">
       <div class="dbpage-title">Guidelines</div>
-        <div class="card-wrapper">
-            <div class="card-title">Video</div>
-            <div class="card-content">
-              <video width="300" height="300" controls>
-                <source src="<%= @exercice.video.url %>" type="video/mp4">Your browser does not support the video tag.
-              </video>
-              <p><%= @exercice.description %><</p>
-            </div>
+      <div class="card-wrapper">
+        <div class="card-title">Video</div>
+        <div class="card-content">
+          <video width="300" height="300" controls>
+            <source src="<%= @exercice.video.url %>" type="video/mp4">Your browser does not support the video tag.
+            </video>
+            <p><%= @exercice.description %><</p>
+          </div>
         </div>
-    </div>
-    <div class="dbpage-right">
-      <div class="dbpage-title">Reviews</div>
-
-              <% @exercicereviews.each do |exercicereview| %>
-              <div class="card-wrapper">
-               <div class="card-content">
-                <%= render "exercicereviews/reviews", workoutset: exercicereview %>
-              </div>
-            </div>
+      </div>
+      <div class="dbpage-right">
+        <div class="dbpage-title">Reviews</div>
+        <div class="card-wrapper">
+          <div class="card-title">Add new workout
+           <%= link_to "New",profile_exercicereviews_createnow_path(profile_id: current_user.profile_id,id: "#{@exercice.id}"), class: "round-btn xs-btn" %>
+         </div>
+         <% @exercicereviews.each do |exercicereview| %>
+         <div class="card-content">
+          <%= render "exercicereviews/reviews", workoutset: exercicereview %>
+        </div>
         <% end %>
-
       </div>
     </div>
   </div>
+</div>
 
 
