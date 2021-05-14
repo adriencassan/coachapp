@@ -18,8 +18,8 @@ class ExercicesController < ApplicationController
 
 
   def update
-    exercice = Exercice.find(params[:id]).update(exercice_params)
-    redirect_to exercices_path
+    @exercice = Exercice.find(params[:id]).update(exercice_params)
+    redirect_to profile_exercices_path(current_user.profile_id,@exercice)
   end
 
   private

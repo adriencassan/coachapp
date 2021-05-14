@@ -53,7 +53,7 @@ const closeJsForm = (e) => {
   editForm.classList.add("hide")
 
   const showForm =document.getElementById("repetition"+e.target.dataset.repetition+"-show");
-  showForm.classList.close("hide")
+  showForm.classList.remove("hide")
 }
 
 

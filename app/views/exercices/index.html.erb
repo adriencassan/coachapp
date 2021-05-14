@@ -11,8 +11,8 @@
                   <% @exercices.each do |exercice| %>
                     <div>
                       <%= link_to "#{exercice.id} - #{exercice.name}"%>
-                      <%= link_to "Modifier", profile_exercices_path(id: "#{exercice.id}"), class: "round-btn" %>
-                      <%= link_to "MyReviews",profile_exercicereviews_path(profile_id: 2,id: "#{exercice.id}"), class: "round-btn" %>
+                      <%= link_to "Modifier", profile_exercices_path(profile_id:current_user.profile_id, id: "#{exercice.id}"), class: "round-btn" %>
+                      <%= link_to "MyReviews",profile_exercicereviews_path(profile_id: current_user.profile_id,id: "#{exercice.id}"), class: "round-btn" %>
                     </div>
                   <% end %>
                 </div>
@@ -31,7 +31,7 @@
                   </div>
                 </div>
               <% else %>
-
+                <%= render "exercices/new", exercice: @exercice %>
               <% end %>
             </div>
           </div>

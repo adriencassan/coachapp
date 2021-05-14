@@ -1,0 +1,7 @@
+
+<%= simple_form_for workoutset, url: exercicereview_path(workoutset) do |f| %>
+          <%= f.input :rating_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: "Score Performance", input_html: {style: "font-size: 10px"}%>
+           <%= f.input :rating_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: "Score Execution", input_html: {style: "font-size: 10px"}%>
+          <%= f.input :feedback, label: "Feedback", as: :text, placeholder: "Saisir le feedback ici", input_html: {style: "font-size: 10px", rows: 10} %>
+          <%= f.button :submit, "Valider", class: "round-btn blue-btn" %>
+<% end %>

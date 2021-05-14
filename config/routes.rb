@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     patch '/update_feedback', to: "workoutsets#update_feedback"
   end
 
-  resources :exercices, only: [:update]
+  resources :exercices
+
+  resources :exercicereviews, only: [:update]
 
 
   resources :repetitions, only: [:update,:destroy]
@@ -33,6 +35,7 @@ Rails.application.routes.draw do
     get '/programs/:id/new_workout', to: "workouts#create_by_program", as: :program_new_workout
     get '/exercicereviews/:id', to: "exercicereviews#show", as: :exercicereviews
     post '/programs/:id/new', to: "workoutsets#create_programset", as: :program_new_programset
+
   end
 
   get 'export', to: "profiles#export", defaults: { format: 'csv' }

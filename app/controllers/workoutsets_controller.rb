@@ -55,7 +55,7 @@ class WorkoutsetsController < ApplicationController
   private
 
   def workoutset_params
-    params.require(:workoutset).permit(:exercice,:video, :feedback)
+    params.require(:workoutset).permit(:exercice,:video, :feedback,:rating_performance,:rating_execution)
   end
 
 end
