@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210512145015) do
+ActiveRecord::Schema.define(version: 20210515040835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,9 @@ ActiveRecord::Schema.define(version: 20210512145015) do
     t.datetime "updated_at", null: false
     t.integer "rating_performance", default: 0
     t.integer "rating_execution", default: 0
+    t.bigint "coach_id"
+    t.date "reviewed_at"
+    t.index ["coach_id"], name: "index_workoutsets_on_coach_id"
     t.index ["exercice_id"], name: "index_workoutsets_on_exercice_id"
     t.index ["workout_id"], name: "index_workoutsets_on_workout_id"
   end
@@ -102,5 +105,6 @@ ActiveRecord::Schema.define(version: 20210512145015) do
   add_foreign_key "users", "profiles"
   add_foreign_key "workouts", "profiles"
   add_foreign_key "workoutsets", "exercices"
+  add_foreign_key "workoutsets", "profiles", column: "coach_id"
   add_foreign_key "workoutsets", "workouts"
 end

@@ -5,6 +5,10 @@ user_coach = User.create(email: "coach@gmail.com", password: "password", profile
 profile_adrien = Profile.create(first_name: "Adrien", last_name: "Cassan", role: "Athlete")
 user_adrien = User.create(email: "adrien.cassan@gmail.com", password: "password", profile: profile_adrien)
 
+profile_coach = Profile.create(first_name: "Mamadou", last_name: "Coach", role: "Coach" )
+user_coach = User.create(email: "mamadou@gmail.com", password: "password", profile: profile_coach)
+
+
 # RESULT
 result1 = Result.new(profile: profile_adrien, date: "2017-09-12", weight: 76.1, fatmass: 15)
 result1.remote_selfie_url = "http://res.cloudinary.com/duojdxafe/image/upload/v1536851762/2017-09-12.jpg"

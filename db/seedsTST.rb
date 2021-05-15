@@ -14,6 +14,9 @@ user_coach = User.create(email: "coach@gmail.com", password: "password", profile
 profile_adrien = Profile.create(first_name: "Adrien", last_name: "Cassan", role: "Athlete")
 user_adrien = User.create(email: "adrien.cassan@gmail.com", password: "password", profile: profile_adrien)
 
+profile_coach = Profile.create(first_name: "Mamadou", last_name: "Coach", role: "Coach" )
+user_coach = User.create(email: "mamadou@gmail.com", password: "password", profile: profile_coach)
+
 
 # EXERCICE
 exercice_bench_press = Exercice.create(name: "Développé-Couché", nameEN: "Bench Press")
