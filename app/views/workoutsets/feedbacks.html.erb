@@ -1,35 +1,43 @@
 <div class="page-wrapper">
 
-
   <div class="dbpage-title">Feedback requests</div>
   <div class="grid">
     <div class="row">
-      <% @feedbacks_requested.each do |feedback| %>
+      <% if @feedbacks_requested.empty? %>
       <div class="row">
         <div class="col-xs-12">
           <div class="card-wrapper">
-            <div class="card-title">
-             <%= "#{feedback.workout.date.strftime("%d.%b.%y")}  - #{feedback.exercice.name}" %>
-           </div>
-           <div class="card-content">
-            <%= render "exercicereviews/reviews", workoutset: feedback %>
+            <div class="card-title"><%= Date.today.strftime("%d.%b.%y")%></div>
+            <div class="card-content">No feedback requested today :)</div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
 
-    <div class="dbpage-title">Feedback completed</div>
-    <div class="grid">
+    <% @feedbacks_requested.each do |feedback| %>
       <div class="row">
-        <% @feedbacks_completed.each do |feedback| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="card-wrapper">
-              <div class="card-title">
-               <%= "#{feedback.workout.date.strftime("%d.%b.%y")}  - #{feedback.exercice.name}" %>
-             </div>
-             <div class="card-content">
+        <div class="col-xs-12">
+          <div class="card-wrapper">
+            <div class="card-title"><%= "#{feedback.workout.date.strftime("%d.%b.%y")}  - #{feedback.exercice.name}" %></div>
+            <div class="card-content">
+              <%= render "exercicereviews/reviews", workoutset: feedback %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+   </div>
+  </div>
+
+  <div class="dbpage-title">Feedback completed</div>
+  <div class="grid">
+    <div class="row">
+      <% @feedbacks_completed.each do |feedback| %>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="card-wrapper">
+            <div class="card-title"><%= "#{feedback.workout.date.strftime("%d.%b.%y")}  - #{feedback.exercice.name}" %></div>
+            <div class="card-content">
               <%= render "exercicereviews/reviews", workoutset: feedback %>
             </div>
           </div>
