@@ -1063,3 +1063,13 @@ feedback.feedback = "- l’effort du mouvement sur les talons est parfait on le 
 - pour les omoplates tu peux faire un effort supplémentaire pour les resserrer (indicateur visuel: les pectoraux bien devant et les mains très basses bras tendu qui appui vers tes cuisses)  - garde la tête dans l’axe du corps pendant le mouvement pour éviter les douleurs cervicales"
 feedback.save!
 
+
+
+#MENU
+menu1 = Workout.create(profile: profile_adrien, date: '2021-05-19', name: 'Menu 2021-05-19', type_habit: 'Meal')
+menu2 = Workout.create(profile: profile_adrien, date: '2021-05-20', name: 'Menu 2021-05-20', type_habit: 'Meal')
+menu3 = Workout.create(profile: profile_adrien, date: '2021-05-21', name: 'Menu 2021-05-21', type_habit: 'Meal')
+Workoutset.create(workout: menu1, name: 'Meal Menu 1', exercice_id: 1)
+Workoutset.create(workout: menu2, name: 'Meal Menu 2', exercice_id: 1)
+Workoutset.create(workout: menu3, name: 'Meal Menu 3', exercice_id: 1)
+

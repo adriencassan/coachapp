@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get '/exercicereviews/:id', to: "exercicereviews#show", as: :exercicereviews
     get '/exercicereviews/:id/createnow', to: "exercicereviews#createnow", as: :exercicereviews_createnow
     post '/programs/:id/new', to: "workoutsets#create_programset", as: :program_new_programset
+    get '/habitsviews/', to: "habitsviews#show"
 
   end
 

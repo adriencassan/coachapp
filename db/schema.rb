@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20210515040835) do
   create_table "exercices", force: :cascade do |t|
     t.string "name"
     t.string "nameEN"
+    t.string "type_habit_item"
+    t.integer "kcal_protein", default: 0
+    t.integer "kcal_carb", default: 0
+    t.integer "kcal_fat", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video"
@@ -36,12 +40,14 @@ ActiveRecord::Schema.define(version: 20210515040835) do
 
   create_table "repetitions", force: :cascade do |t|
     t.bigint "workoutset_id"
+    t.bigint "exercice_id"
     t.integer "quantity", default: 0
     t.integer "weight", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "is_complete"
     t.boolean "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
+    t.index ["exercice_id"], name: "index_repetitions_on_exercice_id"
     t.index ["workoutset_id"], name: "index_repetitions_on_workoutset_id"
   end
 
@@ -73,6 +79,7 @@ ActiveRecord::Schema.define(version: 20210515040835) do
   create_table "workouts", force: :cascade do |t|
     t.datetime "date"
     t.string "name"
+    t.string "type_habit"
     t.integer "program_id"
     t.bigint "profile_id"
     t.boolean "is_program", default: false
@@ -84,10 +91,17 @@ ActiveRecord::Schema.define(version: 20210515040835) do
   create_table "workoutsets", force: :cascade do |t|
     t.bigint "exercice_id"
     t.bigint "workout_id"
+    t.string "name"
+    t.string "photo"
     t.string "video"
     t.string "feedback"
     t.integer "total_weight", default: 0
     t.integer "total_repetitions", default: 0
+    t.integer "total_kcal", default: 0
+    t.integer "total_kcal_calculated", default: 0
+    t.integer "total_kcal_protein", default: 0
+    t.integer "total_kcal_carb", default: 0
+    t.integer "total_kcal_fat", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rating_performance", default: 0
@@ -100,6 +114,7 @@ ActiveRecord::Schema.define(version: 20210515040835) do
   end
 
   add_foreign_key "profiles", "profiles"
+  add_foreign_key "repetitions", "exercices"
   add_foreign_key "repetitions", "workoutsets"
   add_foreign_key "results", "profiles"
   add_foreign_key "users", "profiles"
