@@ -8,14 +8,10 @@
       </div>
       <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
       <% if user_signed_in? %>
-        <% if current_user.profile.role == "Athlete" %>
           <li><%= link_to "My Habits", profile_habitsets_path(current_user.profile) %></li>
-          <li><%= link_to "New Habitset", habitset_path(current_user.profile) %></li>
-        <% else %>
-          <li><%= link_to "Feedbacks Requests", coach_feedbacks_path %></li>
-        <% end %>
-
-          <li>  <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+          <li><%= link_to "Schedule Habits", profile_programs_path(current_user.profile) %></li>
+          <li><%= link_to "Feedbacks Requests", profile_reviews_path(current_user.profile)  %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
       <% else %>
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path %>
       <% end %>

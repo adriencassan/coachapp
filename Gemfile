@@ -25,10 +25,11 @@ gem 'jquery-rails'
 
 
 gem 'simple_form'
+gem 'simple-form-datepicker'
 gem 'flatpickr'
 gem 'will_paginate-bootstrap'
 gem 'active_link_to'
-gem 'bootstrap-datepicker-rails'
+
 
 
 # Attachments management

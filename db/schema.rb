@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.string "photo"
     t.string "url"
     t.boolean "is_model"
+    t.boolean "coach_review_is_requested"
     t.datetime "coach_reviewed_at"
     t.string "coach_guidelines_video"
     t.string "coach_guidelines"
@@ -31,12 +32,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.string "coach_feedback"
     t.integer "coach_review_performance", default: 0
     t.integer "coach_review_execution", default: 0
-    t.integer "fit_weight", default: 0
-    t.integer "fit_repetitions", default: 0
     t.integer "kcal", default: 0
-    t.integer "result_weight", default: 0
-    t.integer "result_fatmass", default: 0
-    t.string "result_selfie"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["coach_id"], name: "index_habitsets_on_coach_id"

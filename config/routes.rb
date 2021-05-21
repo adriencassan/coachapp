@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :profiles do
-    resources :habitsets
-    get '/coach/myfeedbacks', to: "profiles#coach_feedbacks", as: :profile_coach_feedbacks
+    get '/habitsets', to: "profiles#habitsets"
+    get '/reviews', to: "profiles#reviews"
+    get '/programs', to: "profiles#programs"
   end
 
-  get 'export', to: "profiles#export", defaults: { format: 'csv' }
 end

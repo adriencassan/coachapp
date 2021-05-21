@@ -1,7 +1,5 @@
 <div class="page-wrapper">
 
-  <div class="page-custom-wrapper">
-
   <div class="page-custom-header">
     <div class="page-custom-header-navback">
       <%= link_to habitsets_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%>
@@ -20,6 +18,15 @@
     <%= simple_form_for @habitset do |f| %>
 
 
+   <div class="row custom-table-header-grey row-margin-left">
+      <div class="col-xs-12 custom-table-cell">Actions</div>
+    </div>
+
+    <div class="row custom-table-row row-margin-left">
+      <div class="col-xs-3 custom-table-cell">Save</div>
+      <div class="col-xs-6 custom-table-cell"><%= f.button :submit, "Envoyer", class: "blue-btn round-btn sm-btn pull-right" %></div>
+    </div>
+
     <div class="row custom-table-header-grey row-margin-left">
       <div class="col-xs-12 custom-table-cell">Modele</div>
     </div>
@@ -27,11 +34,6 @@
     <div class="row custom-table-row row-margin-left">
         <div class="col-xs-3 custom-table-cell">Is Model</div>
         <div class="col-xs-6 custom-table-cell"><%= f.input :is_model, label: false, input_html: {style: "font-size: 8px"}%> </div>
-    </div>
-
-        <div class="row custom-table-row row-margin-left">
-        <div class="col-xs-3 custom-table-cell">Copy habiset</div>
-        <%= link_to "copy", "", class:"btn round-btn sm-btn action-btn"%>
     </div>
 
     <div class="row custom-table-row row-margin-left">
@@ -42,7 +44,7 @@
 
     <div class="row custom-table-row row-margin-left">
         <div class="col-xs-3 custom-table-cell">Date</div>
-        <div class="col-xs-6 custom-table-cell"><%= f.input :date, label: false, input_html: {type:"text" data-provide:'datepicker' style: "font-size: 8px"}%> </div>
+        <div class="col-xs-6 custom-table-cell"><%= f.input :date, as: :datepicker, label: false,  input_html: {style: "font-size: 8px"} %></div>
     </div>
 
     <div class="row custom-table-header-grey row-margin-left">
@@ -81,6 +83,11 @@
     </div>
 
     <div class="row custom-table-row row-margin-left">
+        <div class="col-xs-3 custom-table-cell">Is Requested</div>
+        <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review_is_requested, label: false, input_html: {style: "font-size: 8px"}%> </div>
+    </div>
+
+    <div class="row custom-table-row row-margin-left">
       <div class="col-xs-3 custom-table-cell">Coach</div>
       <div class="col-xs-6 custom-table-cell">
         <%= f.input :coach_id, collection: Profile.all, label: false, value_methode: :name, input_html: {style: "font-size: 8px"}%></div>
@@ -89,7 +96,7 @@
     <div class="row custom-table-row row-margin-left">
       <div class="col-xs-3 custom-table-cell">Reviewed at</div>
       <div class="col-xs-6 custom-table-cell">
-        <%= f.input :coach_reviewed_at, label: false, input_html: {style: "font-size: 8px"}%></div>
+        <%= f.input :coach_reviewed_at, as: :datepicker, label: false,  input_html: {style: "font-size: 8px"} %></div>
     </div>
 
     <div class="row custom-table-row row-margin-left">
@@ -98,7 +105,7 @@
         <%= f.input :coach_review_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, input_html: {style: "font-size: 8px"}%></div>
     </div>
 
-       <div class="row custom-table-row row-margin-left">
+    <div class="row custom-table-row row-margin-left">
       <div class="col-xs-3 custom-table-cell">Coach Review Execution</div>
       <div class="col-xs-6 custom-table-cell">
         <%= f.input :coach_review_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, input_html: {style: "font-size: 8px"}%></div>
@@ -106,8 +113,8 @@
 
 
     <div class="row custom-table-row row-margin-left">
-        <div class="col-xs-3 custom-table-cell">Eeview</div>
-        <div class="col-xs-6 custom-table-cell"><%= f.input :coach_feedback, label: false, input_html: {style: "font-size: 8px"}%> </div>
+      <div class="col-xs-3 custom-table-cell">Review</div>
+      <div class="col-xs-6 custom-table-cell"><%= f.input :coach_feedback, label: false, input_html: {style: "font-size: 8px"}%></div>
     </div>
 
     <div class="row custom-table-row row-margin-left">
@@ -127,14 +134,10 @@
     </div>
 
     <% end %>
+    </div>
+
   </div>
 </div>
-
-      </div>
-
-
-  </div>
-</duv>
 
 
 

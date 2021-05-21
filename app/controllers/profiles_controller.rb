@@ -1,33 +1,17 @@
 class ProfilesController < ApplicationController
 
-
-  def coachees
-    @coachees = Profile.where(role: "Athlete").order(:first_name)
+  def habitsets
+    @habitsets = Habitset.where.not(is_model: true)
+    @habitsetdays = ["2021-05-21","2021-05-22 "]
   end
 
-  def coachee_workouts
-    @coachee = Profile.find(params[:profile_id])
-    #@programs = Workout.where(profile: @coachee, is_program: true)
-    @workouts = Workout.where(profile: @coachee, is_program: false).order(date: :desc)
+  def reviews
+    @reviews_requested = Habitset.where(coach_review_is_requested: true)
+    @reviews_completed = Habitset.where.not(coach_reviewed_at: nil)
   end
 
-  def coachee_results
-    @coachee = Profile.find(params[:profile_id])
-    @results = @coachee.results
-    @results_graph = @results.order(date: :desc).limit(5).map { |result| [result.date.strftime("%d/%m"), result.weight]}.reverse
+  def programs
+    @habitsets = Habitset.where(is_model: true)
   end
 
-  def coachee_feedbacks
-    @coachee = Profile.find(params[:profile_id])
-    @feedbacks = Workoutset.joins(:workout).where.not(video: nil).where("workouts.profile_id =  #{@coachee.id}").order("workouts.date DESC")
-  end
-
-
-
-  ### TO BE DELETED
-  def export
-    respond_to do |format|
-      format.csv { send_data Exercice.to_csv, filename: "exercices-#{Date.today}.csv" }
-    end
-  end
 end

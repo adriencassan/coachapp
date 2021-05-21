@@ -17,6 +17,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.string :photo
       t.string :url
       t.boolean :is_model
+      t.boolean :coach_review_is_requested
       t.datetime :coach_reviewed_at
       t.string :coach_guidelines_video
       t.string :coach_guidelines
