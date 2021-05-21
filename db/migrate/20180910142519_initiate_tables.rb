@@ -8,58 +8,23 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    create_table :workouts do |t|
+    create_table :habitsets do |t|
+      t.bigint :coachee_id, index: true, foreign_key: {to_table: :profiles}
+      t.bigint :coach_id, index: true, foreign_key: {to_table: :profiles}
+      t.string :name
       t.datetime :date
-      t.string :name
-      t.string :type_habit
-      t.integer :program_id
-      t.references :profile, foreign_key: true
-      t.boolean :is_program, default: false
-      t.timestamps
-    end
-
-    create_table :exercices do |t|
-      t.string :name
-      t.string :nameEN
-      t.string :type_habit_item
-      t.integer :kcal_protein, default: 0
-      t.integer :kcal_carb, default: 0
-      t.integer :kcal_fat, default: 0
-      t.timestamps
-    end
-
-    create_table :workoutsets do |t|
-      t.references :exercice, foreign_key: true
-      t.references :workout, foreign_key: true
-      t.string :name
+      t.string :description
       t.string :photo
-      t.string :video
-      t.string :feedback
-      t.integer :total_weight, default: 0
-      t.integer :total_repetitions, default: 0
-      t.integer :total_kcal, default: 0
-      t.integer :total_kcal_calculated, default: 0
-      t.integer :total_kcal_protein, default: 0
-      t.integer :total_kcal_carb, default: 0
-      t.integer :total_kcal_fat, default: 0
-      t.timestamps
-    end
-
-    create_table :repetitions do |t|
-      t.references :workoutset, foreign_key: true
-      t.references :exercice, foreign_key: true, as: :habit_item_id
-      t.integer :quantity, default: 0
-      t.integer :weight, default: 0
-      t.boolean :is_complete,
-      t.timestamps
-    end
-
-    create_table :results do |t|
-      t.datetime :date
-      t.integer :weight
-      t.integer :fatmass
-      t.references :profile, foreign_key: true
-      t.string :selfie
+      t.string :url
+      t.boolean :is_model
+      t.datetime :coach_reviewed_at
+      t.string :coach_guidelines_video
+      t.string :coach_guidelines
+      t.string :coach_feedback_video
+      t.string :coach_feedback
+      t.integer :coach_review_performance, default: 0
+      t.integer :coach_review_execution, default: 0
+      t.integer :kcal, default: 0
       t.timestamps
     end
   end

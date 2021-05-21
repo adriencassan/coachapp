@@ -13,7 +13,7 @@
       <div>Video</div>
       <% if workoutset.video.url.nil? %>
         <%= simple_form_for workoutset do |f| %>
-          <%= f.label "Video"%>
+          <%= f.label "Coach Guideline"%>
           <%= f.input :video%>
           <%= f.input :video_cache, as: :hidden %>
           <%= f.button :submit, "upload", class: "round-btn blue-btn" %>

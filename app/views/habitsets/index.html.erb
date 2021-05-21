@@ -1,0 +1,62 @@
+<div class="page-custom-wrapper">
+
+  <div class="page-custom-header">
+    <div class="page-custom-header-navback"></div>
+    <div class="page-custom-header-content">
+       <h3><%= "TBD" %></h3>
+    </div>
+  </div>
+
+  <div class="page-custom-content">
+    <div class="grid">
+
+      <div class="row page-custom-section-title">
+        <h3>ROUTINES</h3>
+      </div>
+
+       <div class="row page-custom-section">
+         <% @habitsetmodels.each do |habitsetmodel| %>
+           <div class="row">
+              <div class="card-product">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <div class="card-product-infos">
+                  <div class="row">
+                    <div class="col-xs-2">XX</div>
+                    <div class="col-xs-6"><%= habitsetmodel.name %></div>
+                    <div class="col-xs-4">
+                      <%= link_to "insert", edit_habitset_path(habitsetmodel), action: "edit", class:"btn round-btn blue-btn sm-btn"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <%end %>
+        </div>
+
+      <div class="row page-custom-section-title">
+        <h3>SCHEDULED</h3>
+      </div>
+
+      <div class="row page-custom-section">
+         <% @habitsets.each do |habitset| %>
+           <div class="row">
+              <div class="card-product">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <div class="card-product-infos">
+                  <div class="row">
+                    <div class="col-xs-2"><%= habitset.date %></div>
+                    <div class="col-xs-6"><%= habitset.name %></div>
+                    <div class="col-xs-4">
+                      <%= link_to "edit", edit_habitset_path(habitset), action: "edit", class:"btn round-btn blue-btn sm-btn"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <%end %>
+        </div>
+
+
+      </div>
+    </div>
+</div>

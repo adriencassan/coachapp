@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.profile.role == "Athlete"
-      path = profile_workouts_path(resource.profile)
+      path = profile_habitsets_path(resource.profile)
     else
       path = coachees_path
     end

@@ -1,93 +1,36 @@
-
-.page-title{
-  background-color: $light-gray;
-  color: $dark-blue;
-  //margin-top: 5px;
-  //margin-bottom: 20px;
+.card-product {
+  overflow: hidden;
+  height: 50px;
   width: 100%;
-  padding: 0;
-  margin: O;
-
-  h3 {
-    font-size: 14px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 5px;
-  }
-
-  .page-title-sub {
-    font-size: 10px;
-    margin-bottom: 5px;
-    color: $dark-blue;
-    align-items: center;
-  }
-
-  .fas {
-    color: $dark-blue;
-  }
-}
-
-
-
-.card-wrapper{
-  margin-bottom: 20px;
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
-  font-size: 14px;
-  color: $dark-blue;
-  //background-color: $light-gray;
-  border: 2px solid $light-gray;
-  padding: 5px;
-  margin-top: 5px;
-  border-radius: 5px;
-}
-
-.card-title{
-  font-size: 12px;
-  color: $dark-blue;
-  border-bottom: 2px solid $light-blue;
-  margin-bottom: 20px;
-}
-
-
-.card-content {
-   font-size: 12px;
-}
-
-.card-content.align-vertical {
-  padding: 20px;
-}
-
-.card-content.height{
-  min-height: 50px;
-}
-
-.card-content-split {
-
+  margin-bottom: 10px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px;
-
-
-
+  font-size: 10px;
 }
 
-.nopadding {
-   padding: 0 !important;
-   margin: 0 !important;
+.card-product img {
+  width: 100px;
+
+  object-fit: cover;
 }
 
-.split-right {
-    width: 45%;
-    margin: 0px;
-  }
+.card-product h2 {
+  font-weight: bold;
+  margin: 0;
+}
 
-  .split-left {
-    width: 45%;
-    margin: 0px;
-  }
 
-.card-pagination {
-  display: flex;
-  justify-content: center;
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  width: 100%;
+  padding: 16px;
 }

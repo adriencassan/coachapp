@@ -1,26 +1,39 @@
-.dbpage-container{
-  display: flex;
+.page-custom-wrapper{
+  margin: 10px;
+  padding: 10px;
+}
+
+.page-custom-section-title{
+  background-color: $dark-blue ;
+  color: $light-gray;
   width: 100%;
   padding: 5px;
-}
-
-.dbpage-left{
-  height: 100%;
-  width: 600px;
   margin: 5px;
-}
 
-.dbpage-right{
-  height: 100%;
-  width: 100%;
-  margin: 5px;
-}
+  h3 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
 
-
-  .dbpage-title{
-    font-size: 15px;
-    padding: 5px;
-    background-color: $dark-blue;
-    color: white;
+  .page-title-sub {
+    font-size: 10px;
+    margin-bottom: 5px;
+    color: $dark-blue;
     align-items: center;
   }
+
+  .fas {
+    color: $dark-blue;
+  }
+}
+
+.page-custom-section {
+  padding: 5px;
+  margin: 5px;
+}
+
+
+
+

@@ -10,22 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210515040835) do
+ActiveRecord::Schema.define(version: 20180910154047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "exercices", force: :cascade do |t|
+  create_table "habitsets", force: :cascade do |t|
+    t.bigint "coachee_id"
+    t.bigint "coach_id"
     t.string "name"
-    t.string "nameEN"
-    t.string "type_habit_item"
-    t.integer "kcal_protein", default: 0
-    t.integer "kcal_carb", default: 0
-    t.integer "kcal_fat", default: 0
+    t.datetime "date"
+    t.string "description"
+    t.string "photo"
+    t.string "url"
+    t.boolean "is_model"
+    t.datetime "coach_reviewed_at"
+    t.string "coach_guidelines_video"
+    t.string "coach_guidelines"
+    t.string "coach_feedback_video"
+    t.string "coach_feedback"
+    t.integer "coach_review_performance", default: 0
+    t.integer "coach_review_execution", default: 0
+    t.integer "fit_weight", default: 0
+    t.integer "fit_repetitions", default: 0
+    t.integer "kcal", default: 0
+    t.integer "result_weight", default: 0
+    t.integer "result_fatmass", default: 0
+    t.string "result_selfie"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "video"
-    t.string "description"
+    t.index ["coach_id"], name: "index_habitsets_on_coach_id"
+    t.index ["coachee_id"], name: "index_habitsets_on_coachee_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -36,30 +51,6 @@ ActiveRecord::Schema.define(version: 20210515040835) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_profiles_on_profile_id"
-  end
-
-  create_table "repetitions", force: :cascade do |t|
-    t.bigint "workoutset_id"
-    t.bigint "exercice_id"
-    t.integer "quantity", default: 0
-    t.integer "weight", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "is_complete"
-    t.boolean "#<ActiveRecord::ConnectionAdapters::PostgreSQL::TableDefinition"
-    t.index ["exercice_id"], name: "index_repetitions_on_exercice_id"
-    t.index ["workoutset_id"], name: "index_repetitions_on_workoutset_id"
-  end
-
-  create_table "results", force: :cascade do |t|
-    t.datetime "date"
-    t.integer "weight"
-    t.integer "fatmass"
-    t.bigint "profile_id"
-    t.string "selfie"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_results_on_profile_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,50 +67,6 @@ ActiveRecord::Schema.define(version: 20210515040835) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "workouts", force: :cascade do |t|
-    t.datetime "date"
-    t.string "name"
-    t.string "type_habit"
-    t.integer "program_id"
-    t.bigint "profile_id"
-    t.boolean "is_program", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_workouts_on_profile_id"
-  end
-
-  create_table "workoutsets", force: :cascade do |t|
-    t.bigint "exercice_id"
-    t.bigint "workout_id"
-    t.string "name"
-    t.string "photo"
-    t.string "video"
-    t.string "feedback"
-    t.integer "total_weight", default: 0
-    t.integer "total_repetitions", default: 0
-    t.integer "total_kcal", default: 0
-    t.integer "total_kcal_calculated", default: 0
-    t.integer "total_kcal_protein", default: 0
-    t.integer "total_kcal_carb", default: 0
-    t.integer "total_kcal_fat", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "rating_performance", default: 0
-    t.integer "rating_execution", default: 0
-    t.bigint "coach_id"
-    t.date "reviewed_at"
-    t.index ["coach_id"], name: "index_workoutsets_on_coach_id"
-    t.index ["exercice_id"], name: "index_workoutsets_on_exercice_id"
-    t.index ["workout_id"], name: "index_workoutsets_on_workout_id"
-  end
-
   add_foreign_key "profiles", "profiles"
-  add_foreign_key "repetitions", "exercices"
-  add_foreign_key "repetitions", "workoutsets"
-  add_foreign_key "results", "profiles"
   add_foreign_key "users", "profiles"
-  add_foreign_key "workouts", "profiles"
-  add_foreign_key "workoutsets", "exercices"
-  add_foreign_key "workoutsets", "profiles", column: "coach_id"
-  add_foreign_key "workoutsets", "workouts"
 end

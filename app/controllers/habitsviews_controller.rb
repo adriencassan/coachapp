@@ -2,7 +2,8 @@ class HabitsviewsController < ApplicationController
 
 
   def show
-    @habitsviews = Workoutset.joins(:workout).where("workouts.type_habit = 'Meal'").order("workouts.date DESC")
+    @habitssample = Workout.order("workouts.date DESC")
+    @habitsviews = @habitssample.joins(:workoutsets).all
   end
 
 end

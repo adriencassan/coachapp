@@ -28,6 +28,7 @@ gem 'simple_form'
 gem 'flatpickr'
 gem 'will_paginate-bootstrap'
 gem 'active_link_to'
+gem 'bootstrap-datepicker-rails'
 
 
 # Attachments management
