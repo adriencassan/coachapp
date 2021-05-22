@@ -17,11 +17,8 @@ Habitset.create(name: 'Bench Abs Mamadou  - Challenge 2021', is_model: true, coa
 
 
 # HABITSERS
-Habitset.create(date: "2021-05-22", name: 'Qi Qonc Exercice TBD  - Challenge 2021', is_model: false, coachee_id: profile_adrien, coach_id: profile_coach_alexandre)
-Habitset.create(date: "2021-05-22", name: 'Menu midi', is_model: false, coachee_id: profile_adrien)
-
-# HABITSERSN MENU
-Habitset.create(date: "2021-05-22", name: 'Quitoque - Tofu teriyaki et poêlée de carotte et navet', is_model: false, coachee_id: profile_adrien)
-Habitset.create(date: "2021-05-22", name: 'Quitoque - Salade de fregola sarda à la mozzarella, olives et menthe', is_model: false, coachee_id: profile_adrien, url:"quitoque.fr/recette/5298/taboule-citronne-aux-merguez")
-Habitset.create(date: "2021-05-23", name: 'Quitoque - Boeuf aux oignons et riz rouge', is_model: false, coachee_id: profile_adrien)
-Habitset.create(date: "2021-05-23", name: 'Quitoque - Risotto de crevettes et épinards au parmesan AOP', is_model: false, coachee_id: profile_adrien)
+Habitset.create(date: "2021-05-22", habitset_type:"Callenge", name: 'Qi Qonc Exercice TBD  - Challenge 2021', is_active: true, is_model: false, coachee_id: profile_adrien, coach_id: profile_coach_alexandre)
+Habitset.create(date: "2021-05-22", habitset_type:"Repas Midi", name: 'Quitoque - Tofu teriyaki et poêlée de carotte et navet', is_active: true, is_model: false, coachee_id: profile_adrien)
+Habitset.create(date: "2021-05-22", habitset_type:"Repas Soir",name: 'Quitoque - Salade de fregola sarda à la mozzarella, olives et menthe', is_active: true, is_model: false, coachee_id: profile_adrien, url:"quitoque.fr/recette/5298/taboule-citronne-aux-merguez")
+Habitset.create(date: "2021-05-23", habitset_type:"Repas Midi", name: 'Quitoque - Boeuf aux oignons et riz rouge', is_active: true, is_model: false, coachee_id: profile_adrien)
+Habitset.create(date: "2021-05-23", habitset_type:"Repas Soir", name: 'Quitoque - Risotto de crevettes et épinards au parmesan AOP', is_active: true, is_model: false, coachee_id: profile_adrien)

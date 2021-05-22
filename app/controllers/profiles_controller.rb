@@ -1,17 +1,21 @@
 class ProfilesController < ApplicationController
 
   def habitsets
-    @habitsets = Habitset.where.not(is_model: true)
-    @habitsetdays = ["2021-05-21","2021-05-22 "]
+    @habitsets = Habitset.where(is_active: true).order(:date)
   end
 
-  def reviews
-    @reviews_requested = Habitset.where(coach_review_is_requested: true)
-    @reviews_completed = Habitset.where.not(coach_reviewed_at: nil)
+  def coachreviews
+    if current_user.profile.role == "Coach"
+      @habitsets_requested = Habitset.where(coach_id: current_user.profile).order(:date)
+      @habitsets_completed = Habitset.where(coach_id: current_user.profile).order(:date)
+    else
+      @habitsets_requested = Habitset.where.not(is_model: true).order(:date)
+      @habitsets_completed = Habitset.where.not(is_model: true).order(:date)
+    end
   end
 
-  def programs
-    @habitsets = Habitset.where(is_model: true)
+   def editreview
+    @habitsets = Habitset.where.not(is_model: true).order(:date)
   end
 
 end

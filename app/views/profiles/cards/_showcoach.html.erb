@@ -1,0 +1,28 @@
+ <div class="row">
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <div class="row">
+        <div class="col-xs-1">
+          <% if habitset.date.nil? %>
+                <% else %>
+                 <%= habitset.date.strftime("%d.%b.%y")%>
+                <% end %>
+              </div></div>
+        <div class="col-xs-1"><%= habitset.habitset_type %></div>
+        <div class="col-xs-2"><%= habitset.name %></div>
+        <div class="col-xs-2"><%= "coach name" %></div>
+        <div class="col-xs-6">
+          <button class="round-btn blue-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Edit coching</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTIAL EDIT REVIEW -->
+<div class="row">
+  <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseReview<%= habitset.id -%>"" style= "width: 100%">
+    <%= render 'habitsets/editreview', habitset:habitset  %>
+  </div>
+</div>

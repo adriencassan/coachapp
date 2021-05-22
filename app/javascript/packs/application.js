@@ -10,4 +10,3 @@ jsFormEditBtn();
 jsFormInputBtnPlus();
 jsFormInputBtnMinus();
 jsFormShowBtn ();
-

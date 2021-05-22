@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+    <div class="card-product-infos">
+      <div class="row">
+        <div class="col-xs-1">
+          <% if habitset.date.nil? %>
+          <% else %>
+            <%= habitset.date.strftime("%d.%b.%y")%>
+          <% end %>
+        </div>
+        <div class="col-xs-1"><%= habitset.habitset_type %></div>
+        <div class="col-xs-4"><%= habitset.name %></div>
+        <div class="col-xs-1"><%= habitset.is_active %></div>
+        <div class="col-xs-1"><%= habitset.coach_name %></div>
+        <div class="col-xs-4">
+          <button class="round-btn blue-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= habitset.id -%>">See Details</button>
+          <button class="round-btn blue-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Edit coaching</button>
+          <%= link_to "Admin", edit_habitset_path(habitset), action: "edit", class:"btn round-btn blue-btn sm-btn"%>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PARTIAL SHOW -->
+<div class="row">
+  <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseExample<%= habitset.id -%>"" style= "width: 100%">
+    <%= render 'habitsets/show', habitset:habitset  %>
+  </div>
+</div>
+
+<!-- PARTIAL EDIT REVIEW -->
+<div class="row">
+  <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseReview<%= habitset.id -%>"" style= "width: 100%">
+    <%= render 'habitsets/editreview', habitset:habitset  %>
+  </div>
+</div>

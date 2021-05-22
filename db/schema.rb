@@ -19,17 +19,18 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.bigint "coachee_id"
     t.bigint "coach_id"
     t.string "name"
+    t.string "habitset_type"
     t.datetime "date"
     t.string "description"
     t.string "photo"
     t.string "url"
+    t.boolean "is_active", default: true
     t.boolean "is_model"
     t.boolean "coach_review_is_requested"
     t.datetime "coach_reviewed_at"
     t.string "coach_guidelines_video"
-    t.string "coach_guidelines"
-    t.string "coach_feedback_video"
-    t.string "coach_feedback"
+    t.string "coach_review_video"
+    t.string "coach_review"
     t.integer "coach_review_performance", default: 0
     t.integer "coach_review_execution", default: 0
     t.integer "kcal", default: 0
