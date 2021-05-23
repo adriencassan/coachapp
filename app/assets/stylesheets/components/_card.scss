@@ -1,6 +1,6 @@
 .card-product {
   overflow: hidden;
-  height: 60px;
+  height: 70px;
   width: 100%;
   margin-bottom: 10px;
   background: white;
@@ -34,4 +34,17 @@
   width: 100%;
   height: 100%;
   padding: 16px;
+  align-items: center;
+  vertical-align: middle;
 }
+
+.card-coach {
+}
+
+.card-coach-avatar {
+  height: 20px;
+  align-items: center;
+  font-size: 10px;
+  font-weight: bold;
+}
+

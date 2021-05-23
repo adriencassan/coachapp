@@ -12,12 +12,19 @@
         </div>
         <div class="col-xs-1"><%= habitset.habitset_type %></div>
         <div class="col-xs-4"><%= habitset.name %></div>
-        <div class="col-xs-1"><%= habitset.is_active %></div>
-        <div class="col-xs-1"><%= habitset.coach_name %></div>
         <div class="col-xs-4">
-          <button class="round-btn blue-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= habitset.id -%>">See Details</button>
-          <button class="round-btn blue-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Edit coaching</button>
-          <%= link_to "Admin", edit_habitset_path(habitset), action: "edit", class:"btn round-btn blue-btn sm-btn"%>
+          <div class="card-coach">
+            <div class="card-coach-avatar">
+            <%= habitset.coach_name %>
+            </div>
+            <div class="card-coach-action">
+              <button class="round-btn sm-btn blue-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Coach</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-2">
+          <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= habitset.id -%>"><i class="fas fa-eye" style= "font-size: 25px"></i></button>
+            <%= link_to edit_habitset_path(habitset),  class: "round-btn sm-btn" do %><i class="fas fa-tools" style= "font-size: 25px"></i><%end%></i>
         </div>
       </div>
     </div>
