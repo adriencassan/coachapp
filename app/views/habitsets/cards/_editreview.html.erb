@@ -1,37 +1,72 @@
 <div class="page-custom-wrapper">
   <div class="page-custom-content">
-
     <div class="grid">
-
-      <div class="row custom-table-row row-margin-left">
+      <div class=custom-table>
       <%= simple_form_for habitset do |f| %>
 
-        <div class="row page-custom-section-title row-margin-left">
-          <div class="col-xs-12 custom-table-cell">Review</div>
+
+        <div class="row custom-table-header">
+          <div class="col-xs-12">Actions</div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Video</div>
-          <div class="col-xs-6 custom-table-cell">
+          <div class="col-xs-2 custom-table-cell">Save updates</div>
+          <div class="col-xs-10 custom-table-cell"><%= f.button :submit, "Save", class: "blue-btn round-btn sm-btn" %></div>
+        </div>
+
+        <div class="row custom-table-header">
+          <div class="col-xs-12">Coaching Data</div>
+        </div>
+
+        <div class="row custom-table-row">
+          <div class="col-xs-2"> Coach name</div>
+          <div class="col-xs-2">
+            <%= habitset.coach_name %>
+          </div>
+        </div>
+
+         <div class="row custom-table-row">
+          <div class="col-xs-2"> Coachee name</div>
+          <div class="col-xs-2">
+            <%= habitset.coachee_name %>
+          </div>
+        </div>
+
+        <div class="row custom-table-row">
+          <div class="col-xs-2">Reviewed at</div>
+          <div class="col-xs-2">
+            <%= habitset.coach_reviewed_at %>
+          </div>
+        </div>
+
+        <div class="row custom-table-row">
+          <div class="col-xs-2"> Video Coachee</div>
+          <div class="col-xs-2">
             <video width="150" height="150" controls>
               <source src="<%= habitset.coach_review_video.url %>" type="video/mp4">Your browser does not support the video tag.
             </video>
           </div>
         </div>
 
-        <div class="row custom-table-row form-row">
-          <div class="col-xs-3 custom-table-cell">Coach review</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review, label: false, as: :text, autofocus: true, input_html: {rows: 5}%></div>
+        <div class="row custom-table-row">
+          <div class="col-xs-2">Coach Review</div>
+          <div class="col-xs-10"> <%= f.input :coach_review, label: false, as: :text, autofocus: true, input_html: {rows: 5}%></div>
         </div>
 
-        <div class="row custom-table-row form-row">
-          <div class="col-xs-3 custom-table-cell">Save</div>
-          <div class="col-xs-6 custom-table-cell align-right"><%= f.button :submit, "Save", class: "blue-btn round-btn sm-btn" %></div>
+        <div class="row custom-table-row">
+          <div class="col-xs-2">Coach Review</div>
+          <div class="col-xs-10"> <div class="row">
+            <div class="col-xs-3 custom-table-cell">Execution review</div>
+            <div class="col-xs-3 custom-table-cell"><%= f.input :coach_review_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, class:"form-control"%></div>
+          </div>
+          <div class="row">
+            <div class="col-xs-3 custom-table-cell">Performance review</div>
+            <div class="col-xs-3 custom-table-cell"><%= f.input :coach_review_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, class:"form-control"%></div>
+          </div></div>
         </div>
 
-      <% end %>
+        <% end %>
       </div>
-
     </div>
   </div>
 </div>

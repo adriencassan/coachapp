@@ -3,23 +3,29 @@
     <div class="grid">
       <div class=custom-table>
         <div class="grid row custom-table-header">
-          <div class="col-xs-2"> Attribut</div>
-          <div class="col-xs-10"> Valeur</div>
-        </div>
-
-        <div class="grid row custom-table-row">
-          <div class="col-xs-2"> URL</div>
-          <div class="col-xs-2"><a href="<%= habitset.url %>" target= "_blank">URL</a></div>
-
-
-          <div class="col-xs-8"><%= habitset.url %></div>
+          <div class="col-xs-12"> RECIPES</div>
         </div>
 
         <div class="grid row custom-table-row">
           <div class="col-xs-2">Description</div>
           <div class="col-xs-10"> <%= habitset.description %></div>
         </div>
+
+        <div class="grid row custom-table-row">
+          <div class="col-xs-2"> URL Recipes Quitoque</div>
+          <div class="col-xs-2"><a href="<%= habitset.url %>" target= "_blank">URL</a></div>
+          <div class="col-xs-8"><%= habitset.url %></div>
+        </div>
+
+        <div class="grid row custom-table-row">
+          <div class="col-xs-2"> KCAL</div>
+          <div class="col-xs-8"><%= habitset.kcal %></div>
+        </div>
+
+
       </div>
+
+
     </div>
 
   </div>

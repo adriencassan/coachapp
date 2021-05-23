@@ -124,6 +124,14 @@
           </div>
         </div>
 
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Coachee</div>
+          <div class="col-xs-9 custom-table-cell">
+            <%= f.input :coachee_id, collection: Profile.all, label: false, label_method: :full_name, class:"form-control"%>
+          </div>
+        </div>
+
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Reviewed at</div>
           <div class="col-xs-9 custom-table-cell">

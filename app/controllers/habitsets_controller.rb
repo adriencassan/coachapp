@@ -50,7 +50,7 @@ class HabitsetsController < ApplicationController
   private
 
   def habitsets_params
-    params.require(:habitset).permit(:date, :name, :description, :url, :is_active, :is_model, :is_completed, :habitset_type, :coach_reviewed_at, :coach_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal)
+    params.require(:habitset).permit(:date, :name, :description, :url, :is_active, :is_model, :is_completed, :habitset_type, :coach_reviewed_at, :coach_id,:coachee_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal, :coach_review_performance, :coach_review_execution)
   end
 
 end
