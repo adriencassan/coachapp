@@ -10,4 +10,8 @@ class Habitset < ApplicationRecord
     Profile.find(coach_id).full_name unless coach_id.nil?
   end
 
+  def self.habitsetTypes
+    ["Repas midi", "Repas soir", "Challenge"]
+  end
+
 end

@@ -2,44 +2,42 @@
 
 <div class="page-custom-wrapper">
 
+  <div class="page-custom-header">
+  <div class="page-custom-header-navback">
+    <%= link_to habitsets_path,  class: "" do %><i class="fas fa-chevron-circle-left" style= "font-size: 25px"></i><%end%></i>
+  </div>
+
+  <div class="page-custom-header-content">
+    <h3><%= @habitset.name %></h3>
+     <%= "habitset #{@habitset.name} (#{@habitset.date.strftime("%A, %d %B %y")})" %>
+  </div>
+</div>
+
+
 
  <div class="page-custom-content">
   <div class="grid">
 
     <div class="page-custom-section">
-      <div class="row">
-        <div class="card-product">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-          <div class="card-product-infos">
-            <div class="row">
-              <div class="col-xs-1">
-                <% if @habitset.date.nil? %>
-                <% else %>
-                 <%= @habitset.date.strftime("%d.%b.%y")%>
-                <% end %>
-              </div>
-              <div class="col-xs-1"><%= @habitset.habitset_type %></div>
-              <div class="col-xs-4"><%= @habitset.name %></div>
-              <div class="col-xs-6"></div>
-            </div>
-           </div>
-        </div>
-      </div>
 
       <div class="row custom-table-row row-margin-left">
       <%= simple_form_for @habitset do |f| %>
 
 
+    <div class="row page-custom-section-title row-margin-left">
+          <div class="col-xs-12 custom-table-cell">ACTIONS</div>
+    </div>
+
       <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Save</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.button :submit, "Envoyer", class: "blue-btn round-btn sm-btn pull-right" %></div>
+          <div class="col-xs-6 custom-table-cell"><%= f.button :submit, "Envoyer", class: "blue-btn round-btn sm-btn" %></div>
         </div>
 
       <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Delete</div>
           <div class="col-xs-6 custom-table-cell">
             <% unless @habitset.id.nil? %>
-                <%= link_to "DELETE", habitset_path(@habitset), method: :delete, class: "blue-btn round-btn sm-btn pull-right"%>
+                <%= link_to "DELETE", habitset_path(@habitset), method: :delete, class: "blue-btn round-btn sm-btn"%>
             <% end %>
           </div>
         </div>
@@ -50,36 +48,36 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Name</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :name, label: false, input_html: {style: "font-size: 8px"}%> </div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :name, label: false, class:"form-control" %> </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Description</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :description, label: false, input_html: {style: "font-size: 8px"}%> </div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :description, as: :text, label: false, class:"form-control", input_html: {rows: 5 }%> </div>
         </div>
 
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Type</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :habitset_type, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :habitset_type, collection: Habitset.habitsetTypes, label: false, class:"form-control" %>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Date</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :date, as: :date, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :date, as: :date, label: false, class:"form-control"  %>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Is Active ?</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :is_active, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :is_active, label: false, class:"form-control"  %>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Is Model ?</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :is_model, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :is_model, label: false, class:"form-control"  %>
           </div>
         </div>
 
@@ -90,13 +88,13 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Url</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :url, label: false, input_html: {style: "font-size: 8px"}%> </div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :url, label: false, class:"form-control" %> </div>
         </div>
 
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Kcal</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :kcal, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :kcal, label: false, class:"form-control" %>
           </div>
         </div>
 
@@ -106,40 +104,41 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Is Requested</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review_is_requested, label: false, input_html: {style: "font-size: 8px"}%> </div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :coach_review_is_requested, label: false, class:"form-control"%> </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Coach</div>
-          <div class="col-xs-6 custom-table-cell">
-            <%= f.input :coach_id, collection: Profile.all, label: false, label_method: :full_name, input_html: {style: "font-size: 8px"}%>
+          <div class="col-xs-9 custom-table-cell">
+            <%= f.input :coach_id, collection: Profile.all, label: false, label_method: :full_name, class:"form-control"%>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Reviewed at</div>
-          <div class="col-xs-6 custom-table-cell">
-            <%= f.input :coach_reviewed_at, as: :datepicker, label: false,  input_html: {style: "font-size: 8px"} %>
+          <div class="col-xs-9 custom-table-cell">
+            <%= f.input :coach_reviewed_at, as: :date, label: false,  class:"form-control"%>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Coach Review Performance</div>
-          <div class="col-xs-6 custom-table-cell">
-            <%= f.input :coach_review_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, input_html: {style: "font-size: 8px"}%>
+          <div class="col-xs-3 custom-table-cell">Coach Review</div>
+          <div class="col-xs-9 custom-table-cell">
+           <div class="row">
+            <div class="col-xs-3 custom-table-cell">Execution review</div>
+            <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, class:"form-control"%></div>
           </div>
-        </div>
+          <div class="row">
+            <div class="col-xs-3 custom-table-cell">Performance review</div>
+            <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review_performance, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, class:"form-control"%></div>
+          </div>
 
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Coach Review Execution</div>
-          <div class="col-xs-6 custom-table-cell">
-            <%= f.input :coach_review_execution, collection: [0,1,2,3,4,5,6,7,8,9,10], label: false, input_html: {style: "font-size: 8px"}%>
           </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Review</div>
-            <div class="col-xs-6 custom-table-cell"><%= f.input :coach_review, label: false, input_html: {style: "font-size: 8px"}%></div>
+            <div class="col-xs-9 custom-table-cell"><%= f.input :coach_review, label: false, as: :text,  class:"form-control", input_html: {rows: 5 }%></div>
           </div>
 
         <div class="row page-custom-section-title row-margin-left">
