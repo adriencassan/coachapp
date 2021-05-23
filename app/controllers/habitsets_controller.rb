@@ -40,6 +40,13 @@ class HabitsetsController < ApplicationController
     redirect_to habitsets_path
   end
 
+   def destroydate
+    @habitset = Habitset.find(params[:id])
+    @habitset.date = nil
+    @habitset.save!
+    redirect_to habitsets_path
+  end
+
   private
 
   def habitsets_params

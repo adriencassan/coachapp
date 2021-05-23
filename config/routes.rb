@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :habitsets
-  get 'habitsetsall', to: "habitsets#all", as: :all_habitsets
+  resources :habitsets do
+    get ':id/destroydate', to: "habitsets#destroydate", as: "destroydate"
+  end
+
+  get '/allhabitsets', to: "habitsets#all", as: "allhabitsets"
 
 end
