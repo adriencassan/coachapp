@@ -28,13 +28,13 @@
 <!-- PARTIAL SHOW -->
 <div class="row">
   <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseExample<%= habitset.id -%>"" style= "width: 100%">
-    <%= render 'habitsets/show', habitset:habitset  %>
+    <%= render 'habitsets/cards/details', habitset:habitset  %>
   </div>
 </div>
 
 <!-- PARTIAL EDIT REVIEW -->
 <div class="row">
   <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseReview<%= habitset.id -%>"" style= "width: 100%">
-    <%= render 'habitsets/editreview', habitset:habitset  %>
+    <%= render 'habitsets/cards/editreview', habitset:habitset  %>
   </div>
 </div>

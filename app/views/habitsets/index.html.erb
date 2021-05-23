@@ -1,11 +1,27 @@
 <div class="page-custom-wrapper">
   <div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <h3>Inbox</h3>
+    </div>
     <div class="row page-custom-section">
-      <% @habitsets.each do |habitset| %>
-        <%= render 'profiles/cards/show', habitset: habitset %>
+      <% @habitsets.where(date: nil).each do |habitset| %>
+        <%= render 'habitsets/cards/show', habitset: habitset %>
       <% end %>
     </div>
   </div>
+
+  <% @habitsets.where.not(date: nil).distinct.pluck(:date).each do |day| %>
+  <div class="page-custom-content">
+    <div class="row page-custom-section">
+      <div class="row page-custom-section-title">
+        <h3> <%= day.strftime("%d.%b.%y") %></h3>
+      </div>
+        <% @habitsets.where(date: day).each do |habitset| %>
+          <%= render 'habitsets/cards/show', habitset: habitset %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
 </div>
 
 

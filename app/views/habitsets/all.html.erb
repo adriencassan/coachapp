@@ -1,0 +1,11 @@
+<div class="page-custom-wrapper">
+  <div class="page-custom-content">
+    <div class="row page-custom-section">
+      <% @habitsets.each do |habitset| %>
+        <%= render 'habitsets/cards/show', habitset: habitset %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

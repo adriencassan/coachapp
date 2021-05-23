@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180910154047) do
+ActiveRecord::Schema.define(version: 20210523083510) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.boolean "coach_review_is_requested"
     t.datetime "coach_reviewed_at"
     t.string "coach_guidelines_video"
+    t.string "coach_guidelines"
     t.string "coach_review_video"
     t.string "coach_review"
     t.integer "coach_review_performance", default: 0
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180910154047) do
     t.integer "kcal", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_completed"
     t.index ["coach_id"], name: "index_habitsets_on_coach_id"
     t.index ["coachee_id"], name: "index_habitsets_on_coachee_id"
   end
