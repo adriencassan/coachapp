@@ -6,8 +6,11 @@ Rails.application.routes.draw do
 
   resources :habitsets do
     get ':id/destroydate', to: "habitsets#destroydate", as: "destroydate"
+    get ':id/destroyreviewedat', to: "habitsets#destroyreviewedat", as: "destroyreviewedat"
   end
 
   get '/allhabitsets', to: "habitsets#all", as: "allhabitsets"
+
+  get '/coachreviews', to: "habitsets#coachreviews", as: "coachreviews"
 
 end

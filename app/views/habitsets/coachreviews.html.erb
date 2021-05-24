@@ -1,0 +1,27 @@
+<div class="page-custom-wrapper">
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <h3>Reviews requested</h3>
+    </div>
+    <div class="row page-custom-section">
+      <% @habitsets.where(coach_reviewed_at: nil).each do |habitset| %>
+        <%= render 'habitsets/cards/showcoach', habitset: habitset %>
+      <% end %>
+    </div>
+  </div>
+
+<div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <h3>Reviews Completed</h3>
+    </div>
+    <div class="row page-custom-section">
+      <% @habitsets.where.not(coach_reviewed_at: nil).each do |habitset| %>
+        <%= render 'habitsets/cards/showcoach', habitset: habitset %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+

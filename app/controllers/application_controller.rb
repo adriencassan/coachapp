@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if resource.profile.role == "Athlete"
       path = habitsets_path(resource.profile)
     else
-      path = habitsets_path(resource.profile)
+      path = coachreviews_path(resource.profile)
     end
     path
   end

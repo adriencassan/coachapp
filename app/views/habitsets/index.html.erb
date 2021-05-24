@@ -15,7 +15,7 @@
     <% @habitsets.where.not(date: nil).distinct.pluck(:date).each do |day| %>
       <div class="row page-custom-section">
         <div class="row page-custom-section-title">
-          <h3> <%= day.strftime("%d.%b.%y") %></h3>
+          <h3> <%= day.strftime("%A.%d.%b.%y") %></h3>
         </div>
           <% @habitsets.where(date: day).each do |habitset| %>
             <%= render 'habitsets/cards/show', habitset: habitset %>

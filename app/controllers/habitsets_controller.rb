@@ -9,6 +9,10 @@ class HabitsetsController < ApplicationController
     @habitsets = Habitset.all.order(:date)
   end
 
+  def coachreviews
+    @habitsets = Habitset.where(coach_id: current_user.profile).order(:date)
+  end
+
   def show
     @habitset = Habitset.find(params[:id])
     render "edit"
@@ -43,6 +47,13 @@ class HabitsetsController < ApplicationController
    def destroydate
     @habitset = Habitset.find(params[:id])
     @habitset.date = nil
+    @habitset.save!
+    redirect_to habitsets_path
+  end
+
+   def destroyreviewedat
+    @habitset = Habitset.find(params[:id])
+    @habitset.coach_reviewed_at = nil
     @habitset.save!
     redirect_to habitsets_path
   end
