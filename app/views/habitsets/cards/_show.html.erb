@@ -16,7 +16,9 @@
             <p>  <%= habitset.date.strftime("%d.%b.%y")%></p>
           <% end %>
         </div>
-        <div class="col-xs-1"> <p> <%= habitset.habitset_type %></p></div>
+        <div class="col-xs-1">
+          <div class="btn round-btn"> <%= habitset.habitset_type %></div>
+        </div>
         <div class="col-xs-3"> <p> <%= habitset.name %></p></div>
         <div class="col-xs-1">
           <% if  habitset.is_completed %>

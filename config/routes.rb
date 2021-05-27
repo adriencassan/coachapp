@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :habitsets do
+     get ':id/destroy', to: "habitsets#destroy", as: "destroy"
     get ':id/destroydate', to: "habitsets#destroydate", as: "destroydate"
     get ':id/destroystartdate', to: "habitsets#destroystartdate", as: "destroystartdate"
     get ':id/destroyreviewedat', to: "habitsets#destroyreviewedat", as: "destroyreviewedat"

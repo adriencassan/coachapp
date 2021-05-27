@@ -25,7 +25,7 @@ class Habitset < ApplicationRecord
   end
 
   def self.habitsetTypes
-    ["Repas midi", "Repas soir", "Challenge"]
+    ["Repas midi", "Repas soir", "Challenge", "Resultat"]
   end
 
 end
