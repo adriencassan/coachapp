@@ -17,7 +17,11 @@ class Habitset < ApplicationRecord
   end
 
   def started_from_today
-    0
+    if started_at.nil?
+      0
+    else
+      (Date.today-started_at.to_date).to_i
+    end
   end
 
   def self.habitsetTypes

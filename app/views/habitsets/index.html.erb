@@ -40,14 +40,14 @@
       </div>
 
       <div class="collapse" id="collapseExample<%= day.strftime("%d%b%y") -%>"" style= "width: 100%">
-        <% @habitsets.where(date: day).each do |habitset| %>
-          <%= render 'habitsets/cards/show', habitset: habitset %>
-        <% end %>
+        <div class="row page-custom-section">
+          <% @habitsets.where(date: day).each do |habitset| %>
+            <%= render 'habitsets/cards/show', habitset: habitset %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>
-
-
 
   <div class="page-custom-content">
     <div class="row page-custom-section-title">
