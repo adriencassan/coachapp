@@ -13,11 +13,11 @@
         <div class="col-xs-1">
           <% if habitset.date.nil? %>
           <% else %>
-            <%= habitset.date.strftime("%d.%b.%y")%>
+            <p>  <%= habitset.date.strftime("%d.%b.%y")%></p>
           <% end %>
         </div>
-        <div class="col-xs-1"><%= habitset.habitset_type %></div>
-        <div class="col-xs-3"><%= habitset.name %></div>
+        <div class="col-xs-1"> <p> <%= habitset.habitset_type %></p></div>
+        <div class="col-xs-3"> <p> <%= habitset.name %></p></div>
         <div class="col-xs-1">
           <% if  habitset.is_completed %>
             <i class="fas fa-check-circle" style= "font-size: 20px"></i>
@@ -27,14 +27,14 @@
           </div>
         <div class="col-xs-1">
           <% unless habitset.started_from_today ==0 %>
-               <%= "#{habitset.started_from_today} days"%>
+              <p> <%= "#{habitset.started_from_today} days"%></p>
           <%end%>
           </div>
         <div class="col-xs-3">
           <% unless habitset.coach_id.nil? %>
           <div class="card-coach">
             <div class="card-coach-avatar">
-            <%= habitset.coach_name %>
+              <%="Coach: #{habitset.coach_name}"%>
             </div>
             <div class="card-coach-action">
               <button class="round-btn md-btn blue-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Coach me !</button>

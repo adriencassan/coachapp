@@ -9,7 +9,7 @@ class Habitset < ApplicationRecord
 
 
   def coach_name
-    Profile.find(coach_id).full_name unless coach_id.nil?
+    Profile.find(coach_id).first_name unless coach_id.nil?
   end
 
   def coachee_name

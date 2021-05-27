@@ -1,13 +1,19 @@
 # PROFIL
 
 profile_adrien = Profile.create(first_name: "Adrien", last_name: "Cassan", role: "Athlete")
-user_adrien = User.create(email: "adrien.cassan@gmail.com", password: "password", profile: profile_adrien)
+user_adrien = User.create(email: "adrien.cassan@gmail.com", password: "SDt8w45mN", profile: profile_adrien)
 
-profile_coach_alexandre = Profile.create(first_name: "Coach Alexandre", last_name: "Coach", role: "Coach" )
-user_coach_alexandre = User.create(email: "coach.alexandre@gmail.com", password: "password", profile: profile_coach_alexandre)
+profile_elyes = Profile.create(first_name: "Elyes", last_name: "Oueslati", role: "Athlete" )
+user_elyes = User.create(email: "coach.mamadou@gmail.com", password: "vyN93KXf7", profile: profile_elyes)
 
-profile_coach_mamadou = Profile.create(first_name: "Coach Mamadou", last_name: "Coach", role: "Coach" )
-user_coach_mamadou = User.create(email: "coach.mamadou@gmail.com", password: "password", profile: profile_coach_mamadou)
+profile_coach_alexandre = Profile.create(first_name: "Alexandre", last_name: "Coach", role: "Coach" )
+user_coach_alexandre = User.create(email: "coach.alexandre@gmail.com", password: "s2r5VyGJ3", profile: profile_coach_alexandre)
+
+profile_coach_mamadou = Profile.create(first_name: "Mamadou", last_name: "Coach", role: "Coach" )
+user_coach_mamadou = User.create(email: "coach.mamadou@gmail.com", password: "48wRmt6PG", profile: profile_coach_mamadou)
+
+profile_coach_brahim = Profile.create(first_name: "Brahim", last_name: "Coach", role: "Coach" )
+user_coach_brahim = User.create(email: "coach.brahim@gmail.com", password: "JxuP8k78E", profile: profile_coach_brahim)
 
 # HABITSERS MODEL
 Habitset.create(name: 'Meal Prep - Tureky / Feta / Rice', is_model: true, coachee_id: profile_adrien, coach_id: profile_adrien)
