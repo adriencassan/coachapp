@@ -27,4 +27,4 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore application configuration
-/config/db/seeds.rb
+/db/seeds.rb
