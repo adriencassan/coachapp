@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210526183122) do
+ActiveRecord::Schema.define(version: 20180910154047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,15 @@ ActiveRecord::Schema.define(version: 20210526183122) do
     t.string "name"
     t.string "habitset_type"
     t.datetime "date"
+    t.datetime "started_at"
     t.string "description"
     t.string "photo"
     t.string "url"
     t.boolean "is_active", default: true
-    t.boolean "is_model"
-    t.boolean "coach_review_is_requested"
+    t.boolean "is_model", default: false
+    t.boolean "is_completed", default: false
+    t.boolean "is_favorite", default: false
+    t.boolean "coach_review_is_requested", default: false
     t.datetime "coach_reviewed_at"
     t.string "coach_guidelines_video"
     t.string "coach_guidelines"
@@ -35,13 +38,10 @@ ActiveRecord::Schema.define(version: 20210526183122) do
     t.integer "coach_review_performance", default: 0
     t.integer "coach_review_execution", default: 0
     t.integer "kcal", default: 0
+    t.integer "fit_workouttime", default: 0
+    t.string "fit_workoutdescription"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_completed"
-    t.date "started_at"
-    t.boolean "is_favorite"
-    t.integer "fit_workouttime"
-    t.string "fit_workoutdescription"
     t.index ["coach_id"], name: "index_habitsets_on_coach_id"
     t.index ["coachee_id"], name: "index_habitsets_on_coachee_id"
   end

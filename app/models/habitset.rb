@@ -20,7 +20,7 @@ class Habitset < ApplicationRecord
     if started_at.nil? or is_completed
       0
     else
-      (Date.today - started_at).to_i
+      (Date.today-started_at.to_date ).to_i
     end
   end
 

@@ -19,10 +19,10 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.string :photo
       t.string :url
       t.boolean :is_active, default: true
-      t.boolean :is_model
-      t.boolean :is_completed
-      t.boolean :is_favorite
-      t.boolean :coach_review_is_requested
+      t.boolean :is_model, default: false
+      t.boolean :is_completed, default: false
+      t.boolean :is_favorite, default: false
+      t.boolean :coach_review_is_requested, default: false
       t.datetime :coach_reviewed_at
       t.string :coach_guidelines_video
       t.string :coach_guidelines
@@ -31,7 +31,7 @@ class InitiateTables < ActiveRecord::Migration[5.1]
       t.integer :coach_review_performance, default: 0
       t.integer :coach_review_execution, default: 0
       t.integer :kcal, default: 0
-      t.integer :fit_workouttime
+      t.integer :fit_workouttime, default: 0
       t.string :fit_workoutdescription
       t.timestamps
     end
