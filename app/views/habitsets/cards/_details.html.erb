@@ -3,7 +3,7 @@
     <div class="grid">
       <div class=custom-table>
         <div class="grid row custom-table-header">
-          <div class="col-xs-12"> RECIPES</div>
+          <div class="col-xs-12">RECIPES HABIT</div>
         </div>
 
         <div class="grid row custom-table-row">
@@ -12,16 +12,30 @@
         </div>
 
         <div class="grid row custom-table-row">
-          <div class="col-xs-2"> URL Recipes Quitoque</div>
-          <div class="col-xs-2"><a href="<%= habitset.url %>" target= "_blank">URL</a></div>
+          <div class="col-xs-2">URL Recipes Quitoque</div>
+          <div class="col-xs-2"><a href="<%= habitset.url %>" target= "_blank">Go to page</a></div>
           <div class="col-xs-8"><%= habitset.url %></div>
         </div>
 
         <div class="grid row custom-table-row">
-          <div class="col-xs-2"> KCAL</div>
+          <div class="col-xs-2">KCAL</div>
           <div class="col-xs-8"><%= habitset.kcal %></div>
         </div>
 
+
+        <div class="grid row custom-table-header">
+          <div class="col-xs-12">WORKOUT HABIT</div>
+        </div>
+
+        <div class="grid row custom-table-row">
+          <div class="col-xs-2">Time (in minutes)</div>
+          <div class="col-xs-10"> <%= habitset.fit_workouttime %></div>
+        </div>
+
+        <div class="grid row custom-table-row">
+          <div class="col-xs-2">Description</div>
+          <div class="col-xs-10"> <%= habitset.fit_workoutdescription %></div>
+        </div>
 
       </div>
 

@@ -1,6 +1,12 @@
 <div class="row">
   <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+     <% if habitset.photo.url.nil? %>
+        <%= cl_image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height: 300, width: 400, crop: :fit %>
+    <% else %>
+     <%= cl_image_tag habitset.photo, height: 300, width: 400, crop: :fit%>
+
+    <% end %>
 
     <div class="card-product-infos">
       <div class="row">
@@ -11,15 +17,27 @@
           <% end %>
         </div>
         <div class="col-xs-1"><%= habitset.habitset_type %></div>
-        <div class="col-xs-4"><%= habitset.name %></div>
-        <div class="col-xs-4">
+        <div class="col-xs-3"><%= habitset.name %></div>
+        <div class="col-xs-1">
+          <% if  habitset.is_completed %>
+            <i class="fas fa-check-circle" style= "font-size: 20px"></i>
+          <% else %>
+          <p>Ongoing</p>
+          <% end %>
+          </div>
+        <div class="col-xs-1">
+          <% unless habitset.started_from_today==0 %>
+               <%= "#{habitset.started_from_today} days"%>
+          <%end%>
+          </div>
+        <div class="col-xs-3">
           <% unless habitset.coach_id.nil? %>
           <div class="card-coach">
             <div class="card-coach-avatar">
             <%= habitset.coach_name %>
             </div>
             <div class="card-coach-action">
-              <button class="round-btn sm-btn blue-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Coach me !</button>
+              <button class="round-btn md-btn blue-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Coach me !</button>
             </div>
           </div>
           <%end%>

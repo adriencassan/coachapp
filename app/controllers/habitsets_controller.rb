@@ -2,7 +2,10 @@ class HabitsetsController < ApplicationController
 
 
   def index
-    @habitsets = Habitset.where(is_active: true).order(:date)
+    @habitsets_favorites = Habitset.where(is_favorite: true).order(:date)
+    @habitsets_completed = Habitset.where(is_completed: true).order(:date)
+    @habitsets_notscheduled = Habitset.where(is_completed: false, date: nil).order(:date)
+    @habitsets = Habitset.where(is_completed: false, is_completed: false).where.not(date: nil).order(:date)
   end
 
   def all
@@ -51,6 +54,13 @@ class HabitsetsController < ApplicationController
     redirect_to habitsets_path
   end
 
+  def destroystartdate
+    @habitset = Habitset.find(params[:id])
+    @habitset.started_at = nil
+    @habitset.save!
+    redirect_to habitsets_path
+  end
+
    def destroyreviewedat
     @habitset = Habitset.find(params[:id])
     @habitset.coach_reviewed_at = nil
@@ -61,7 +71,7 @@ class HabitsetsController < ApplicationController
   private
 
   def habitsets_params
-    params.require(:habitset).permit(:date, :name, :description, :url, :is_active, :is_model, :is_completed, :habitset_type, :coach_reviewed_at, :coach_id,:coachee_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal, :coach_review_performance, :coach_review_execution)
+    params.require(:habitset).permit(:date, :started_at, :name, :description, :url,  :is_active, :is_model, :is_completed, :is_favorite, :habitset_type, :coach_reviewed_at, :coach_id,:coachee_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal, :coach_review_performance, :coach_review_execution, :fit_workouttime, :photo_cache, :photo)
   end
 
 end
