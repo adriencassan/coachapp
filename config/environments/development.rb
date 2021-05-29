@@ -9,6 +9,7 @@ config.webpacker.check_yarn_integrity = true
  # Devise
   config.secret_key = '940f3c907e0bc85ab1329ae7366c67ed25fd158fffeafe752908caff409540f54d793c81faacb1d2bd34e0dd9614c14d70e1c6b05eab6289d33b70ef5d32c7c4'
 
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

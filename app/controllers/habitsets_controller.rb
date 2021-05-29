@@ -13,7 +13,11 @@ class HabitsetsController < ApplicationController
   end
 
   def coachreviews
-    @habitsets = Habitset.where(coach_id: current_user.profile.id).order(:date)
+    if current_user.profile.role == "Coach"
+      @habitsets = Habitset.where(coach_id: current_user.profile.id).order(:date)
+    else
+      @habitsets = Habitset.where(coachee_id: current_user.profile.id).order(:date)
+    end
   end
 
   def show
