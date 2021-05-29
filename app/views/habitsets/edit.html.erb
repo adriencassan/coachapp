@@ -39,7 +39,7 @@
           <div class="col-xs-3 custom-table-cell">Delete</div>
           <div class="col-xs-6 custom-table-cell">
             <% unless @habitset.id.nil? %>
-                <%= link_to "DELETE", habitset_destroy_path(@habitset), method: :destroy, class: "blue-btn round-btn sm-btn"%>
+                <%= link_to "DELETE", habitset_destroy_path(@habitset.id), class: "blue-btn round-btn sm-btn"%>
             <% end %>
           </div>
         </div>
