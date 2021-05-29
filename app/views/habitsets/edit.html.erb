@@ -93,7 +93,7 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Habit Started Date</div>
-          <div class="col-xs-6 custom-table-cell"><%= f.input :started_at, as: :date, label: false, class:"form-control"  %></div>
+          <div class="col-xs-6 custom-table-cell"><%= f.input :started_at, as: :datepicker, label: false, class:"form-control"  %></div>
           <div class="col-xs-3 custom-table-cell">
             <% unless @habitset.id.nil? %>
               <%= link_to "Remove date" , habitset_destroydate_path(@habitset), action: :destroydate, class: "blue-btn round-btn sm-btn"%>
@@ -150,7 +150,7 @@
         </div>
 
         <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Description</div>
+          <div class="col-xs-3 custom-table-cell">Workout description</div>
           <div class="col-xs-9 custom-table-cell"><%= f.input :fit_workoutdescription, label: false, class:"form-control" %> </div>
         </div>
 

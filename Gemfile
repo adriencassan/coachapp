@@ -9,6 +9,7 @@ end
 
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.6'
@@ -29,6 +30,7 @@ gem 'will_paginate-bootstrap'
 gem 'active_link_to'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 
 

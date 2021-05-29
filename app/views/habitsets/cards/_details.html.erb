@@ -2,6 +2,24 @@
   <div class="page-custom-content">
     <div class="grid">
       <div class=custom-table>
+
+
+
+        <div class="grid row custom-table-header">
+          <div class="col-xs-12">HABIT</div>
+        </div>
+
+        <div class="grid row custom-table-row">
+          <div class="col-xs-2">Started at</div>
+          <div class="col-xs-10"> <%= habitset.started_at.strftime("%A, %d %B %y") unless habitset.started_at.nil? %></div>
+        </div>
+
+          <div class="grid row custom-table-row">
+          <div class="col-xs-2">Number of days</div>
+          <div class="col-xs-10"> <%= "#{habitset.started_from_today} days" %></div>
+        </div>
+
+
         <div class="grid row custom-table-header">
           <div class="col-xs-12">RECIPES HABIT</div>
         </div>
