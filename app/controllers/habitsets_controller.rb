@@ -9,6 +9,7 @@ class HabitsetsController < ApplicationController
   end
 
   def all
+    @habitsetdays = Habitset.where.not(date: nil).order(date: :desc).distinct.pluck(:date)
     @habitsets = Habitset.all.order(:date)
   end
 
