@@ -32,6 +32,7 @@ gem 'jquery-rails'
 
 
 
+
 # Attachments management
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
