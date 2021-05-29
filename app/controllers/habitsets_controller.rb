@@ -2,10 +2,10 @@ class HabitsetsController < ApplicationController
 
 
   def index
-    @habitsets_favorites = Habitset.where(is_favorite: true).order(:date)
+    @habitsets_favorites = Habitset.where(is_favorite: true, is_completed: false).order(:date)
     @habitsets_completed = Habitset.where(is_completed: true).order(:date)
-    @habitsets_notscheduled = Habitset.where(date: nil).order(:date)
-    @habitsets = Habitset.where(is_completed: false).where.not(date: nil).order(:date)
+    @habitsets_notscheduled = Habitset.where(is_completed: false, is_favorite: false, date: nil).order(:date)
+    @habitsets = Habitset.where(is_completed: false, is_favorite: false).where.not(date: nil).order(:date)
   end
 
   def all
@@ -13,7 +13,7 @@ class HabitsetsController < ApplicationController
   end
 
   def coachreviews
-    @habitsets = Habitset.where(coach_id: current_user.profile).order(:date)
+    @habitsets = Habitset.where(coach_id: current_user.profile.id).order(:date)
   end
 
   def show

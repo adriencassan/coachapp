@@ -28,10 +28,12 @@
           <% end %>
           </div>
         <div class="col-xs-1">
-          <% unless habitset.started_from_today ==0 %>
+          <% if habitset.habitset_type == "Days count" %>
+            <% unless habitset.started_from_today ==0 %>
               <p> <%= "#{habitset.started_from_today} days"%></p>
-          <%end%>
-          </div>
+            <%end%>
+          <% end %>
+        </div>
         <div class="col-xs-3">
           <% unless habitset.coach_id.nil? %>
           <div class="card-coach">
