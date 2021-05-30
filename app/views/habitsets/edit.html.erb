@@ -26,6 +26,7 @@
       <%= simple_form_for @habitset do |f| %>
 
 
+    <!-- SECTION ACTIONS-->
     <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">ACTIONS</div>
     </div>
@@ -44,6 +45,8 @@
           </div>
         </div>
 
+
+        <!-- SECTION BASIC-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">BASIC</div>
         </div>
@@ -90,7 +93,6 @@
           </div>
         </div>
 
-
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Habit Started Date</div>
           <div class="col-xs-6 custom-table-cell"><%= f.input :started_at, as: :date,  label: false, class:"form-control"  %></div>
@@ -102,20 +104,10 @@
         </div>
 
         <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Is Active?</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :is_active, label: false, class:"form-control"  %></div>
-        </div>
-
-        <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Is Model?</div>
           <div class="col-xs-9 custom-table-cell"><%= f.input :is_model, label: false, class:"form-control"  %></div>
         </div>
 
-            <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Is Completed?</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :is_completed, label: false, class:"form-control"  %>
-          </div>
-        </div>
 
       <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Is Favorite?</div>
@@ -124,6 +116,31 @@
         </div>
 
 
+      <!-- SECTION STATUS-->
+      <div class="row page-custom-section-title row-margin-left">
+          <div class="col-xs-12 custom-table-cell">STATUS</div>
+        </div>
+
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Is Active?</div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :is_active, label: false, class:"form-control"  %></div>
+        </div>
+
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Is Coppleted?</div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :is_completed, label: false, class:"form-control"  %></div>
+        </div>
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Status</div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :status, collection: Habitset.habitsetStatus, label: false, class:"form-control" %> </div>
+        </div>
+
+
+
+    <!-- SECTION NUTRITION HABIT-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">Nutrition Habit</div>
         </div>
@@ -136,10 +153,10 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Kcal</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :kcal, label: false, class:"form-control" %>
-          </div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :kcal, label: false, class:"form-control" %></div>
         </div>
 
+        <!-- SECTION FIT HABIT-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">FIT Habit</div>
         </div>
@@ -154,6 +171,8 @@
           <div class="col-xs-9 custom-table-cell"><%= f.input :fit_workoutdescription, label: false, class:"form-control" %> </div>
         </div>
 
+
+        <!-- SECTION COACHING-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">Coaching Habit</div>
         </div>
@@ -211,6 +230,7 @@
           </div>
 
 
+        <!-- SECTION RESULT-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">Result</div>
         </div>
@@ -225,7 +245,7 @@
           <div class="col-xs-9 custom-table-cell"><%= f.input :result_fatmass_pct, label: false, class:"form-control"%></div>
         </div>
 
-
+     <!-- SECTION VIDEO-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">Video</div>
         </div>

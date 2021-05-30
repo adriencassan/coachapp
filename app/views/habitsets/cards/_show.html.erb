@@ -21,10 +21,12 @@
         </div>
         <div class="col-xs-3"> <p> <%= habitset.name %></p></div>
         <div class="col-xs-1">
-          <% if  habitset.is_completed %>
-            <i class="fas fa-check-circle" style= "font-size: 20px"></i>
+          <% if  habitset.status =="Completed" %>
+            <i class="fas fa-check-circle" style= "font-size: 30px"></i>
+          <% elsif  habitset.status =="Failed" %>
+            <i class="fas fa-times-circle" style= "font-size: 30px"></i>
           <% else %>
-          <p>Ongoing</p>
+            <p><%=habitset.status%></p>
           <% end %>
           </div>
         <div class="col-xs-1">
