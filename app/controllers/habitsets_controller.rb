@@ -6,7 +6,7 @@ class HabitsetsController < ApplicationController
     @habitsets_upcoming = Habitset.where('date > ?', Date.today).order(:date)
     @habitsets_failed = Habitset.where('date < ?', Date.today).where(status: "Ongoing").where.not(habitset_type: "Days count").order(:date)
     @habitsets_inbox = Habitset.where(is_completed: false, is_favorite: false, date: nil).order(:date)
-    @habitsets_today = Habitset.where(is_completed: false, is_favorite: false, date: Date.today).order(:date)
+    @habitsets_today = Habitset.where(is_favorite: false, date: Date.today).order(:date)
   end
 
   def all
