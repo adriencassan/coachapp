@@ -29,7 +29,7 @@ class Habitset < ApplicationRecord
   end
 
   def self.habitsetStatus
-    ["Ongoing","Completed","Failed"]
+    ["Not started","Ongoing","Completed","Failed"]
   end
 
 end
