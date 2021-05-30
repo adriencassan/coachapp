@@ -47,6 +47,13 @@ class HabitsetsController < ApplicationController
     redirect_to habitsets_path
   end
 
+   def copy
+    @habitset = Habitset.find(params[:id])
+    @habitset_new = @habitset.dup
+    @habitset_new.save!
+    redirect_to edit_habitset_path( @habitset_new )
+  end
+
   def destroy
     @habitset = Habitset.find(params[:id])
     @habitset.destroy!

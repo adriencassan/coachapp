@@ -8,10 +8,11 @@ Rails.application.routes.draw do
 
 
   resources :habitsets do
-       get ':id/destroy', to: "habitsets#destroy", as: "destroy"
+    get ':id/destroy', to: "habitsets#destroy", as: "destroy"
     get ':id/destroydate', to: "habitsets#destroydate", as: "destroydate"
     get ':id/destroystartdate', to: "habitsets#destroystartdate", as: "destroystartdate"
     get ':id/destroyreviewedat', to: "habitsets#destroyreviewedat", as: "destroyreviewedat"
+    get ':id/copy', to: "habitsets#copy", as: "copy"
   end
 
   get '/allhabitsets', to: "habitsets#all", as: "allhabitsets"

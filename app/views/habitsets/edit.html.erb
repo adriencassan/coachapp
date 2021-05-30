@@ -43,7 +43,17 @@
                 <%= link_to "DELETE", habitset_destroy_path(@habitset.id), class: "blue-btn round-btn sm-btn"%>
             <% end %>
           </div>
-        </div>
+      </div>
+
+
+      <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">COPY</div>
+          <div class="col-xs-6 custom-table-cell">
+            <% unless @habitset.id.nil? %>
+                <%= link_to "COPY", habitset_copy_path(@habitset.id), class: "blue-btn round-btn sm-btn"%>
+            <% end %>
+          </div>
+      </div>
 
 
         <!-- SECTION BASIC-->
