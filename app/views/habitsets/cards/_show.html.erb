@@ -30,7 +30,7 @@
           <% end %>
           </div>
         <div class="col-xs-1">
-          <% if habitset.habitset_type == "Days count" and habitset.status = "Ongoing" %>
+          <% if habitset.habitset_type == "Days count" and habitset.status == "Ongoing" %>
             <% unless habitset.started_from_today <= 0 %>
               <p> <%= "#{habitset.started_from_today} days"%></p>
             <%end%>
