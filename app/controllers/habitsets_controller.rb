@@ -2,15 +2,9 @@ class HabitsetsController < ApplicationController
 
 
   def index
-    @habitsets_favorites = Habitset.where(is_favorite: true, is_completed: false).order(:date)
-    @habitsets_upcoming = Habitset.where('date > ?', Date.today).order(:date)
-    @habitsets_failed = Habitset.where("date <  '#{Date.today}' AND (habitset_type <> 'Days count') AND (status In('','Not started','Ongoing') or status is null)").order(:date)
-    @habitsets_inbox = Habitset.where(is_completed: false, is_favorite: false, date: nil).order(:date)
-    @habitsets_today = Habitset.where(is_favorite: false, date: Date.today).order(:date)
-  end
-
-  def all
     @habitsetdays = Habitset.where.not(date: nil).order(date: :desc).distinct.pluck(:date)
+    @habitsets_favorites = Habitset.where(is_favorite: true, is_completed: false).order(:date)
+    @habitsets_inbox = Habitset.where(is_completed: false, is_favorite: false, date: nil).order(:date)
     @habitsets = Habitset.all.order(:date)
   end
 

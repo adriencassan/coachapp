@@ -1,30 +1,18 @@
 <div class="page-custom-wrapper">
 
+
+
   <div class="page-custom-content">
-    <div class="row page-custom-section-title">
+    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
       <div class="col-xs-10"><h3>Favorites</h3></div>
       <div class="col-xs-2"></div>
     </div>
     <div class="row page-custom-section">
       <% @habitsets_favorites.each do |habitset| %>
-        <%= render 'habitsets/cards/show', habitset: habitset %>
+        <%= render 'habitsets/cards/sho', habitset: habitset %>
       <% end %>
     </div>
   </div>
-
-  <div class="page-custom-content">
-    <div class="row page-custom-section-title">
-      <div class="col-xs-10"><h3><%="Today (#{@habitsets_today.count})"%></h3></div>
-      <div class="col-xs-2"></div>
-    </div>
-    <div class="row page-custom-section">
-      <% @habitsets_today.each do |habitset| %>
-        <%= render 'habitsets/cards/show', habitset: habitset %>
-      <% end %>
-    </div>
-  </div>
-
-
 
   <div class="page-custom-content">
     <div class="row page-custom-section-title">
@@ -42,36 +30,20 @@
   </div>
 
   <div class="page-custom-content">
-    <div class="row page-custom-section-title">
-      <div class="col-xs-10"><h3><%="Upcoming (#{@habitsets_upcoming.count})"%></h3></div>
-      <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseUpcoming" aria-expanded="false" aria-controls="collapseUpcoming"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
+    <% @habitsetdays.each do |day| %>
+      <div class="row page-custom-section-title" >
+        <div class="col-xs-10"> <h3> <%= day.strftime("%A.%d.%b.%y") %></h3></div>
+        <div class="col-xs-2"></div>
       </div>
-    </div>
-    <div class="row page-custom-section">
-      <div class="collapse" id="collapseUpcoming" style= "width: 100%">
-        <% @habitsets_upcoming.each do |habitset| %>
+      <div class="row page-custom-section">
+        <% @habitsets.where(date: day).each do |habitset| %>
           <%= render 'habitsets/cards/show', habitset: habitset %>
         <% end %>
-      </div>
-    </div>
-
-
+        </div>
+    <% end %>
   </div>
 
-    <div class="page-custom-content">
-    <div class="row page-custom-section-title">
-      <div class="col-xs-10"><h3><%="Failed (#{@habitsets_failed.count})"%></h3></div>
-      <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseFailed" aria-expanded="false" aria-controls="collapseFailed"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
-      </div>
-    </div>
-    <div class="row page-custom-section">
-      <div class="collapse" id="collapseFailed" style= "width: 100%">
-        <% @habitsets_failed.each do |habitset| %>
-          <%= render 'habitsets/cards/show', habitset: habitset %>
-        <% end %>
-      </div>
-    </div>
-  </div>
+
 
 
 </div>

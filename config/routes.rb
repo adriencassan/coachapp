@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     get ':id/copy', to: "habitsets#copy", as: "copy"
   end
 
-  get '/allhabitsets', to: "habitsets#all", as: "allhabitsets"
 
   get '/coachreviews', to: "habitsets#coachreviews", as: "coachreviews"
 

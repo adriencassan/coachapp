@@ -22,9 +22,9 @@
         <div class="col-xs-3"> <p> <%= habitset.name %></p></div>
         <div class="col-xs-1">
           <% if  habitset.status =="Completed" %>
-            <i class="fas fa-check-circle" style= "font-size: 30px"></i>
+            <i class="fas fa-check-circle" style= "font-size: 20px"></i>
           <% elsif  habitset.status =="Failed" %>
-            <i class="fas fa-times-circle" style= "font-size: 30px"></i>
+            <i class="fas fa-times-circle" style= "font-size: 20px"></i>
           <% else %>
             <p><%=habitset.status%></p>
           <% end %>

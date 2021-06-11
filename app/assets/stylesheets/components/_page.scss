@@ -4,8 +4,8 @@
 }
 
 .page-custom-section-title{
-  background-color: $dark-blue ;
-  color: $light-gray;
+  background-color: $mid-blue ;
+  color: $dark-blue;
   width: 100%;
   padding: 5px;
   margin: 5px;
@@ -27,7 +27,15 @@
   .fas {
     color: $dark-blue;
   }
+
+  .title-yellow {
+    background-color: $yellow;
+  }
+
+
 }
+
+
 
 .page-custom-section {
   padding: 5px;
