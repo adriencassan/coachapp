@@ -1,0 +1,47 @@
+<div class="page-custom-wrapper">
+
+
+
+<div class="page-custom-content">
+    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
+      <div class="col-xs-10"><h3>Calendar</h3></div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row page-custom-section">
+
+    </div>
+  </div>
+
+
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
+      <div class="col-xs-10"><h3>Habiset Item</h3></div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row page-custom-section">
+        <%= render 'habitsets/cards/show', habitset: Habiset.first %>
+    </div>
+  </div>
+
+
+  <div class="page-custom-content">
+    <% @habitsetdays.each do |day| %>
+      <div class="row page-custom-section-title" >
+        <div class="col-xs-10"> <h3>Habitset</h3></div>
+        <div class="col-xs-2"></div>
+      </div>
+      <div class="row page-custom-section">
+        <% @habitsets.where(date: day).each do |habitset| %>
+          <%= render 'habitsets/cards/show', habitset: Habiset.limit(5).order("RANDOM()") %>
+        <% end %>
+        </div>
+    <% end %>
+  </div>
+
+
+
+
+</div>
+
+

@@ -50,8 +50,9 @@
 }
 
 .xs-btn {
-  width: 45px;
-  font-size: 8px;
+  width: 30px;
+  font-size: 10px;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -79,6 +80,19 @@
     background-color: white;
     color: $dark-blue;
   }
+}
+
+.green-btn {
+  background-color: $green;
+  border: 1px solid $green;
+  color: white;
+}
+
+
+.red-btn {
+  background-color: $red;
+  border: 1px solid $red;
+  color: white;
 }
 
 

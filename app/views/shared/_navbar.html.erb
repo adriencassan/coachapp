@@ -10,7 +10,8 @@
       <% if user_signed_in? %>
 
           <% if  current_user.profile.role == "Athlete"%>
-            <li><%= link_to "Active habitsets", habitsets_path%></li>
+            <li><%= link_to "Habitsets", habitsets_path%></li>
+            <li><%= link_to "Habit Calendar Tacking", habit_elements_path%></li>
             <li><%= link_to "New habitset", new_habitset_path %></li>
           <% end %>
           <li><%= link_to "All reviews", coachreviews_path%></li>

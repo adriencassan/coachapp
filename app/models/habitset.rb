@@ -1,6 +1,7 @@
 class Habitset < ApplicationRecord
 
 
+
   mount_uploader :coach_review_video, AttachementUploader
   mount_uploader :coach_guidelines_video, AttachementUploader
   mount_uploader :photo, AttachementUploader

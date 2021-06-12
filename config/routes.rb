@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     get ':id/copy', to: "habitsets#copy", as: "copy"
   end
 
+  resources :habit_elements do
+    get ':id/calendar' , to: "habit_elements#destroy"
+  end
 
   get '/coachreviews', to: "habitsets#coachreviews", as: "coachreviews"
-
 
 
 end

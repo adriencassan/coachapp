@@ -1,0 +1,85 @@
+<div class="page-custom-wrapper">
+
+
+  <div class="page-custom-content">
+  <div class="grid">
+
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
+      <div class="col-xs-10"><h3>Habit Item</h3></div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row page-custom-section">
+      <div class="custom-table">
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-2 custom-table-cell">Habit item</div>
+          <div class="col-xs-2 custom-table-cell"><%="#{@habit_element.name}"%></div>
+          <div class="col-xs-2 custom-table-cell">
+            <div class="dropdown">
+              <button type="button" class="round-btn blue-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select another item</button>
+              <div class="dropdown-menu navbar-wagon-dropdown-menu">
+                <% HabitElement.all.each do |habit_element| %>
+                 <li><%= link_to habit_element.name, habit_element_path(habit_element.id)%></li>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <div class="col-xs-10"><h3>Calendar</h3></div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row page-custom-section">
+      <div class="custom-table">
+        <div class="row custom-table-header-grey row-margin-left">
+          <div class="col-xs-3 custom-table-cell">May</div>
+          <div class="col-xs-3 custom-table-cell">June</div>
+          <div class="col-xs-3 custom-table-cell">July</div>
+        </div>
+
+        <% (0..5).each do |idxweek|  %>
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">
+            <%  @habit_element_calendar[0][idxweek].each do |day| %>
+              <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
+            <% end %>
+          </div>
+          <div class="col-xs-3 custom-table-cell">
+            <% unless @habit_element_calendar[1][idxweek].nil? %>
+               <%  @habit_element_calendar[1][idxweek].each do |day| %>
+                  <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
+                <% end %>
+            <% end %>
+          </div>
+          <div class="col-xs-3 custom-table-cell">
+            <% unless @habit_element_calendar[2][idxweek].nil? %>
+              <%  @habit_element_calendar[2][idxweek].each do |day| %>
+                <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title" >
+      <div class="col-xs-10"> <h3>Habitset</h3></div>
+      <div class="col-xs-2"></div>
+    </div>
+    <div class="row page-custom-section">
+      <% @habitsets.each do |habitset| %>
+        <%= render 'habitsets/cards/show', habitset: habitset %>
+      <% end %>
+    </div>
+  </div>
+</div>
