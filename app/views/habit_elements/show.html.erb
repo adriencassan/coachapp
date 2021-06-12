@@ -38,26 +38,26 @@
     <div class="row page-custom-section">
       <div class="custom-table">
         <div class="row custom-table-header-grey row-margin-left">
-          <div class="col-xs-3 custom-table-cell">May</div>
-          <div class="col-xs-3 custom-table-cell">June</div>
-          <div class="col-xs-3 custom-table-cell">July</div>
+          <div class="col-xs-4 custom-table-cell">May</div>
+          <div class="col-xs-4 custom-table-cell">June</div>
+          <div class="col-xs-4 custom-table-cell">July</div>
         </div>
 
         <% (0..5).each do |idxweek|  %>
         <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">
+          <div class="col-xs-4 custom-table-cell">
             <%  @habit_element_calendar[0][idxweek].each do |day| %>
               <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
             <% end %>
           </div>
-          <div class="col-xs-3 custom-table-cell">
+          <div class="col-xs-4 custom-table-cell">
             <% unless @habit_element_calendar[1][idxweek].nil? %>
                <%  @habit_element_calendar[1][idxweek].each do |day| %>
                   <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
                 <% end %>
             <% end %>
           </div>
-          <div class="col-xs-3 custom-table-cell">
+          <div class="col-xs-4 custom-table-cell">
             <% unless @habit_element_calendar[2][idxweek].nil? %>
               <%  @habit_element_calendar[2][idxweek].each do |day| %>
                 <%= link_to "#{day[0].day}", habit_element_path(@habit_element, date: day[0]), class: "btn round-btn xs-btn #{ if day[1] == 1 then 'green-btn' elsif day[1] == -1 then 'red-btn' end }"%>
