@@ -1,6 +1,28 @@
 <div class="page-custom-wrapper">
 
 
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <div class="col-xs-10"><h3>Menu</h3></div>
+      <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseCommand" aria-expanded="false" aria-controls="collapseCommand"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
+      </div>
+    </div>
+    <div class="row page-custom-section">
+      <div class="collapse" id="collapseCommand" style= "width: 100%">
+        <div class=custom-table>
+          <div class="grid row custom-table-row">
+            <div class="col-xs-2">New habitset</div>
+            <div class="col-xs-10"><%= link_to "New", new_habitset_path, class: "blue-btn round-btn sm-btn" %></div>
+          </div>
+          <div class="grid row custom-table-row">
+            <div class="col-xs-2">Quick insert</div>
+            <div class="col-xs-10"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div class="page-custom-content">
     <div class="row page-custom-section-title" style="background-color:#ffbe0b">
@@ -32,7 +54,12 @@
   <div class="page-custom-content">
     <% @habitsetdays.each do |day| %>
       <div class="row page-custom-section-title" >
-        <div class="col-xs-10"> <h3> <%= day.strftime("%A.%d.%b.%y") %></h3></div>
+        <div class="col-xs-10">
+          <h3> <%=   day.strftime("%A.%d.%b.%y") %></h3>
+          <% if day.to_date == Date.today  %>
+            <h3>" (Today)"</h3>
+          <% end %>
+        </div>
         <div class="col-xs-2"></div>
       </div>
       <div class="row page-custom-section">

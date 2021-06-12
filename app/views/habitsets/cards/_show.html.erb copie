@@ -17,20 +17,31 @@
           <% end %>
         </div>
         <div class="col-xs-2">
-          <div class="btn round-btn grey-btn" style= "font-size: 10px">
+          <div class="btn round-btn" style= "font-size: 10px">
             <%= HabitElement.find(habitset.habit_element_id).name  unless habitset.habit_element_id.nil?%>
 
             </div>
         </div>
         <div class="col-xs-4"> <p> <%= habitset.name %></p></div>
         <div class="col-xs-1">
-          <div class="<%= "btn round-btn #{if habitset.status == 'Completed' then 'green-btn' elsif habitset.status == 'Failed' then 'red-btn' end }"%>",  style= "font-size: 10px"><%= habitset.status %></div>
-              <% if habitset.habitset_type == "Days count" and habitset.status == "Ongoing" %>
-            <% unless habitset.started_from_today <= 0 %>
-              <p style= "font-size: 10px"> <%= "#{habitset.started_from_today} days"%></p>
-            <%end%>
+
+          <div class="btn md-btn">habitset.name</div>
+
+          <% if  habitset.status =="Completed" %>
+            <i class="fas fa-check-circle" style= "font-size: 20px"></i>
+          <% elsif  habitset.status =="Failed" %>
+            <i class="fas fa-times-circle" style= "font-size: 20px"></i>
+          <% else %>
+            <p><%=habitset.status%></p>
           <% end %>
           </div>
+        <div class="col-xs-1">
+          <% if habitset.habitset_type == "Days count" and habitset.status == "Ongoing" %>
+            <% unless habitset.started_from_today <= 0 %>
+              <p> <%= "#{habitset.started_from_today} days"%></p>
+            <%end%>
+          <% end %>
+        </div>
         <div class="col-xs-1">
           <% unless habitset.coach_id.nil? %>
           <div class="card-coach">
