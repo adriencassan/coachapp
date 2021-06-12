@@ -1,4 +1,5 @@
 class Habitset < ApplicationRecord
+  has_one :habit_element
 
 
 
