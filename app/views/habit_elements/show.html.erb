@@ -6,22 +6,32 @@
 
 
   <div class="page-custom-content">
-    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
-      <div class="col-xs-10"><h3>Habit Item</h3></div>
-      <div class="col-xs-2"></div>
+    <div class="row page-custom-title">
+      <div class="col-xs-12"><h3><%="Habit Item > #{@habit_element.name}"%></h3></div>
+    </div>
+  </div>
+
+
+  <div class="page-custom-content">
+    <div class="row page-custom-section-title">
+      <div class="col-xs-10"><h3>Actions</h3></div>
+      <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseAction" aria-expanded="false" aria-controls="collapseAction"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
+      </div>
     </div>
     <div class="row page-custom-section">
-      <div class="custom-table">
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-2 custom-table-cell">Habit item</div>
-          <div class="col-xs-2 custom-table-cell"><%="#{@habit_element.name}"%></div>
-          <div class="col-xs-2 custom-table-cell">
-            <div class="dropdown">
-              <button type="button" class="round-btn blue-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select another item</button>
-              <div class="dropdown-menu navbar-wagon-dropdown-menu">
-                <% HabitElement.all.each do |habit_element| %>
-                 <li><%= link_to habit_element.name, habit_element_path(habit_element.id)%></li>
-                <% end %>
+      <div class="collapse" id="collapseAction" style= "width: 100%">
+        <div class="custom-table">
+          <div class="row custom-table-row row-margin-left">
+            <div class="col-xs-2 custom-table-cell">Habit item</div>
+            <div class="col-xs-2 custom-table-cell"><%="#{@habit_element.name}"%></div>
+            <div class="col-xs-2 custom-table-cell">
+              <div class="dropdown">
+                <button type="button" class="round-btn blue-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select another item</button>
+                <div class="dropdown-menu navbar-wagon-dropdown-menu">
+                  <% HabitElement.all.each do |habit_element| %>
+                    <li><%= link_to habit_element.name, habit_element_path(habit_element.id)%></li>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
@@ -73,7 +83,7 @@
 
   <div class="page-custom-content">
     <div class="row page-custom-section-title" >
-      <div class="col-xs-10"> <h3>Habitset</h3></div>
+      <div class="col-xs-10"> <h3>Habitsets</h3></div>
       <div class="col-xs-2"></div>
     </div>
     <div class="row page-custom-section">
