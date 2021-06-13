@@ -10,18 +10,7 @@
 
     <div class="card-product-infos">
       <div class="row">
-        <div class="col-xs-1">
-          <% if habitset.date.nil? %>
-          <% else %>
-            <p>  <%= habitset.date.strftime("%a.%d.%b")%></p>
-          <% end %>
-        </div>
-        <div class="col-xs-2" style="text-align: center">
-          <div class="btn round-btn grey-btn" style= "font-size: 10px">
-            <%= HabitElement.find(habitset.habit_element_id).name  unless habitset.habit_element_id.nil?%>
 
-            </div>
-        </div>
         <div class="col-xs-4" > <p> <%= habitset.name %></p></div>
         <div class="col-xs-1" style="text-align: center">
           <div class="<%= "btn round-btn #{if habitset.status == 'Completed' then 'green-btn' elsif habitset.status == 'Failed' then 'red-btn' end }"%>",  style= "font-size: 10px">
@@ -50,12 +39,10 @@
           </div>
           <%end%>
         </div>
+        <div class="col-xs-3"></div>
         <div class="col-xs-2">
           <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= habitset.id -%>"><i class="fas fa-eye" style= "font-size: 15px"></i></button>
             <%= link_to edit_habitset_path(habitset),  class: "round-btn sm-btn" do %><i class="fas fa-tools" style= "font-size: 15px"></i><%end%></i>
-          <% if habitset.children? %>
-          <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseHabitsetChildren<%= habitset.id -%>" aria-expanded="false" aria-controls="HabitsetChildren<%= habitset.id -%>">Children</button>
-          <% end %>
         </div>
       </div>
     </div>
@@ -74,20 +61,5 @@
 <div class="row">
   <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseReview<%= habitset.id -%>"" style= "width: 100%">
     <%= render 'habitsets/cards/editreview', habitset:habitset  %>
-  </div>
-</div>
-
-
-<!-- PARTIAL HABISET CHILDREN -->
-<div class="row">
-  <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseHabitsetChildren<%= habitset.id -%>"" style= "width: 100%">
-     <% habitset.children.each do |habitsetchild|   %>
-      <div class="row">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-11">
-          <%= render 'habitsets/cards/show-child', habitset: habitsetchild %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>

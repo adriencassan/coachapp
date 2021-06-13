@@ -66,11 +66,16 @@
           <div class="col-xs-9 custom-table-cell"><%= f.input :name, label: false, class:"form-control" %> </div>
         </div>
 
-
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Habit Element</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :habit_element_id, collection: HabitElement.all, label: false, label_method: :name, class:"form-control" %>
+          <div class="col-xs-6 custom-table-cell"><%= f.input :habit_element_id, collection: HabitElement.all, label: false, label_method: :name, class:"form-control" %></div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :habitset_type, collection: Habitset.habitsetTypes, label: false, class:"form-control" %>
           </div>
+        </div>
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Status</div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :status, collection: Habitset.habitsetStatus, label: false, class:"form-control" %> </div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
@@ -80,13 +85,11 @@
         </div>
 
 
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Type</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :habitset_type, collection: Habitset.habitsetTypes, label: false, class:"form-control" %>
-          </div>
+
+         <!-- SECTION HABITSET ATTRIBUTES-->
+        <div class="row page-custom-section-title row-margin-left">
+          <div class="col-xs-12 custom-table-cell">HABITSET ATTRIBUTES</div>
         </div>
-
-
 
 
         <div class="row custom-table-row row-margin-left">
@@ -132,10 +135,7 @@
           </div>
         </div>
 
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Is Model?</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :is_model, label: false, class:"form-control"  %></div>
-        </div>
+
 
 
       <div class="row custom-table-row row-margin-left">
@@ -145,27 +145,6 @@
         </div>
 
 
-      <!-- SECTION STATUS-->
-      <div class="row page-custom-section-title row-margin-left">
-          <div class="col-xs-12 custom-table-cell">STATUS</div>
-        </div>
-
-
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Is Active?</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :is_active, label: false, class:"form-control"  %></div>
-        </div>
-
-
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Is Completed?</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :is_completed, label: false, class:"form-control"  %></div>
-        </div>
-
-        <div class="row custom-table-row row-margin-left">
-          <div class="col-xs-3 custom-table-cell">Status</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :status, collection: Habitset.habitsetStatus, label: false, class:"form-control" %> </div>
-        </div>
 
 
 
@@ -182,7 +161,22 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Kcal</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :kcal, label: false, class:"form-control" %></div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :he_kcal, label: false, class:"form-control" %></div>
+        </div>
+
+          <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Protein (g)</div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :he_protein, label: false, class:"form-control" %></div>
+        </div>
+
+          <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Fat (g)</div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :he_fat, label: false, class:"form-control" %></div>
+        </div>
+
+          <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Carb (g)</div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :he_carb, label: false, class:"form-control" %></div>
         </div>
 
         <!-- SECTION FIT HABIT-->
@@ -201,6 +195,28 @@
         </div>
 
 
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Quantity</div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :fit_quantity, label: false, class:"form-control" %> </div>
+        </div>
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Weight (kg)</div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :fit_weight, label: false, class:"form-control" %> </div>
+          <div class="col-xs-3 custom-table-cell"><%= "(Calculated : XXXX - To be implemented"%></div>
+        </div>
+
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Is Max?</div>
+          <div class="col-xs-9 custom-table-cell"><%= f.input :fit_is_max, label: false, class:"form-control"  %>
+          </div>
+        </div>
+
+
+
+
+
         <!-- SECTION COACHING-->
         <div class="row page-custom-section-title row-margin-left">
           <div class="col-xs-12 custom-table-cell">Coaching Habit</div>
@@ -213,7 +229,7 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Coach</div>
-          <div class="col-xs-9 custom-table-cell">
+          <div class="col-xs-6 custom-table-cell">
             <%= f.input :coach_id, collection: Profile.all, label: false, label_method: :full_name, class:"form-control"%>
           </div>
         </div>
@@ -221,7 +237,7 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Coachee</div>
-          <div class="col-xs-9 custom-table-cell">
+          <div class="col-xs-6 custom-table-cell">
             <%= f.input :coachee_id, collection: Profile.all, label: false, label_method: :full_name, class:"form-control"%>
           </div>
         </div>
@@ -266,13 +282,26 @@
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Weight (kg)</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :result_weight, label: false, class:"form-control"%></div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :result_weight, label: false, class:"form-control"%></div>
         </div>
 
         <div class="row custom-table-row row-margin-left">
           <div class="col-xs-3 custom-table-cell">Fat Mass (%)</div>
-          <div class="col-xs-9 custom-table-cell"><%= f.input :result_fatmass_pct, label: false, class:"form-control"%></div>
+          <div class="col-xs-3 custom-table-cell"><%= f.input :result_fatmass_pct, label: false, class:"form-control"%></div>
         </div>
+
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Photo</div>
+          <div class="col-xs-6 custom-table-cell">
+            <%= cl_image_tag @habitset.photo, height: 200, width: 200, crop: :fill %>
+          </div>
+          <div class="col-xs-3 custom-table-cell">
+            <%= f.input :result_photo, as: :file, label: false%>
+            <%= f.input :result_photo_cache, as: :hidden  %>
+          </div>
+        </div>
+
 
      <!-- SECTION VIDEO-->
         <div class="row page-custom-section-title row-margin-left">
@@ -319,12 +348,14 @@
           <div class="col-xs-3 custom-table-cell">Habitset lines</div>
           <div class="col-xs-9 custom-table-cell">
               <div class="row custom-table-header">
+                <div class="col-xs-2">Element</div>
                 <div class="col-xs-2">Quantity</div>
                 <div class="col-xs-2">Weight</div>
                  <div class="col-xs-2">Delete ?</div>
               </div>
              <%= f.fields_for :habitset_lines do |lf| %>
               <div class="row custom-table-row">
+                <div class="col-xs-2 custom-table-cell"><%= lf.input :habit_element_id, collection: HabitElement.all,   label: false, label_method: :name, class:"form-control" %></div>
                 <div class="col-xs-2 custom-table-cell"><%= lf.input :quantity, label: false %></div>
                 <div class="col-xs-2 custom-table-cell"><%= lf.input :weight, label: false %></div>
                 <div class="col-xs-2 custom-table-cell"><%= lf.check_box :_destroy %></div>

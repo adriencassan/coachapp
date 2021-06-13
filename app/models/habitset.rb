@@ -4,12 +4,13 @@ class Habitset < ApplicationRecord
   accepts_nested_attributes_for :habitset_lines, allow_destroy: true
 
   #Parent / Child relationship for habitset
-  belongs_to :habitset, foreign_key: 'habitset_parent_id'
-  has_many :habitset, foreign_key: 'habitset_parent_id'
+  #belongs_to :habitset, foreign_key: 'habitset_parent_id'
+  #has_many :habitset, foreign_key: 'habitset_parent_id'
 
   mount_uploader :coach_review_video, AttachementUploader
   mount_uploader :coach_guidelines_video, AttachementUploader
   mount_uploader :photo, AttachementUploader
+  mount_uploader :result_photo, AttachementUploader
 
   #has_many_attached :photo
 
@@ -39,7 +40,11 @@ class Habitset < ApplicationRecord
   end
 
   def children?
-    Habitset.where(habitset_parent_id: self.id).count == 0
+    Habitset.where(habitset_parent_id: self.id).count != 0
+  end
+
+   def children
+    Habitset.where(habitset_parent_id: self.id)
   end
 
 end
