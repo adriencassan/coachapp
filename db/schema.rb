@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210611154927) do
+ActiveRecord::Schema.define(version: 20210613040220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20210611154927) do
     t.string "nameFR"
     t.boolean "isElementHabitset", default: true
     t.boolean "isElementHabitsetline", default: true
+  end
+
+  create_table "habitset_lines", force: :cascade do |t|
+    t.integer "quantity", default: 0
+    t.integer "weight", default: 0
+    t.bigint "habit_element_id"
+    t.bigint "habitset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["habit_element_id"], name: "index_habitset_lines_on_habit_element_id"
+    t.index ["habitset_id"], name: "index_habitset_lines_on_habitset_id"
   end
 
   create_table "habitsets", force: :cascade do |t|
@@ -82,6 +93,8 @@ ActiveRecord::Schema.define(version: 20210611154927) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "habitset_lines", "habit_elements"
+  add_foreign_key "habitset_lines", "habitsets"
   add_foreign_key "habitsets", "habit_elements"
   add_foreign_key "profiles", "profiles"
   add_foreign_key "users", "profiles"

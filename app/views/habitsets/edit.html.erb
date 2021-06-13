@@ -72,7 +72,7 @@
           <div class="col-xs-6 custom-table-cell">
 
 
-  <%= cl_image_tag @habitset.photo, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @habitset.photo, height: 200, width: 200, crop: :fill %>
 
           </div>
           <div class="col-xs-3 custom-table-cell">
@@ -292,12 +292,37 @@
               <%= f.input :coach_review_video, label: false%>
               <%= f.input :coach_review_video_cache, as: :hidden %>
           </div>
+        </div>
+
+
+
+
+
+        <!-- SECTION HABISET LINES-->
+        <div class="row page-custom-section-title row-margin-left">
+          <div class="col-xs-12 custom-table-cell">Habitset lines</div>
+        </div>
+
+        <div class="row custom-table-row row-margin-left">
+          <div class="col-xs-3 custom-table-cell">Habitset lines</div>
+          <div class="col-xs-9 custom-table-cell">
+              <div class="row custom-table-header">
+                <div class="col-xs-2">Quantity</div>
+                <div class="col-xs-2">Weight</div>
+                 <div class="col-xs-2">Delete ?</div>
+              </div>
+             <%= f.fields_for :habitset_lines do |lf| %>
+              <div class="row custom-table-row">
+                <div class="col-xs-2 custom-table-cell"><%= lf.input :quantity, label: false %></div>
+                <div class="col-xs-2 custom-table-cell"><%= lf.input :weight, label: false %></div>
+                <div class="col-xs-2 custom-table-cell"><%= lf.check_box :_destroy %></div>
+              </div>
+             <% end %>
           </div>
         </div>
 
         <% end %>
         </div>
-
     </div>
   </div>
 </div>

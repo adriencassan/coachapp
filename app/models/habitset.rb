@@ -1,6 +1,7 @@
 class Habitset < ApplicationRecord
-  has_one :habit_element
-
+  belongs_to :habit_element
+  has_many :habitset_lines
+  accepts_nested_attributes_for :habitset_lines, allow_destroy: true
 
 
   mount_uploader :coach_review_video, AttachementUploader

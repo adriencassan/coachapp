@@ -23,6 +23,7 @@ class HabitsetsController < ApplicationController
 
   def edit
     @habitset = Habitset.find(params[:id])
+    @habitset.habitset_lines.build
   end
 
   def new
@@ -78,7 +79,7 @@ class HabitsetsController < ApplicationController
   private
 
   def habitsets_params
-    params.require(:habitset).permit(:date, :started_at, :name, :description, :url,  :is_active, :is_model, :is_completed, :is_favorite, :habitset_type, :coach_reviewed_at, :coach_id,:coachee_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal, :coach_review_performance, :coach_review_execution, :fit_workouttime, :photo_cache, :photo, :result_weight, :result_fatmass_pct, :status, :habit_element_id)
+    params.require(:habitset).permit(:date, :started_at, :name, :description, :url,  :is_active, :is_model, :is_completed, :is_favorite, :habitset_type, :coach_reviewed_at, :coach_id,:coachee_id,:coach_review_is_requested, :coach_guidelines_video,:coach_guidelines_video_cache,:coach_review_video,:coach_review_video_cache,:coach_review,:kcal, :coach_review_performance, :coach_review_execution, :fit_workouttime, :photo_cache, :photo, :result_weight, :result_fatmass_pct, :status, :habit_element_id, habitset_lines_attributes: [:id, :quantity, :weight, :_destroy] )
   end
 
 end
