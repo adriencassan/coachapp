@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210613040220) do
+ActiveRecord::Schema.define(version: 20210613132713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20210613040220) do
     t.float "result_fatmass_pct"
     t.string "status"
     t.bigint "habit_element_id"
+    t.integer "habitset_parent_id"
+    t.float "fit_quantity"
+    t.float "fit_weight"
+    t.boolean "fit_is_max"
+    t.float "he_kcal"
+    t.float "he_protein"
+    t.float "he_carb"
+    t.float "he_fat"
+    t.string "result_photo"
     t.index ["coach_id"], name: "index_habitsets_on_coach_id"
     t.index ["coachee_id"], name: "index_habitsets_on_coachee_id"
     t.index ["habit_element_id"], name: "index_habitsets_on_habit_element_id"

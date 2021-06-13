@@ -3,6 +3,9 @@ class Habitset < ApplicationRecord
   has_many :habitset_lines
   accepts_nested_attributes_for :habitset_lines, allow_destroy: true
 
+  #Parent / Child relationship for habitset
+  belongs_to :habitset, foreign_key: 'habitset_parent_id'
+  has_many :habitset, foreign_key: 'habitset_parent_id'
 
   mount_uploader :coach_review_video, AttachementUploader
   mount_uploader :coach_guidelines_video, AttachementUploader
@@ -33,6 +36,10 @@ class Habitset < ApplicationRecord
 
   def self.habitsetStatus
     ["Not started","Ongoing","Completed","Failed"]
+  end
+
+  def children?
+    Habitset.where(habitset_parent_id: self.id).count == 0
   end
 
 end
