@@ -39,6 +39,6 @@
 <!-- PARTIAL COACH / EDIT REVIEW -->
 <div class="row">
   <div class="collapse <%= params[:show].to_i==habitset.id ? "in" : ""  -%>" id="collapseReview<%= habitset.id -%>"" style= "width: 100%">
-    <%= render 'habitsets/cards/editreview', habitset:habitset  %>
+    <%= render 'habitsets/cards/show-coach', habitset:habitset  %>
   </div>
 </div>

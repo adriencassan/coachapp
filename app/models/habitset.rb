@@ -1,6 +1,6 @@
 class Habitset < ApplicationRecord
   #belongs_to :habit_element
-  has_many :habitset_lines
+  has_many :habitset_lines, dependent: :destroy
   accepts_nested_attributes_for :habitset_lines, allow_destroy: true
 
   #Parent / Child relationship for habitset
