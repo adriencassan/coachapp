@@ -84,6 +84,11 @@
   }
 }
 
+
+.element-btn {
+  width: 120px;
+}
+
 .green-btn {
   background-color: $green;
   border: 1px solid $green;
@@ -96,7 +101,6 @@
   border: 1px solid $red;
   color: white;
 }
-
 
 .grey-btn {
   background-color: #808080;

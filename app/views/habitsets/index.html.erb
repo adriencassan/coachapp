@@ -2,7 +2,7 @@
 
 
   <div class="page-custom-content">
-    <div class="row page-custom-section-title">
+    <div class="row page-custom-section-subtitle">
       <div class="col-xs-10"><h3>Menu</h3></div>
       <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseCommand" aria-expanded="false" aria-controls="collapseCommand"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
       </div>
@@ -14,14 +14,10 @@
             <div class="col-xs-2">New habitset</div>
             <div class="col-xs-10"><%= link_to "New", new_habitset_path, class: "blue-btn round-btn sm-btn" %></div>
           </div>
-          <div class="grid row custom-table-row">
-            <div class="col-xs-2">Quick insert</div>
-            <div class="col-xs-10"></div>
-          </div>
         </div>
 
         <div class="row page-custom-section-subtitle">
-          <div class="col-xs-10"><h3><%="Inbox (#{@habitsets_inbox.count})"%></h3></div>
+          <div class="col-xs-10 "><h3><%="Inbox (#{@habitsets_inbox.count})"%></h3></div>
           <div class="col-xs-2"> <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseInbox" aria-expanded="false" aria-controls="collapseInbox"><i class="fas fa-chevron-circle-down" style= "font-size: 15px"></i></button>
           </div>
         </div>
@@ -39,7 +35,7 @@
 
 
   <div class="page-custom-content">
-    <div class="row page-custom-section-title" style="background-color:#ffbe0b">
+    <div class="row page-custom-title">
       <div class="col-xs-10"><h3>Favorites</h3></div>
       <div class="col-xs-2"></div>
     </div>

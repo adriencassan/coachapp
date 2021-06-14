@@ -17,14 +17,14 @@
           <% end %>
         </div>
         <div class="col-xs-2" style="text-align: center">
-          <div class="btn round-btn grey-btn" style= "font-size: 10px">
+          <div class="btn round-btn element-btn grey-btn" style= "font-size: 10px">
             <%= HabitElement.find(habitset.habit_element_id).name  unless habitset.habit_element_id.nil?%>
 
             </div>
         </div>
         <div class="col-xs-4" > <p> <%= habitset.name %></p></div>
         <div class="col-xs-1" style="text-align: center">
-          <div class="<%= "btn round-btn #{if habitset.status == 'Completed' then 'green-btn' elsif habitset.status == 'Failed' then 'red-btn' end }"%>",  style= "font-size: 10px">
+          <div class="<%= "btn round-btn sm-btn #{if habitset.status == 'Completed' then 'green-btn' elsif habitset.status == 'Failed' then 'red-btn' end }"%>",  style= "font-size: 10px">
 
             <% if habitset.status == "Ongoing" and habitset.habitset_type == "Days count" %>
               <% unless habitset.started_from_today <= 0 %>
@@ -34,13 +34,8 @@
               <%= habitset.status %>
             <%end%>
           </div>
-            <% if habitset.habitset_type == "Days count" and habitset.status == "Ongoing" %>
-            <% unless habitset.started_from_today <= 0 %>
-              <p style= "font-size: 10px"> <%= "#{habitset.started_from_today} days"%></p>
-            <%end%>
-          <% end %>
           </div>
-        <div class="col-xs-2" style="text-align: center">
+        <div class="col-xs-1" style="text-align: center">
           <% unless habitset.coach_id.nil? %>
           <div class="card-coach">
               <div><button class="round-btn sm-btn blue-btn" type="button" data-toggle="collapse" data-target="#collapseReview<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseReview<%= habitset.id -%>">Coach me</button></div>
@@ -50,7 +45,7 @@
           </div>
           <%end%>
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-3">
           <button class="round-btn sm-btn" type="button" data-toggle="collapse" data-target="#collapseExample<%= habitset.id -%>" aria-expanded="false" aria-controls="collapseExample<%= habitset.id -%>"><i class="fas fa-eye" style= "font-size: 15px"></i></button>
             <%= link_to edit_habitset_path(habitset),  class: "round-btn sm-btn" do %><i class="fas fa-tools" style= "font-size: 15px"></i><%end%></i>
           <% if habitset.children? %>
