@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="card-product">
+
+     <% if habitset.photo.url.nil? %>
+        <%= cl_image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg", height: 300, width: 400, crop: :fit %>
+    <% else %>
+     <%= cl_image_tag habitset.photo, height: 300, width: 400, crop: :fit%>
+
+    <% end %>
+
+    <div class="card-product-infos">
+      <div class="row">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-2" style="text-align: center">
+          <div class="btn round-btn element-btn grey-btn" style= "font-size: 10px">
+            <%= HabitElement.find(habitset.habit_element_id).name  unless habitset.habit_element_id.nil?%>
+
+            </div>
+        </div>
+        <div class="col-xs-4" > <p> <%= habitset.name %></p></div>
+        <div class="col-xs-1" style="text-align: center">
+          <div class="<%= "btn round-btn sm-btn #{if habitset.status == 'Completed' then 'green-btn' elsif habitset.status == 'Failed' then 'red-btn' end }"%>",  style= "font-size: 10px">
+
+            <% if habitset.status == "Ongoing" and habitset.habitset_type == "Days count" %>
+              <% unless habitset.started_from_today <= 0 %>
+                <p style= "font-size: 10px"> <%= "#{habitset.started_from_today} days"%></p>
+              <%end%>
+            <%else%>
+              <%= habitset.status %>
+            <%end%>
+          </div>
+          </div>
+        <div class="col-xs-1" style="text-align: center"></div>
+        <div class="col-xs-3">
+          <!-- Add button path to be refactored-->
+          <%= link_to "ADD", habitset_copy_path(habitset_id: habitset.id, id: habitset.id), class: "blue-btn round-btn sm-btn"%>
+          <%= link_to edit_habitset_path(habitset),  class: "round-btn sm-btn" do %><i class="fas fa-tools" style= "font-size: 15px"></i><%end%></i>
+          </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
