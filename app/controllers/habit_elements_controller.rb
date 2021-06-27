@@ -5,9 +5,9 @@ class HabitElementsController < ApplicationController
     @habit_element_calendar = @habit_element.buildcalendar
 
     if params[:date].nil?
-      @habitsets = Habitset.where(habit_element_id: @habit_element.id).order(:date)
+      @habitsets = Habitset.where(habit_element_id: @habit_element.id).order(date: :desc)
     else
-      @habitsets = Habitset.where(habit_element_id: @habit_element.id, date: params[:date]).order(:date)
+      @habitsets = Habitset.where(habit_element_id: @habit_element.id, date: params[:date]).order(date: :desc)
     end
   end
 

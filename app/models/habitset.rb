@@ -23,6 +23,14 @@ class Habitset < ApplicationRecord
     Profile.find(coachee_id).full_name unless coachee_id.nil?
   end
 
+  def copy_habitsetlines(source)
+    self.habitset_lines.destroy!
+    source.habitset_lines.each do |habitsetline|
+      self << habitsetline
+    end
+  end
+
+
   def started_from_today
     if started_at.nil?
       0
